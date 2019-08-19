@@ -1,20 +1,35 @@
 .header {
     width:100%;
-    height:100px;
-    background-color: #6c6c6c;
-    color: white;
+    height:250px;
+    background-color: white;
+    color: #6c6c6c;
     border-radius: 0px;
-    border-bottom: 1px solid white;
+    border: 0px solid #6c6c6c;
     text-align: center;
-    font-size: 60px
+    font-size: 70px;
+    background-image: url("../images/header-background.jpg");
+    text-shadow: 1px 1px 1px #000000;
+    opacity:0.2;
+}
+
+.footer {
+    width:100%;
+    height:100px;
+    background-color: white;
+    color: #6c6c6c;
+    border-radius: 0px;
+    text-align: left;
+    font-size: 20px;
+    background-image: url("../images/header-background.jpg");
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .menu-bar{
 
     width:100%;
     height:30px;
-    background-color: #6c6c6c;
-    color: white;
+    background-color: white;
+    color: #6c6c6c;
     border-radius: 0px;
     text-align: center;
     font-size: 60px
@@ -85,7 +100,7 @@ ul {
 }
 
 li {
-    color: #ffffff;
+    color: #6c6c6c;
     text-indent 10px;
 }
 
