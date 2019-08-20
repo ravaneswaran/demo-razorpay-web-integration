@@ -1,6 +1,6 @@
 .header {
     width:100%;
-    height:250px;
+    height:auto;
 }
 
 .header-background-image{
@@ -11,11 +11,12 @@
 
 .header-caption{
     width:100%;
-    height:90%;
+    height:80px;
     font-size: 65px;
-    text-shadow: 2px 2px 2px #ffffff;
+    text-shadow: 2px 2px 2px #6c6c6c;
     text-align: center;
-    color: #000000;
+    color: #6c6c6c;
     border-radius: 0px;
     border: 0px solid #6c6c6c;
+    background-color: #b7f5a4;
 }

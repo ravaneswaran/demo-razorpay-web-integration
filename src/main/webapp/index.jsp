@@ -6,21 +6,21 @@
     <body>
         <div class="wrapper">
             <div class="header">
+                <div class="header-caption">
+                    Razorpay Web Integration - Demo
+                </div>
                 <div class="header-background-image">
-                    <div class="header-caption">
-                        Razorpay Web Integration - Demo
-                    </div>
-                    <div class="menu-bar">
-                        <a href="#home">Home</a>
-                        <div class="dropdown">
-                            <button class="dropbtn">Methods
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                                <a href="#">Automatic Checkout</a>
-                                <a href="#">Manual Checkout</a>
-                                <a href="#">Subscription</a>
-                            </div>
+                </div>
+                <div class="menu-bar">
+                    <a href="#home">Home</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Methods
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#">Automatic Checkout</a>
+                            <a href="#">Manual Checkout</a>
+                            <a href="#">Subscription</a>
                         </div>
                     </div>
                 </div>
