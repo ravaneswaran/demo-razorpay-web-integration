@@ -1,0 +1,21 @@
+.header {
+    width:100%;
+    height:250px;
+}
+
+.header-background-image{
+    width:100%;
+    height:250px;
+    background-image: url("../images/header-background.jpg");
+}
+
+.header-caption{
+    width:100%;
+    height:90%;
+    font-size: 65px;
+    text-shadow: 2px 2px 2px #ffffff;
+    text-align: center;
+    color: #000000;
+    border-radius: 0px;
+    border: 0px solid #6c6c6c;
+}
