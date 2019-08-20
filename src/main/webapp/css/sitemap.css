@@ -1,0 +1,26 @@
+.sitemap {
+    background-color: #6c6c6c;
+    color:white;
+    height:105px;
+    width:100%;
+}
+
+.sitemap ul{
+    border : 0px solid green;
+    height:100px;
+    width:125px;
+    float:left;
+
+
+}
+
+.sitemap ul li{
+    color:white;
+}
+
+.sitemap ul li a{
+    color:white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}

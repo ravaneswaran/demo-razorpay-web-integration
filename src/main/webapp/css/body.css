@@ -1,0 +1,38 @@
+.body {
+     background-image: url("../images/body-background.jpg");
+     background-color: #cccccc;
+     height:1080px;
+}
+
+.home-body{
+    border: 4px solid #6c6c6c;
+    border-radius: 4px;
+    width: 350px;
+    height: 500px;
+    -webkit-box-shadow: 1px 2px 22px 2px rgba(247,242,247,1);
+    -moz-box-shadow: 1px 2px 22px 2px rgba(247,242,247,1);
+    box-shadow: 1px 2px 22px 2px rgba(247,242,247,1);
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%, -30%);
+}
+
+.home-body-item-header{
+     width: 100%;
+     height: 50px;
+     border: 0px solid #ffffff;
+     font-size: 40px;
+     color:#ffffff;
+     text-align:center;
+}
+
+.home-body-item {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    color:#ffffff;
+    border: 0px solid #6c6c6c;
+    text-indent: 10px;
+    text-align : left;
+}
