@@ -36,3 +36,12 @@
     text-indent: 10px;
     text-align : left;
 }
+
+.home-body .home-body-item a{
+    color: #ffffff;
+    text-decoration:none;
+}
+
+.home-body .home-body-item a:hover{
+    text-decoration:underline;
+}

@@ -9,7 +9,7 @@
                 <jsp:include page="header/manual-checkout-header.jsp"/>
             </div>
             <div class="body-container">
-                <jsp:include page="body/home-body.jsp"/>
+                &nbsp;
             </div>
             <div class="sitemap">
                 <jsp:include page="sitemap/sitemap.jsp"/>
