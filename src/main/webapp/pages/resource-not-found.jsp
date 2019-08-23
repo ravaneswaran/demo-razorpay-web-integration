@@ -6,7 +6,7 @@
     <body>
         <div class="wrapper">
             <div class="header">
-                <jsp:include page="header/home-header.jsp"/>
+                <jsp:include page="header/resource-not-found-header.jsp"/>
             </div>
             <div class="body-container">
                <jsp:include page="body/resource-not-found-body.jsp"/>
