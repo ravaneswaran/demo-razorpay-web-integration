@@ -16,6 +16,8 @@
 
 .sitemap ul li{
     color:white;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .sitemap ul li a{
