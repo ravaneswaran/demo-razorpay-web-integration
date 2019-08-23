@@ -24,3 +24,7 @@
     font-size: 14px;
     font-weight: bold;
 }
+
+.sitemap ul li a:hover{
+    text-decoration: underline;
+}

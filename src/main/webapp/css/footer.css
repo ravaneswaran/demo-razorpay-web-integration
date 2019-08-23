@@ -8,3 +8,13 @@
     font-size: 20px;
     text-shadow: 1px 1px 1px #000000;
 }
+
+.copyright {
+	position: relative;
+	padding-bottom: 30px;
+}
+.copyright span {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
