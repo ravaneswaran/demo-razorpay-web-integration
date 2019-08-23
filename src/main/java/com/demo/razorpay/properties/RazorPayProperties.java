@@ -11,7 +11,7 @@ public class RazorPayProperties extends Properties {
 
     private RazorPayProperties(){
         try {
-            this.load(this.getClass().getResourceAsStream("razorpay.properties"));
+            this.load(this.getClass().getResourceAsStream("razorpay-dev.properties"));
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
         }
