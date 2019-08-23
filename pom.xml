@@ -10,6 +10,10 @@
     <url>http://maven.apache.org</url>
 
     <properties>
+        <!--
+        [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+        the following property is included to remove the above warning during the build.
+        -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -43,6 +47,24 @@
                         <port>9090</port>
                     </httpConnector>
                 </configuration>
+
+                <!--
+                    [WARNING] Unknown asm implementation version, assuming version 393216
+                    The following dependencies were included to avoid the above warning during the build.
+                -->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>5.0.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm-commons</artifactId>
+                        <version>5.0.2</version>
+                    </dependency>
+                </dependencies>
+
             </plugin>
         </plugins>
     </build>
