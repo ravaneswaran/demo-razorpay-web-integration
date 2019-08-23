@@ -27,8 +27,8 @@
                                 data-image="https://example.com/your_logo.jpg"
                                 data-prefill.name="Gaurav Kumar"
                                 data-prefill.email="gaurav.kumar@example.com"
-                                data-theme.color="#F37254"
-                            ></script>
+                                data-theme.color="#F37254">
+                            </script>
                             <input type="hidden" custom="Hidden Element" name="hidden">
                         </form>
                     </div>
