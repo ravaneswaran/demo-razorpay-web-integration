@@ -44,7 +44,7 @@ body{
     color:#ffffff;
     border: 0px solid #6c6c6c;
     text-indent: 10px;
-    text-align : left;
+    text-align : center;
 }
 
 .home-body .home-body-item a{
@@ -54,4 +54,16 @@ body{
 
 .home-body .home-body-item a:hover{
     text-decoration:underline;
+}
+
+.home-body .home-body-item form input{
+    width: 250px;
+    height: 50px;
+    color: #ffffff;
+    background: #6c6c6c;
+    font-size: 20px;
+    border: 4px solid #b7f5a4;
+    text-align:center;
+    border-radius: 4px;
+    cursor: pointer;
 }

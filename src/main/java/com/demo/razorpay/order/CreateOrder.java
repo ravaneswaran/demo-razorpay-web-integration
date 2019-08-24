@@ -1,47 +1,34 @@
 package com.demo.razorpay.order;
 
-import com.sun.deploy.net.HttpResponse;
+import com.demo.razorpay.models.RazorpayOrder;
+import com.demo.razorpay.properties.RazorPayProperties;
+import com.razorpay.Order;
+import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
+import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import javax.xml.bind.JAXBException;
+import java.io.IOException;
 
 public class CreateOrder {
 
-    public static void main(String[] args) {
-        try {
+    public static RazorpayOrder create(int amount, String currency, int receiptNumber, int paymentCapture) throws IOException, RazorpayException, JAXBException {
+        RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(),RazorPayProperties.getKeySecret());
 
-            DefaultHttpClient httpClient = new DefaultHttpClient();
-            HttpGet getRequest = new HttpGet(
-                    "http://localhost:8080/RESTfulExample/json/product/get");
-            getRequest.addHeader("accept", "application/json");
+        JSONObject orderCreateRequest = new JSONObject();
 
-            HttpResponse response = httpClient.execute(getRequest);
+        orderCreateRequest.put("amount", amount);
+        orderCreateRequest.put("currency", currency);
+        orderCreateRequest.put("receipt", String.format("Receipt #%s", receiptNumber));
+        orderCreateRequest.put("payment_capture", paymentCapture);
 
-            if (response.getStatusLine().getStatusCode() != 200) {
-                throw new RuntimeException("Failed : HTTP error code : "
-                        + response.getStatusLine().getStatusCode());
-            }
+        Order newOrder = razorpayClient.Orders.create(orderCreateRequest);
 
-            BufferedReader br = new BufferedReader(
-                    new InputStreamReader((response.getEntity().getContent())));
+        System.out.println("---------------->>>>>>>> "+newOrder.toString());
 
-            String output;
-            System.out.println("Output from Server .... \n");
-            while ((output = br.readLine()) != null) {
-                System.out.println(output);
-            }
+        return null;
 
-            httpClient.getConnectionManager().shutdown();
-
-        } catch (ClientProtocolException e) {
-
-            e.printStackTrace();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
-        }
-
+        //return RazorpayOrder.create(newOrder.toString());
+        //return razorpayClient.Orders.create(orderCreateRequest);
     }
-
 }
