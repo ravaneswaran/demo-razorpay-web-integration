@@ -1,15 +1,18 @@
 <html>
     <head>
-        <title>Resource Not Found</title>
+        <title>Test Account Creation</title>
         <jsp:include page="html-head/css.jsp"/>
     </head>
     <body>
         <div class="wrapper">
             <div class="header">
-                <jsp:include page="header/resource-not-found-header.jsp"/>
+                <jsp:include page="header/test-account-creation-header.jsp"/>
             </div>
             <div class="body-container">
-               <jsp:include page="body/resource-not-found-body.jsp"/>
+                <br />
+                <div style="color:#000000; border: 4px solid #b7f5a4; background-color:#ffffff; height:auto; min-height:1030px; opacity: 0.90; text-indent:10px;">
+                    this is a sample text
+                </div>
             </div>
             <div class="sitemap">
                 <jsp:include page="sitemap/sitemap.jsp"/>

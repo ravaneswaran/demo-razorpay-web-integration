@@ -14,6 +14,9 @@
                     <div class="home-body-item-header"><u>Automatic Checkout</u></div>
                     <div class="home-body-item">&nbsp;</div>
                     <div class="home-body-item">
+                        <%
+
+                        %>
                         <form action="https://www.example.com/payment/success/" method="POST">
                             <script
                                 src="https://checkout.razorpay.com/v1/checkout.js"

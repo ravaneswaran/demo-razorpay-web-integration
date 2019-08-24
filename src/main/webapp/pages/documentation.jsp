@@ -1,15 +1,15 @@
 <html>
     <head>
-        <title>Resource Not Found</title>
+        <title>Documentation</title>
         <jsp:include page="html-head/css.jsp"/>
     </head>
     <body>
         <div class="wrapper">
             <div class="header">
-                <jsp:include page="header/resource-not-found-header.jsp"/>
+                <jsp:include page="header/documentation-header.jsp"/>
             </div>
             <div class="body-container">
-               <jsp:include page="body/resource-not-found-body.jsp"/>
+                &nbsp;
             </div>
             <div class="sitemap">
                 <jsp:include page="sitemap/sitemap.jsp"/>
