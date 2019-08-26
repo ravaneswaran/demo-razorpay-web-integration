@@ -20,8 +20,7 @@
                     <div class="home-body-item">
                         <%
                         	String key = RazorPayProperties.getKeyId();
-                                                	OrderTransaction orderTransaction = OrderTransactionService.createNewOrderTransaction(50000, "INR", 1, 1);
-                                                    //OrderTransaction orderTransaction = CreateOrder.create(50000, "INR", 1, 1);
+                            OrderTransaction orderTransaction = OrderTransactionService.createNewOrderTransaction(50000, "INR", 1, 1);
                         %>
                         <form action="/transaction/order?cmd=new" method="POST">
                             <script
@@ -31,9 +30,9 @@
                                 data-currency="<%= orderTransaction.getCurrency() %>"
                                 data-order_id="<%= orderTransaction.getId() %>"//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order)
                                 data-buttontext="Pay with Razorpay"
-                                data-name="Acme Corp"
-                                data-description="First Order"
-                                data-image="https://example.com/your_logo.jpg"
+                                data-name="Ravaneswaran Chinnasamy"
+                                data-description="Amount to be paid..."
+                                data-image="../images/rc-icon.png"
                                 data-prefill.name="Ravaneswaran Chinnasamy"
                                 data-prefill.email="ravaneswaran@gmail.com"
                                 data-theme.color="#F37254">

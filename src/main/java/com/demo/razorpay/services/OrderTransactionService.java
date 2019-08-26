@@ -31,7 +31,7 @@ public class OrderTransactionService {
         razorpayOrder.setNotes(newOrder.get("notes"));
         razorpayOrder.setCreatedAt(((Date) newOrder.get("created_at")).getTime());
 		razorpayOrder.setAmountDue(Integer.valueOf("" + newOrder.get("amount_due")));
-		razorpayOrder.setCurrency(String.valueOf(newOrder.get("INR")));
+		razorpayOrder.setCurrency(String.valueOf(newOrder.get("currency")));
         razorpayOrder.setReceipt(String.valueOf(newOrder.get("receipt")));
         razorpayOrder.setId(String.valueOf(newOrder.get("id")));
         razorpayOrder.setEntity(String.valueOf(newOrder.get("entity")));
@@ -53,7 +53,7 @@ public class OrderTransactionService {
         razorpayOrder.setNotes(oldOrder.get("notes"));
         razorpayOrder.setCreatedAt(((Date) oldOrder.get("created_at")).getTime());
         razorpayOrder.setAmountDue(Integer.valueOf("" + oldOrder.get("amount_due")));
-        razorpayOrder.setCurrency(String.valueOf(oldOrder.get("INR")));
+        razorpayOrder.setCurrency(String.valueOf(oldOrder.get("currency")));
         razorpayOrder.setReceipt(String.valueOf(oldOrder.get("receipt")));
         razorpayOrder.setId(String.valueOf(oldOrder.get("id")));
         razorpayOrder.setEntity(String.valueOf(oldOrder.get("entity")));
