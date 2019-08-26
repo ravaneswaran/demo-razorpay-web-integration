@@ -1,6 +1,10 @@
+<%@ page import="com.demo.razorpay.services.OrderTransactionService"%>
+<%@ page import="com.demo.razorpay.models.OrderTransaction"%>
+<%@ page import="com.demo.razorpay.properties.RazorPayProperties" %>
+
 <html>
     <head>
-        <title>Automatic Checkout Demo</title>
+        <title>Automatic Checkout</title>
         <jsp:include page="html-head/css.jsp"/>
     </head>
     <body>
@@ -15,24 +19,26 @@
                     <div class="home-body-item">&nbsp;</div>
                     <div class="home-body-item">
                         <%
-
+                        	String key = RazorPayProperties.getKeyId();
+                                                	OrderTransaction orderTransaction = OrderTransactionService.createNewOrderTransaction(50000, "INR", 1, 1);
+                                                    //OrderTransaction orderTransaction = CreateOrder.create(50000, "INR", 1, 1);
                         %>
-                        <form action="https://www.example.com/payment/success/" method="POST">
+                        <form action="/transaction/order?cmd=new" method="POST">
                             <script
                                 src="https://checkout.razorpay.com/v1/checkout.js"
-                                data-key="D7sc91vo19qGpY"
-                                data-amount="29935"
-                                data-currency="INR"
-                                data-order_id="order_CgmcjRh9ti2lP7"//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order)
+                                data-key="<%= key %>"
+                                data-amount="<%= orderTransaction.getAmount() %>"
+                                data-currency="<%= orderTransaction.getCurrency() %>"
+                                data-order_id="<%= orderTransaction.getId() %>"//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order)
                                 data-buttontext="Pay with Razorpay"
                                 data-name="Acme Corp"
-                                data-description="A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami"
+                                data-description="First Order"
                                 data-image="https://example.com/your_logo.jpg"
-                                data-prefill.name="Gaurav Kumar"
-                                data-prefill.email="gaurav.kumar@example.com"
+                                data-prefill.name="Ravaneswaran Chinnasamy"
+                                data-prefill.email="ravaneswaran@gmail.com"
                                 data-theme.color="#F37254">
                             </script>
-                            <input type="hidden" custom="Hidden Element" name="hidden">
+                            <input type="hidden" name="order-id" value="<%= orderTransaction.getId() %>"/>
                         </form>
                     </div>
                 </div>

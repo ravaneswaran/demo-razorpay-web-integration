@@ -1,4 +1,4 @@
 <div class="header-caption">
-    Manual Checkout - Demo
+    Razorpay : Manual Checkout
 </div>
 <jsp:include page="background-image-and-navbar.jsp" />
