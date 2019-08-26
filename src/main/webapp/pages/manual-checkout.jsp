@@ -32,9 +32,6 @@
 						    "description": "Amount to be paid...",
 						    "image": "../images/rc-icon.png",
 						    "order_id": "<%= orderTransaction.getId() %>",//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order). Refer the Checkout form table given below
-						    "handler": function (response){
-						        alert(response.razorpay_payment_id);
-						    },
 						    "prefill": {
 						        "name": "Ravaneswaran Chinnasamy",
 						        "email": "ravaneswaran@gmail.com"
@@ -44,6 +41,15 @@
 						    },
 						    "theme": {
 						        "color": "#F37254"
+						    },
+						    "handler": function (response){
+						        alert(response.razorpay_payment_id);
+						        console.log(response);
+						    },
+						    "modal": {
+						        "ondismiss": function(){
+						            console.log("Checkout form closed");
+						        }
 						    }
 						};
 						var razorPayButton = new Razorpay(options);
