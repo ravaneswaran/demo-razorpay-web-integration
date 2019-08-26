@@ -1,6 +1,6 @@
 package com.demo.razorpay.order;
 
-import com.demo.razorpay.models.RazorpayOrder;
+import com.demo.razorpay.models.OrderTransaction;
 import com.demo.razorpay.properties.RazorPayProperties;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
@@ -9,11 +9,12 @@ import org.json.JSONObject;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
+import java.util.Date;
 
 public class CreateOrder {
 
-    public static RazorpayOrder create(int amount, String currency, int receiptNumber, int paymentCapture) throws IOException, RazorpayException, JAXBException {
-        RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(),RazorPayProperties.getKeySecret());
+    public static OrderTransaction create(int amount, String currency, int receiptNumber, int paymentCapture) throws IOException, RazorpayException, JAXBException {
+        RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(), RazorPayProperties.getKeySecret());
 
         JSONObject orderCreateRequest = new JSONObject();
 
@@ -24,11 +25,20 @@ public class CreateOrder {
 
         Order newOrder = razorpayClient.Orders.create(orderCreateRequest);
 
-        System.out.println("---------------->>>>>>>> "+newOrder.toString());
+        OrderTransaction razorpayOrder = new OrderTransaction();
+        razorpayOrder.setAmount(Integer.valueOf("" + newOrder.get("amount")));
+        razorpayOrder.setAmountPaid(Integer.valueOf("" + newOrder.get("amount_paid")));
+        razorpayOrder.setNotes(newOrder.get("notes"));
+        razorpayOrder.setCreatedAt(((Date) newOrder.get("created_at")).getTime());
+        razorpayOrder.setAmountDue(Integer.valueOf("" + newOrder.get("amount_due")));
+        razorpayOrder.setCurrency(String.valueOf(newOrder.get("INR")));
+        razorpayOrder.setReceipt(String.valueOf(newOrder.get("receipt")));
+        razorpayOrder.setId(String.valueOf(newOrder.get("id")));
+        razorpayOrder.setEntity(String.valueOf(newOrder.get("entity")));
+        razorpayOrder.setOfferId(newOrder.get("offer_id"));
+        razorpayOrder.setStatus(String.valueOf(newOrder.get("status")));
+        razorpayOrder.setAmountDue(Integer.valueOf("" + newOrder.get("attempts")));
 
-        return null;
-
-        //return RazorpayOrder.create(newOrder.toString());
-        //return razorpayClient.Orders.create(orderCreateRequest);
+        return razorpayOrder;
     }
 }

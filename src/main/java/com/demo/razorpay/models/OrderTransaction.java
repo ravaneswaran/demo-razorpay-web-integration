@@ -5,9 +5,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "razorpay-order")
+@XmlRootElement(name = "order-transaction")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RazorpayOrder {
+public class OrderTransaction extends Transaction {
 
     @XmlElement(name = "amount")
     private int amount;
@@ -140,33 +140,4 @@ public class RazorpayOrder {
     public void setAttempts(int attempts) {
         this.attempts = attempts;
     }
-
-    /*public static RazorpayOrder unMarshall(String jsonString) throws JAXBException {
-
-        JAXBContext jaxbContext = JAXBContext.newInstance(RazorpayOrder.class);
-        Unmarshaller jaxbUnMarshaller = jaxbContext.createUnmarshaller();
-
-        jaxbUnMarshaller.setProperty(UnmarshallerProperties.MEDIA_TYPE, "application/json");
-        jaxbUnMarshaller.setProperty(UnmarshallerProperties.JSON_INCLUDE_ROOT, false);
-
-        RazorpayOrder razorpayOrder = (RazorpayOrder) jaxbUnMarshaller.unmarshal(new StringReader(jsonString));
-
-        System.out.println(razorpayOrder);
-
-        return razorpayOrder;
-    }
-
-    public static void marshall(RazorpayOrder razorpayOrder) throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(RazorpayOrder.class);
-        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-
-        jaxbMarshaller.setProperty(MarshallerProperties.MEDIA_TYPE, "application/json");
-        jaxbMarshaller.setProperty(MarshallerProperties.JSON_INCLUDE_ROOT, false);
-
-        StringWriter stringWriter = new StringWriter();
-
-        jaxbMarshaller.marshal(razorpayOrder, stringWriter);
-
-        System.out.println(stringWriter.toString());
-    }*/
 }

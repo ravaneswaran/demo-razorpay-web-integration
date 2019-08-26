@@ -1,4 +1,4 @@
 <div class="header-caption">
-    Automatic Checkout - Demo
+    Razorpay : Automatic Checkout
 </div>
 <jsp:include page="background-image-and-navbar.jsp" />
