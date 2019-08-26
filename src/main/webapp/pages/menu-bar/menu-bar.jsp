@@ -9,6 +9,7 @@
         <a href="#">Subscription</a>
     </div>
 </div>
+<%--
 <div class="dropdown">
     <button class="dropbtn">Documentation
         <i class="fa fa-caret-down"></i>
@@ -17,3 +18,4 @@
         <a href="../pages/test-account-creation.jsp">1. Test Account Creation</a>
     </div>
 </div>
+ --%>

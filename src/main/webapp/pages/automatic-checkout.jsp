@@ -20,7 +20,7 @@
                     <div class="home-body-item">
                         <%
                         	String key = RazorPayProperties.getKeyId();
-                            OrderTransaction orderTransaction = OrderTransactionService.createNewOrderTransaction(50000, "INR", 1, 1);
+                            OrderTransaction orderTransaction = OrderTransactionService.createNewOrderTransaction(50018, "INR", 1, 1);
                         %>
                         <form action="/transaction/order?cmd=new" method="POST">
                             <script
