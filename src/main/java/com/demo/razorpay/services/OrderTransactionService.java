@@ -14,7 +14,8 @@ import java.util.Date;
 public class OrderTransactionService {
 
     public static OrderTransaction createNewOrderTransaction(int amount, String currency, int receiptNumber, int paymentCapture) throws IOException, RazorpayException, JAXBException {
-        RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(), RazorPayProperties.getKeySecret());
+        
+    	RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(), RazorPayProperties.getKeySecret());
 
         JSONObject orderCreateRequest = new JSONObject();
 
@@ -43,7 +44,8 @@ public class OrderTransactionService {
     }
 
     public static OrderTransaction fetchOrderTransaction(String orderId) throws RazorpayException {
-        RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(), RazorPayProperties.getKeySecret());
+        
+    	RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(), RazorPayProperties.getKeySecret());
 
         Order oldOrder = razorpayClient.Orders.fetch(orderId);
 

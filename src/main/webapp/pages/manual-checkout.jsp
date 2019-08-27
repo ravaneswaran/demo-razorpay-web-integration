@@ -5,6 +5,7 @@
     <head>
         <title>Manual Checkout Demo</title>
         <jsp:include page="html-head/css.jsp"/>
+        <jsp:include page="html-head/javascript.jsp"/>
     </head>
     <body>
         <div class="wrapper">
@@ -28,7 +29,7 @@
 						    "key": "<%=  key %>", // Enter the Key ID generated from the Dashboard
 						    "amount": "<%= orderTransaction.getAmount() %>", // Amount is in currency subunits. Default currency is INR. Hence, 29935 refers to 29935 paise or INR 299.35.
 						    "currency": "<%= orderTransaction.getCurrency() %>",
-						    "name": "Ravaneswaran Chinnasamy",
+						    "name": "Razorpay Demo",
 						    "description": "Amount to be paid...",
 						    "image": "../images/rc-icon.png",
 						    "order_id": "<%= orderTransaction.getId() %>",//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order). Refer the Checkout form table given below
@@ -45,6 +46,12 @@
 						    "handler": function (response){
 						        alert(response.razorpay_payment_id);
 						        console.log(response);
+						        $.ajax({
+									url:'../payment/transaction?cmd=new&paymentId='+response.razorpay_payment_id,
+									success:function(data) {
+										alert("Payment successfully registered...");
+									}
+								});
 						    },
 						    "modal": {
 						        "ondismiss": function(){

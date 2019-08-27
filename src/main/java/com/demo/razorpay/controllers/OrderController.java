@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class TransactionController extends RazorPayController {
+public class OrderController extends RazorPayController {
 
-    private static final Logger LOGGER = Logger.getLogger(TransactionController.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(OrderController.class.getName());
 
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
         String command = request.getParameter("cmd");
@@ -23,13 +23,17 @@ public class TransactionController extends RazorPayController {
     }
 
     private void newOrder(HttpServletRequest request, HttpServletResponse response) {
-        String orderId = request.getParameter("order-id");
+        System.out.println("--------------->>>>>>> "+request.getParameter("cmd"));
+    	
+    	String orderId = request.getParameter("order-id");
 
         OrderTransaction orderTransaction = null;
         try {
             orderTransaction = OrderTransactionService.fetchOrderTransaction(orderId);
         } catch (RazorpayException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            toErrorPage500(request, response);
+            return;
         }
 
         if (null != orderTransaction) {

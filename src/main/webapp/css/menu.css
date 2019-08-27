@@ -8,7 +8,7 @@
 /* Links inside the navbar */
 .menu-bar a {
   float: left;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   color: #6c6c6c;
   text-align: center;
@@ -25,7 +25,7 @@
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   border: none;
   outline: none;
@@ -55,7 +55,7 @@
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   height: 25px;
   float: none;

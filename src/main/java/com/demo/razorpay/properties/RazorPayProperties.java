@@ -46,7 +46,7 @@ public class RazorPayProperties {
         }
     }
 
-    private RazorPayProperties() {
+    public RazorPayProperties() {
     }
 
     public static final String getKeyId() {

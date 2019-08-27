@@ -1,3 +1,4 @@
+<%@page import="com.razorpay.RazorpayException"%>
 <%@ page import="com.demo.razorpay.services.OrderTransactionService"%>
 <%@ page import="com.demo.razorpay.models.OrderTransaction"%>
 <%@ page import="com.demo.razorpay.properties.RazorPayProperties" %>
@@ -6,6 +7,7 @@
     <head>
         <title>Automatic Checkout</title>
         <jsp:include page="html-head/css.jsp"/>
+        <jsp:include page="html-head/javascript.jsp"/>
     </head>
     <body>
         <div class="wrapper">
@@ -20,9 +22,9 @@
                     <div class="home-body-item">
                         <%
                         	String key = RazorPayProperties.getKeyId();
-                            OrderTransaction orderTransaction = OrderTransactionService.createNewOrderTransaction(50018, "INR", 1, 1);
+                        	OrderTransaction orderTransaction =  OrderTransactionService.createNewOrderTransaction(50018, "INR", 1, 1);
                         %>
-                        <form action="/transaction/order?cmd=new" method="POST">
+                       		<form action="/transaction/order?cmd=new" method="POST">
                             <script
                                 src="https://checkout.razorpay.com/v1/checkout.js"
                                 data-key="<%= key %>"
@@ -30,7 +32,7 @@
                                 data-currency="<%= orderTransaction.getCurrency() %>"
                                 data-order_id="<%= orderTransaction.getId() %>"//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order)
                                 data-buttontext="Pay with Razorpay"
-                                data-name="Ravaneswaran Chinnasamy"
+                                data-name="Razorpay Demo"
                                 data-description="Amount to be paid..."
                                 data-image="../images/rc-icon.png"
                                 data-prefill.name="Ravaneswaran Chinnasamy"
