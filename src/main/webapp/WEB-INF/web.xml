@@ -6,18 +6,22 @@
     <display-name>Razorpay Web Integration Demo</display-name>
 
     <servlet>
-        <servlet-name>TransactionController</servlet-name>
-        <servlet-class>com.demo.razorpay.controllers.TransactionController</servlet-class>
+        <servlet-name>OrderController</servlet-name>
+        <servlet-class>com.demo.razorpay.controllers.OrderController</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>TransactionController</servlet-name>
-        <url-pattern>/transaction/*</url-pattern>
+        <servlet-name>OrderController</servlet-name>
+        <url-pattern>/order/*</url-pattern>
     </servlet-mapping>
 
     <error-page>
         <error-code>404</error-code>
         <location>/pages/resource-not-found.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/pages/internal-server-error.jsp</location>
     </error-page>
 
 </web-app>
