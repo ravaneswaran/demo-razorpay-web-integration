@@ -35,7 +35,7 @@
                                 data-name="Razorpay Demo"
                                 data-description="Amount to be paid..."
                                 data-image="../images/rc-icon.png"
-                                data-prefill.name="Automatic checkout Demo"
+                                data-prefill.name="Ravaneswaran Chinnasamy"
                                 data-prefill.email="ravaneswaran@gmail.com"
                                 data-theme.color="#F37254">
                             </script>
