@@ -29,7 +29,7 @@
 						    "key": "<%=  key %>", // Enter the Key ID generated from the Dashboard
 						    "amount": "<%= orderTransaction.getAmount() %>", // Amount is in currency subunits. Default currency is INR. Hence, 29935 refers to 29935 paise or INR 299.35.
 						    "currency": "<%= orderTransaction.getCurrency() %>",
-						    "name": "Ravaneswaran Chinnasamy",
+						    "name": "Razorpay Demo",
 						    "description": "Amount to be paid...",
 						    "image": "../images/rc-icon.png",
 						    "order_id": "<%= orderTransaction.getId() %>",//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order). Refer the Checkout form table given below

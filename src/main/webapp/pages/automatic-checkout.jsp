@@ -32,10 +32,10 @@
                                 data-currency="<%= orderTransaction.getCurrency() %>"
                                 data-order_id="<%= orderTransaction.getId() %>"//This is a sample Order ID. Create an Order using Orders API. (https://razorpay.com/docs/payment-gateway/orders/integration/#step-1-create-an-order)
                                 data-buttontext="Pay with Razorpay"
-                                data-name="Ravaneswaran Chinnasamy"
+                                data-name="Razorpay Demo"
                                 data-description="Amount to be paid..."
                                 data-image="../images/rc-icon.png"
-                                data-prefill.name="Ravaneswaran Chinnasamy"
+                                data-prefill.name="Automatic checkout Demo"
                                 data-prefill.email="ravaneswaran@gmail.com"
                                 data-theme.color="#F37254">
                             </script>
