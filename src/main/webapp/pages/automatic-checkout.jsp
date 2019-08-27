@@ -7,6 +7,7 @@
     <head>
         <title>Automatic Checkout</title>
         <jsp:include page="html-head/css.jsp"/>
+        <jsp:include page="html-head/javascript.jsp"/>
     </head>
     <body>
         <div class="wrapper">

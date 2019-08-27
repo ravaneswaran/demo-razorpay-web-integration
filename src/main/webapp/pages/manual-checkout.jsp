@@ -5,6 +5,7 @@
     <head>
         <title>Manual Checkout Demo</title>
         <jsp:include page="html-head/css.jsp"/>
+        <jsp:include page="html-head/javascript.jsp"/>
     </head>
     <body>
         <div class="wrapper">
@@ -45,6 +46,12 @@
 						    "handler": function (response){
 						        alert(response.razorpay_payment_id);
 						        console.log(response);
+						        $.ajax({
+									url:'../payment/transaction?cmd=new&paymentId='+response.razorpay_payment_id,
+									success:function(data) {
+										alert("Payment successfully registered...");
+									}
+								});
 						    },
 						    "modal": {
 						        "ondismiss": function(){
