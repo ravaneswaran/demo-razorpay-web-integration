@@ -10,6 +10,9 @@
 <div style="background-color:#6c6c6c;height:2px;width:100%;">
 </div>
 <div style="color:#000000; border: 4px solid #b7f5a4; background-color:#ffffff; overflow-y:auto; min-height:550px; opacity: 0.90; text-indent:10px;margin-top:2px;">
+    <%
+    	if(null != paymentTransactions && !paymentTransactions.isEmpty()){
+    %>
     <br />
     <table>
     <thead>
@@ -45,4 +48,7 @@
     %>
     </tbody>
     </table>
+    <%
+    	}    
+    %>
 </div>
