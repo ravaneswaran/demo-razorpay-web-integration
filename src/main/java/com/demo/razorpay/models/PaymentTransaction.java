@@ -1,5 +1,10 @@
 package com.demo.razorpay.models;
 
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -7,8 +12,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "payment-transaction")
 @XmlAccessorType(XmlAccessType.FIELD)
+@Entity
+@Data
 public class PaymentTransaction extends Transaction {
 
+	@Id
 	@XmlElement(name = "amount")
 	private String id;
 	
@@ -46,6 +54,7 @@ public class PaymentTransaction extends Transaction {
 	private String contact;
 	
 	@XmlElement(name = "notes")
+	@Transient
 	private Object notes;
 	
 	@XmlElement(name = "fee")

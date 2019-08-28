@@ -7,12 +7,12 @@
 
     <servlet>
         <servlet-name>OrderController</servlet-name>
-        <servlet-class>com.demo.razorpay.controllers.OrderController</servlet-class>
+        <servlet-class>com.demo.razorpay.controller.OrderController</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>PaymentController</servlet-name>
-        <servlet-class>com.demo.razorpay.controllers.PaymentController</servlet-class>
+        <servlet-class>com.demo.razorpay.controller.PaymentController</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -29,6 +29,7 @@
         <error-code>404</error-code>
         <location>/pages/resource-not-found.jsp</location>
     </error-page>
+
     <error-page>
         <error-code>500</error-code>
         <location>/pages/internal-server-error.jsp</location>

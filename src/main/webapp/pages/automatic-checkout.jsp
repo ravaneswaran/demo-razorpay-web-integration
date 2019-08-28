@@ -1,5 +1,5 @@
+<%@page import="com.demo.razorpay.service.gateway.OrderGatewayService"%>
 <%@page import="com.razorpay.RazorpayException"%>
-<%@ page import="com.demo.razorpay.services.OrderTransactionService"%>
 <%@ page import="com.demo.razorpay.models.OrderTransaction"%>
 <%@ page import="com.demo.razorpay.properties.RazorPayProperties" %>
 
@@ -22,9 +22,9 @@
                     <div class="home-body-item">
                         <%
                         	String key = RazorPayProperties.getKeyId();
-                        	OrderTransaction orderTransaction =  OrderTransactionService.createNewOrderTransaction(50018, "INR", 1, 1);
+                        	OrderTransaction orderTransaction =  OrderGatewayService.createNewOrderTransaction(50018, "INR", 1, 1);
                         %>
-                       		<form action="/transaction/order?cmd=new" method="POST">
+                       		<form action="/order/transaction?cmd=new&checkout-type=auto" method="POST">
                             <script
                                 src="https://checkout.razorpay.com/v1/checkout.js"
                                 data-key="<%= key %>"

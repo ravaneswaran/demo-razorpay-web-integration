@@ -1,13 +1,21 @@
 package com.demo.razorpay.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+@Entity
 @XmlRootElement(name = "order-transaction")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class OrderTransaction extends Transaction {
+
+    @Id
+    @XmlElement(name = "id")
+    private String id;
 
     @XmlElement(name = "amount")
     private int amount;
@@ -16,6 +24,7 @@ public class OrderTransaction extends Transaction {
     private int amountPaid;
 
     @XmlElement(name = "notes", nillable = true)
+    @Transient
     private Object notes;
 
     @XmlElement(name = "amount_due")
@@ -30,13 +39,11 @@ public class OrderTransaction extends Transaction {
     @XmlElement(name = "receipt")
     private String receipt;
 
-    @XmlElement(name = "id")
-    private String id;
-
     @XmlElement(name = "entity")
     private String entity;
 
     @XmlElement(name = "offer_id", nillable = true)
+    @Transient
     private Object offerId;
 
     @XmlElement(name = "status")

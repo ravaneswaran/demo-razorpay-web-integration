@@ -1,7 +1,7 @@
-package com.demo.razorpay.controllers;
+package com.demo.razorpay.controller;
 
 import com.demo.razorpay.models.OrderTransaction;
-import com.demo.razorpay.services.OrderTransactionService;
+import com.demo.razorpay.service.gateway.OrderGatewayService;
 import com.razorpay.RazorpayException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +29,7 @@ public class OrderController extends RazorPayController {
 
         OrderTransaction orderTransaction = null;
         try {
-            orderTransaction = OrderTransactionService.fetchOrderTransaction(orderId);
+            orderTransaction = OrderGatewayService.fetchOrderTransaction(orderId);
         } catch (RazorpayException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
             toErrorPage500(request, response);
