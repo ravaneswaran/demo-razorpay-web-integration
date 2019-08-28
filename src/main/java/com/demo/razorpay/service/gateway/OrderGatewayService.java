@@ -1,4 +1,4 @@
-package com.demo.razorpay.services;
+package com.demo.razorpay.service.gateway;
 
 import com.demo.razorpay.models.OrderTransaction;
 import com.demo.razorpay.properties.RazorPayProperties;
@@ -11,7 +11,7 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.Date;
 
-public class OrderTransactionService {
+public class OrderGatewayService {
 
     public static OrderTransaction createNewOrderTransaction(int amount, String currency, int receiptNumber, int paymentCapture) throws IOException, RazorpayException, JAXBException {
         

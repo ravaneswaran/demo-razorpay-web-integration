@@ -9,13 +9,12 @@
         <a href="#">Subscription</a>
     </div>
 </div>
-<%--
 <div class="dropdown">
-    <button class="dropbtn">Documentation
+    <button class="dropbtn" style="width:166px;">Sync With Gateway
         <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-        <a href="../pages/test-account-creation.jsp">1. Test Account Creation</a>
+        <a href="../payment/transaction?cmd=sync">Payment Sync</a>
+        <a href="../order/transaction?cmd=sync">Order Sync</a>
     </div>
 </div>
- --%>

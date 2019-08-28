@@ -3,8 +3,6 @@ package com.demo.razorpay.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
-import java.util.List;
 
 public class AbstractDAO<T> {
 
@@ -13,7 +11,11 @@ public class AbstractDAO<T> {
 
     private EntityManager entityManager;
 
-    public AbstractDAO(){
+    private Class<T> type;
+
+    public AbstractDAO(Class<T> type){
+        this.type = type;
+
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         this.entityManager = factory.createEntityManager();
     }
@@ -34,6 +36,10 @@ public class AbstractDAO<T> {
         if(null != this.entityManager && this.entityManager.isOpen()) {
             this.entityManager.close();
         }
+    }
+
+    public T findBy(String id){
+        return this.entityManager.find(this.type, id);
     }
 
     public T save(T entity){

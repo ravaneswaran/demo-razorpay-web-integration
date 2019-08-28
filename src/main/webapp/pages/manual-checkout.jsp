@@ -1,4 +1,5 @@
-<%@page import="com.demo.razorpay.services.OrderTransactionService"%>
+
+<%@page import="com.demo.razorpay.service.gateway.OrderGatewayService"%>
 <%@page import="com.demo.razorpay.models.OrderTransaction"%>
 <%@page import="com.demo.razorpay.properties.RazorPayProperties"%>
 <html>
@@ -20,7 +21,7 @@
                     <div class="home-body-item">
                         <%
                         	String key = RazorPayProperties.getKeyId();
-                            OrderTransaction orderTransaction = OrderTransactionService.createNewOrderTransaction(40019, "INR", 1, 1);
+                            OrderTransaction orderTransaction = OrderGatewayService.createNewOrderTransaction(40019, "INR", 1, 1);
                         %>
                         <button id="rzp-button">Pay with Razorpay</button>
 						<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
@@ -50,7 +51,7 @@
 									url:'../payment/transaction?cmd=new&checkout-type=manual&payment-id='+response.razorpay_payment_id,
 									success:function(data) {
 										alert("Payment successfully registered...");
-										window.location="../pages/home.jsp";
+										window.location="../pages/list-payments.jsp";
 									}
 								});
 						    },

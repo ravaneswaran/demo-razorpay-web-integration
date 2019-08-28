@@ -1,14 +1,15 @@
 package com.demo.razorpay.controller.helper;
 
 import com.demo.razorpay.controller.RazorPayController;
-import com.demo.razorpay.dao.PaymentTransactionDAO;
 import com.demo.razorpay.models.PaymentTransaction;
-import com.demo.razorpay.services.PaymentTransactionService;
+import com.demo.razorpay.service.gateway.PaymentGatewayService;
+import com.demo.razorpay.service.local.PaymentTransactionLocalService;
 import com.razorpay.RazorpayException;
 import org.apache.commons.lang3.NotImplementedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,7 +22,7 @@ public class PaymentControllerHelper extends RazorPayController {
 
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
-        throw new NotImplementedException("'doprocess() method should be overridden...");
+        throw new NotImplementedException("'doprocess()' method should be overridden...");
     }
 
     protected void newAutoPaymentTransaction(String paymentId) throws RazorpayException {
@@ -32,14 +33,31 @@ public class PaymentControllerHelper extends RazorPayController {
         newTransaction(paymentId, MANUAL);
     }
 
+    protected void deletePaymentTransaction(String paymentId){
+        PaymentTransaction paymentTransaction = PaymentTransactionLocalService.get(paymentId);
+        PaymentTransactionLocalService.delete(paymentTransaction);
+    }
+
+    protected void syncPaymentTransactionsWithGateway() throws RazorpayException {
+        System.out.println("111111111111111111111111111111111111");
+        List<PaymentTransaction> paymentTransactions = PaymentTransactionLocalService.list();
+        for(PaymentTransaction paymentTransaction : paymentTransactions){
+            PaymentTransactionLocalService.delete(paymentTransaction);
+        }
+
+        paymentTransactions = PaymentGatewayService.listPaymentTransactions();
+        for(PaymentTransaction paymentTransaction : paymentTransactions){
+            PaymentTransactionLocalService.save(paymentTransaction);
+        }
+    }
+
     private void newTransaction(String paymentId, String checkoutType) throws RazorpayException {
-        PaymentTransaction paymentTransaction  = PaymentTransactionService.fetchPaymentTransaction(paymentId);
+        PaymentTransaction paymentTransaction  = PaymentGatewayService.fetchPayment(paymentId);
         paymentTransaction.setCheckoutType(checkoutType);
 
         if (null != paymentTransaction) {
             LOGGER.log(Level.INFO, String.format("<<<<< ===== Trying to save PaymentTransaction(%s) ===== >>>>>", paymentTransaction.getId()));
-            PaymentTransactionDAO paymentTransactionDAO = new PaymentTransactionDAO();
-            paymentTransactionDAO.save(paymentTransaction);
+            PaymentTransactionLocalService.save(paymentTransaction);
             LOGGER.log(Level.INFO, String.format("<<<<< ===== Saved PaymentTransaction(%s) ===== >>>>>", paymentTransaction.getId()));
         }
     }
