@@ -39,7 +39,6 @@ public class PaymentControllerHelper extends RazorPayController {
     }
 
     protected void syncPaymentTransactionsWithGateway() throws RazorpayException {
-        System.out.println("111111111111111111111111111111111111");
         List<PaymentTransaction> paymentTransactions = PaymentTransactionLocalService.list();
         for(PaymentTransaction paymentTransaction : paymentTransactions){
             PaymentTransactionLocalService.delete(paymentTransaction);

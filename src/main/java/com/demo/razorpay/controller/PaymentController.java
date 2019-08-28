@@ -65,7 +65,6 @@ public class PaymentController extends PaymentControllerHelper {
     }
 
     protected void syncPaymentTransactionsWithGateway(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
-        System.out.println("111111111111111111111111111111111111");
         syncPaymentTransactionsWithGateway();
         try {
             response.sendRedirect("../pages/list-payments.jsp");
