@@ -1,0 +1,28 @@
+table thead tr td{
+	color:#6c6c6c;
+	background-color: #b7f5a4;
+	font-weight: bold;
+	border: 2px solid #6c6c6c;
+	text-align: center;
+	font-size: 15px;
+	border-radius: 3px;
+}
+
+table tbody tr td{
+	color:#6c6c6c;
+	border: 1px solid #6c6c6c;
+	font-size: 15px;
+	text-align: left;
+	border-radius: 3px;
+}
+
+table tbody tr td a{
+	text-decoration:none;
+	color:#6c6c6c;
+}
+
+table tbody tr td a:hover{
+	text-decoration:underline;
+	font-weight:bold;
+	color:#6c6c6c;
+}
