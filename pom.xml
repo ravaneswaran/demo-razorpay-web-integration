@@ -25,8 +25,9 @@
         <jaxb-api.version>2.1</jaxb-api.version>
         <org.eclipse.persistence.moxy.version>2.5.2</org.eclipse.persistence.moxy.version>
         <javax.persistence.version>2.2.1</javax.persistence.version>
-        <org.eclipse.persistence.jpa.version>2.7.4</org.eclipse.persistence.jpa.version>
+        <eclipselink.version>2.5.0</eclipselink.version>
         <hibernate-entitymanager.version>5.4.4.Final</hibernate-entitymanager.version>
+        <lombok.version>1.16.20</lombok.version>
         
         <!-- Plugin Version -->
         <jetty-maven-plugin.version>9.4.12.v20180830</jetty-maven-plugin.version>
@@ -47,14 +48,12 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jsp-api</artifactId>
             <version>${jsp-api.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -89,14 +88,21 @@
 
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa</artifactId>
-            <version>${org.eclipse.persistence.jpa.version}</version>
+            <artifactId>eclipselink</artifactId>
+            <version>${eclipselink.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate-entitymanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

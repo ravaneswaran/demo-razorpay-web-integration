@@ -47,15 +47,17 @@
 						        alert(response.razorpay_payment_id);
 						        console.log(response);
 						        $.ajax({
-									url:'../payment/transaction?cmd=new&paymentId='+response.razorpay_payment_id,
+									url:'../payment/transaction?cmd=new&checkout-type=manual&payment-id='+response.razorpay_payment_id,
 									success:function(data) {
 										alert("Payment successfully registered...");
+										window.location="../pages/home.jsp";
 									}
 								});
 						    },
 						    "modal": {
 						        "ondismiss": function(){
 						            console.log("Checkout form closed");
+						            window.location="../pages/home.jsp";
 						        }
 						    }
 						};

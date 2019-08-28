@@ -1,4 +1,4 @@
-package com.demo.razorpay.controllers;
+package com.demo.razorpay.controller;
 
 import com.demo.razorpay.models.OrderTransaction;
 import com.demo.razorpay.services.OrderTransactionService;

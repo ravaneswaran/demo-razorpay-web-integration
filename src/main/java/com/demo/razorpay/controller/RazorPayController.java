@@ -1,4 +1,4 @@
-package com.demo.razorpay.controllers;
+package com.demo.razorpay.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
