@@ -39,9 +39,11 @@
     			<td><%= simpleDateFormat.format(new Date(paymentTransaction.getCreatedAt()))%></td>
     			<td><%= null != paymentTransaction.getCheckoutType() ? paymentTransaction.getCheckoutType() : "Automatic"%></td>
     			<td><%= paymentTransaction.getStatus()%></td>
-    			<td>Show Payment</td>
-    			<td>Show Order</td>
-    			<td><a href="../payment/transaction?cmd=delete&payment-id=<%=paymentTransaction.getId()%>">Delete</a></td>
+    			<td colspan="3" style="width:100px;">
+	    			<a href="../payment/transaction?cmd=show&payment-id=<%=paymentTransaction.getId()%>"><img alt="Show Payment" src="../images/payment-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a>
+	    			<a href="../order/transaction?cmd=show&order-id=<%=paymentTransaction.getOrderId()%>"><img alt="Show Order" src="../images/order-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a>
+	    			<a href="../payment/transaction?cmd=delete&payment-id=<%=paymentTransaction.getId()%>"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a>
+    			</td>
     		</tr>
     <%	
     	}
@@ -52,3 +54,8 @@
     	}    
     %>
 </div>
+<!-- <script>
+	$(document).ready(function() {
+	    $('#example').DataTable();
+	});
+</script> -->

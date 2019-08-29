@@ -1,20 +1,18 @@
-<a href="../pages/home.jsp">Home</a>
-<div class="dropdown">
-    <button class="dropbtn">Methods
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-        <a href="../pages/automatic-checkout.jsp">Automatic Checkout</a>
-        <a href="../pages/manual-checkout.jsp">Manual Checkout</a>
-        <a href="#">Subscription</a>
-    </div>
-</div>
-<div class="dropdown">
-    <button class="dropbtn" style="width:166px;">Sync With Gateway
-        <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-        <a href="../payment/transaction?cmd=sync">Payment Sync</a>
-        <a href="../order/transaction?cmd=sync">Order Sync</a>
-    </div>
+<div id='cssmenu'>
+	<ul>
+	   <li><a href='../pages/home.jsp'><span>Home</span></a></li>
+	   <li class='active has-sub'><a href='#'><span>Methods</span></a>
+	      <ul>
+	         <li class='last'><a href='../pages/automatic-checkout.jsp'><span>Automatic Checkout</span></a></li>
+	         <li class='last'><a href='../pages/manual-checkout.jsp'><span>Manual Checkout</span></a>
+	         <li class='last'><a href='#'><span>Subscription</span></a></li>
+	      </ul>
+	   </li>
+	   <li class='active has-sub'><a href='#'><span>Sync With Gateway</span></a>
+	      <ul>
+	         <li class='last'><a href='../payment/transaction?cmd=sync'><span>Payment Sync</span></a></li>
+	         <li class='last'><a href='../order/transaction?cmd=sync'><span>Order Sync</span></a>
+	      </ul>
+	   </li>
+	</ul>
 </div>

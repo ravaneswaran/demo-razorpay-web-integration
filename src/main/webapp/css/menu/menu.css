@@ -7,6 +7,7 @@
   display: block;
   position: relative;
   font-family: 'PT Sans', sans-serif;
+  z-index:1;
 }
 #cssmenu ul {
   list-style: none;
@@ -103,7 +104,8 @@
 }
 #cssmenu ul li ul li:hover > a,
 #cssmenu ul li ul li.active > a {
-  color: #b7f5a4;
+  color: #000000;
+  background-color:#b7f5a4;
 }
 #cssmenu ul li ul li:hover:after,
 #cssmenu ul li ul li.active:after {

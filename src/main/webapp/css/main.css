@@ -1,7 +1,12 @@
+/* @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700); */
+@import "font-family/pt-sans.css";
 @import "wrapper.css";
 @import "header.css";
-@import "menu.css";
+@import "menu/menu.css";
 @import "body.css";
 @import "sitemap.css";
 @import "copyright.css";
-@import "table.css";
+@import "table/table.css";
+
+/* @import "bootstrap/bootstrap.min.css";
+@import "bootstrap/dataTables.bootstrap.min.css"; */
