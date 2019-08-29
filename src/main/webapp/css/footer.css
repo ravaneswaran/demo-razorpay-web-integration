@@ -10,8 +10,7 @@
 }
 
 .copyright {
-	position: relative;
-	padding-bottom: 30px;
+	text-align:left;
 }
 .copyright span {
 	position: absolute;

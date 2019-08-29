@@ -14,7 +14,7 @@
     	if(null != paymentTransactions && !paymentTransactions.isEmpty()){
     %>
     <br />
-    <table>
+    <table id="payment-list">
     <thead>
     	<tr>
     		<td>Sl No</td>
@@ -34,8 +34,8 @@
     %>
     		<tr>
     			<td><%= serialNo++ %></td>
-    			<td><%= paymentTransaction.getId()%></td>
-    			<td><%= paymentTransaction.getOrderId()%></td>
+    			<td><a href="../pages/payment-transaction-details.jsp?payment-transation-id=<%= paymentTransaction.getId()%>"><%= paymentTransaction.getId()%></a></td>
+    			<td><a href="../pages/order-transaction-details.jsp?order-transaction-id=<%= paymentTransaction.getOrderId()%>"><%= paymentTransaction.getOrderId()%></a></td>
     			<td><%= simpleDateFormat.format(new Date(paymentTransaction.getCreatedAt()))%></td>
     			<td><%= null != paymentTransaction.getCheckoutType() ? paymentTransaction.getCheckoutType() : "Automatic"%></td>
     			<td><%= paymentTransaction.getStatus()%></td>
@@ -54,8 +54,9 @@
     	}    
     %>
 </div>
-<!-- <script>
-	$(document).ready(function() {
-	    $('#example').DataTable();
-	});
-</script> -->
+
+<script>
+    $(document).ready(function () {
+        $('#payment-list').DataTable();
+    });
+</script>
