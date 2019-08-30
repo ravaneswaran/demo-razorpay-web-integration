@@ -29,7 +29,7 @@
 }
 
 #popup-container {
-	width: 500px;
+	width: 530px;
 	margin: 0px;
 	background-color: #6c6c6c;
 	position: relative;
@@ -38,18 +38,19 @@
 	left: 50%;
     top: 50%;
     margin-left: -280px;
-    margin-top: -70px;
+    margin-top: -260px;
 }
 
 #popup-wrapper {
-	opacity: 0.92;
-	position: absolute;
+	opacity: 0.96;
+	position: fixed;
 	top: 0px;
 	left: 0px;
 	height: 100%;
 	width: 100%;
 	background: #6c6c6c;
 	display: none;
+	z-index:10;
 }
 
 .img {
@@ -60,6 +61,31 @@
 	height:20px;
 	width:20px;
 	border-radius: 10px;
+}
+
+.popup-table > thead > tr > td{
+	border: 2px solid #b7f5a4;
+	border-radius: 4px;
+	height:35px;
+}
+
+.popup-table > thead > tr > td.spacer{
+	border: 0px solid #b7f5a4;
+	border-radius: 4px;
+	height:10px;
+	background-color:#6c6c6c;
+}
+
+.popup-table > tbody > tr > td{
+	color : #ffffff;
+	border: 0px solid #ffffff;
+	min-width: 160px;
+	text-indent:5px;
+}
+
+.popup-table > tbody > tr > td.popup-control{
+	text-align:right;
+	vertical-align: top;
 }
 
 input {
@@ -78,7 +104,8 @@ input[type=button] {
 	font-Weight: bold;
 	font-size: 18px;
 	color: white;
-	width: 49%;
+	width: 80%;
 	cursor:pointer;
 	font-family: 'PT Sans', sans-serif;
+	padding: 0px;
 }

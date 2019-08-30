@@ -20,9 +20,9 @@
     		<td>Sl No</td>
     		<td>Payment-ID</td>
     		<td>Order-ID</td>
-    		<td>Created Date</td>
+    		<!-- <td>Created Date</td>
     		<td>Type</td>
-    		<td>Status</td>
+    		<td>Status</td> -->
     		<td colspan="3">Actions</td>
     	</tr>
     </thead>
@@ -34,15 +34,15 @@
     %>
     		<tr>
     			<td><%= serialNo++ %></td>
-    			<td><a href="../pages/payment-transaction-details.jsp?payment-transation-id=<%= paymentTransaction.getId()%>"><%= paymentTransaction.getId()%></a></td>
+    			<td><a onclick="return popupPaymentDetails('<%= paymentTransaction.getId()%>')"><%= paymentTransaction.getId()%></a></td>
     			<td><a href="../pages/order-transaction-details.jsp?order-transaction-id=<%= paymentTransaction.getOrderId()%>"><%= paymentTransaction.getOrderId()%></a></td>
-    			<td><%= simpleDateFormat.format(new Date(paymentTransaction.getCreatedAt()))%></td>
+    			<%-- <td><%= simpleDateFormat.format(new Date(paymentTransaction.getCreatedAt()))%></td>
     			<td><%= null != paymentTransaction.getCheckoutType() ? paymentTransaction.getCheckoutType() : "Automatic"%></td>
-    			<td><%= paymentTransaction.getStatus()%></td>
+    			<td><%= paymentTransaction.getStatus()%></td> --%>
     			<td colspan="3" style="width:100px;">
-	    			<a href="../payment/transaction?cmd=show&payment-id=<%=paymentTransaction.getId()%>"><img alt="Show Payment" src="../images/payment-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a>
-	    			<a href="../order/transaction?cmd=show&order-id=<%=paymentTransaction.getOrderId()%>"><img alt="Show Order" src="../images/order-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a>
-	    			<a href="../payment/transaction?cmd=delete&payment-id=<%=paymentTransaction.getId()%>"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a>
+	    			<%-- <a href="../payment/transaction?cmd=show&payment-transaction-id=<%=paymentTransaction.getId()%>"><img alt="Show Payment" src="../images/payment-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a>
+	    			<a href="../order/transaction?cmd=show&order-transaction-id=<%=paymentTransaction.getOrderId()%>"><img alt="Show Order" src="../images/order-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a> --%>
+	    			<a href="../payment/transaction?cmd=delete&payment-transaction-id=<%=paymentTransaction.getId()%>"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:15px;width:40px;border:1px solid #6c6c6c;"/></a>
     			</td>
     		</tr>
     <%	
@@ -54,9 +54,33 @@
     	}    
     %>
 </div>
+<div id="popup-wrapper">
+	<div class="popup-container-class" id="popup-container">
+		<img src="../images/cancel-icon.jpg" class="img" id="cancel"/>
+		<table class="popup-table">
+			<thead id="popup-head">
+				<tr>
+					<td colspan="3">Payment Details</td>
+				</tr>
+				<tr>
+					<td colspan="3" class="spacer">&nbsp;</td>
+				</tr>
+			</thead>
+			<tbody id="popup-body">
+			</tbody>
+		</table>
+	</div>
+</div>
 
 <script>
-    $(document).ready(function () {
-        $('#payment-list').DataTable();
-    });
+	function popupPaymentDetails(paymentTransactionId){
+		$.ajax({
+			url:'../payment/transaction?cmd=details&payment-transaction-id='+paymentTransactionId,
+			success:function(data) {
+				$("#popup-body").html(data);
+				$("#popup-wrapper").css("display", "block");
+				return true;
+			}
+		});
+	}
 </script>

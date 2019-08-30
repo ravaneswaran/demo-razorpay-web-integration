@@ -22,8 +22,6 @@ public class PaymentGatewayService {
 
 		List<Payment> payments = razorpayClient.Payments.fetchAll();
 
-		System.out.println("payments -------------------->>>>>>>>> "+payments.size());
-
 		List<PaymentTransaction> paymentTransactions = new ArrayList<PaymentTransaction>();
 		for(Payment payment : payments){
 			PaymentTransaction paymentTransaction = new PaymentTransaction();
