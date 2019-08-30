@@ -35,13 +35,8 @@
     		<tr>
     			<td><%= serialNo++ %></td>
     			<td><a onclick="return popupPaymentDetails('<%= paymentTransaction.getId()%>')"><%= paymentTransaction.getId()%></a></td>
-    			<td><a href="../pages/order-transaction-details.jsp?order-transaction-id=<%= paymentTransaction.getOrderId()%>"><%= paymentTransaction.getOrderId()%></a></td>
-    			<%-- <td><%= simpleDateFormat.format(new Date(paymentTransaction.getCreatedAt()))%></td>
-    			<td><%= null != paymentTransaction.getCheckoutType() ? paymentTransaction.getCheckoutType() : "Automatic"%></td>
-    			<td><%= paymentTransaction.getStatus()%></td> --%>
+    			<td><a onclick="return popupOrderDetails('<%= paymentTransaction.getOrderId()%>')"><%= paymentTransaction.getOrderId()%></a></td>
     			<td colspan="3" style="width:100px;">
-	    			<%-- <a href="../payment/transaction?cmd=show&payment-transaction-id=<%=paymentTransaction.getId()%>"><img alt="Show Payment" src="../images/payment-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a>
-	    			<a href="../order/transaction?cmd=show&order-transaction-id=<%=paymentTransaction.getOrderId()%>"><img alt="Show Order" src="../images/order-icon.png" style="height:15px;width:15px;border:1px solid #6c6c6c;"/></a> --%>
 	    			<a href="../payment/transaction?cmd=delete&payment-transaction-id=<%=paymentTransaction.getId()%>"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:15px;width:40px;border:1px solid #6c6c6c;"/></a>
     			</td>
     		</tr>
@@ -60,7 +55,7 @@
 		<table class="popup-table">
 			<thead id="popup-head">
 				<tr>
-					<td colspan="3">Payment Details</td>
+					<td colspan="3">Transaction Details</td>
 				</tr>
 				<tr>
 					<td colspan="3" class="spacer">&nbsp;</td>
@@ -76,6 +71,17 @@
 	function popupPaymentDetails(paymentTransactionId){
 		$.ajax({
 			url:'../payment/transaction?cmd=details&payment-transaction-id='+paymentTransactionId,
+			success:function(data) {
+				$("#popup-body").html(data);
+				$("#popup-wrapper").css("display", "block");
+				return true;
+			}
+		});
+	}
+	
+	function popupOrderDetails(orderTransactionId){
+		$.ajax({
+			url:'../order/transaction?cmd=details&order-transaction-id='+orderTransactionId,
 			success:function(data) {
 				$("#popup-body").html(data);
 				$("#popup-wrapper").css("display", "block");

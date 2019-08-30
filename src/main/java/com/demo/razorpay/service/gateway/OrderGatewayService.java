@@ -1,15 +1,19 @@
 package com.demo.razorpay.service.gateway;
 
 import com.demo.razorpay.models.OrderTransaction;
+import com.demo.razorpay.models.PaymentTransaction;
 import com.demo.razorpay.properties.RazorPayProperties;
 import com.razorpay.Order;
+import com.razorpay.Payment;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
 import org.json.JSONObject;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class OrderGatewayService {
 
@@ -64,5 +68,34 @@ public class OrderGatewayService {
         razorpayOrder.setAmountDue(Integer.valueOf("" + oldOrder.get("attempts")));
 
         return razorpayOrder;
+    }
+
+    public static List<OrderTransaction> listOrderTransactions() throws RazorpayException {
+        RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(),
+                RazorPayProperties.getKeySecret());
+
+        List<Order> orders = razorpayClient.Orders.fetchAll();
+
+        List<OrderTransaction> orderTransactions = new ArrayList<OrderTransaction>();
+        for(Order order : orders){
+            OrderTransaction orderTransaction = new OrderTransaction();
+
+            orderTransaction.setAmount(Integer.valueOf("" + order.get("amount")));
+            orderTransaction.setAmountPaid(Integer.valueOf("" + order.get("amount_paid")));
+            orderTransaction.setNotes(order.get("notes"));
+            orderTransaction.setCreatedAt(((Date) order.get("created_at")).getTime());
+            orderTransaction.setAmountDue(Integer.valueOf("" + order.get("amount_due")));
+            orderTransaction.setCurrency(String.valueOf(order.get("currency")));
+            orderTransaction.setReceipt(String.valueOf(order.get("receipt")));
+            orderTransaction.setId(String.valueOf(order.get("id")));
+            orderTransaction.setEntity(String.valueOf(order.get("entity")));
+            orderTransaction.setOfferId(order.get("offer_id"));
+            orderTransaction.setStatus(String.valueOf(order.get("status")));
+            orderTransaction.setAmountDue(Integer.valueOf("" + order.get("attempts")));
+
+            orderTransactions.add(orderTransaction);
+        }
+
+        return orderTransactions;
     }
 }

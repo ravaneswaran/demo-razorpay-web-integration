@@ -1,7 +1,12 @@
 <div id='cssmenu'>
 	<ul>
 	   <li><a href='../pages/home.jsp'><span>Home</span></a></li>
-	   <li><a href='../pages/list-payments.jsp'><span>Payment Listing</span></a></li>
+	   <li class='active has-sub'><a href='#'><span>Listing</span></a>
+	      <ul>
+	         <li class='last'><a href='../pages/list-payments.jsp'><span>Payments</span></a></li>
+	         <li class='last'><a href='../pages/list-payments.jsp'><span>Orders</span></a>
+	      </ul>
+	   </li>
 	   <li class='active has-sub'><a href='#'><span>Checkout Methods</span></a>
 	      <ul>
 	         <li class='last'><a href='../pages/automatic-checkout.jsp'><span>Automatic Checkout</span></a></li>

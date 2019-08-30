@@ -81,10 +81,10 @@ public class PaymentController extends PaymentControllerHelper {
 
     protected void paymentTransactionsDetails(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
         String paymentTransactionId = request.getParameter(RequestParameter.PAYMENT_TRANSACTION_ID);
-        String paymentDetails = paymentTransactionsDetails(paymentTransactionId);
+        String paymentTransactionDetails = paymentTransactionsDetails(paymentTransactionId);
         response.setContentType("text/html");
         try {
-            response.getWriter().print(paymentDetails);
+            response.getWriter().print(paymentTransactionDetails);
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
             toErrorPage500(request, response);
