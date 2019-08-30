@@ -58,7 +58,7 @@
 						    "modal": {
 						        "ondismiss": function(){
 						            console.log("Checkout form closed");
-						            window.location="../pages/home.jsp";
+						            //window.location="../pages/home.jsp";
 						        }
 						    }
 						};

@@ -14,15 +14,15 @@
     	if(null != paymentTransactions && !paymentTransactions.isEmpty()){
     %>
     <br />
-    <table>
+    <table id="payment-list">
     <thead>
     	<tr>
     		<td>Sl No</td>
     		<td>Payment-ID</td>
     		<td>Order-ID</td>
-    		<td>Created Date</td>
+    		<!-- <td>Created Date</td>
     		<td>Type</td>
-    		<td>Status</td>
+    		<td>Status</td> -->
     		<td colspan="3">Actions</td>
     	</tr>
     </thead>
@@ -34,14 +34,11 @@
     %>
     		<tr>
     			<td><%= serialNo++ %></td>
-    			<td><%= paymentTransaction.getId()%></td>
-    			<td><%= paymentTransaction.getOrderId()%></td>
-    			<td><%= simpleDateFormat.format(new Date(paymentTransaction.getCreatedAt()))%></td>
-    			<td><%= null != paymentTransaction.getCheckoutType() ? paymentTransaction.getCheckoutType() : "Automatic"%></td>
-    			<td><%= paymentTransaction.getStatus()%></td>
-    			<td>Show Payment</td>
-    			<td>Show Order</td>
-    			<td><a href="../payment/transaction?cmd=delete&payment-id=<%=paymentTransaction.getId()%>">Delete</a></td>
+    			<td><a onclick="return popupPaymentDetails('<%= paymentTransaction.getId()%>')"><%= paymentTransaction.getId()%></a></td>
+    			<td><a onclick="return popupOrderDetails('<%= paymentTransaction.getOrderId()%>')"><%= paymentTransaction.getOrderId()%></a></td>
+    			<td colspan="3" style="width:100px;">
+	    			<a href="../payment/transaction?cmd=delete&payment-transaction-id=<%=paymentTransaction.getId()%>"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:15px;width:40px;border:1px solid #6c6c6c;"/></a>
+    			</td>
     		</tr>
     <%	
     	}
@@ -52,3 +49,66 @@
     	}    
     %>
 </div>
+<div id="popup-wrapper">
+	<div class="popup-container-class" id="popup-container">
+		<img src="../images/cancel-icon.jpg" class="img" id="cancel"/>
+		<table class="popup-table">
+			<thead id="popup-head">
+				<tr>
+					<td colspan="3">Transaction Details</td>
+				</tr>
+				<tr>
+					<td colspan="3" class="spacer">&nbsp;</td>
+				</tr>
+			</thead>
+			<tbody id="popup-body">
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+	function popupPaymentDetails(paymentTransactionId){
+		$.ajax({
+			url:'../payment/transaction?cmd=details&payment-transaction-id='+paymentTransactionId,
+			success:function(data) {
+				$("#popup-body").html(data);
+				$("#popup-wrapper").css("display", "block");
+				return true;
+			}
+		});
+	}
+	
+	function popupOrderDetails(orderTransactionId){
+		$.ajax({
+			url:'../order/transaction?cmd=details&order-transaction-id='+orderTransactionId,
+			success:function(data) {
+				$("#popup-body").html(data);
+				$("#popup-wrapper").css("display", "block");
+				return true;
+			}
+		});
+	}
+	
+	function cancelOrder(orderTransactionId){
+		$.ajax({
+			url:'../order/transaction?cmd=cancel&order-transaction-id='+orderTransactionId,
+			success:function(data) {
+				$("#popup-body").html("");
+				$("#popup-body").html(data);
+				return true;
+			}
+		});
+	}
+	
+	function confirmOrder(orderTransactionId){
+		$.ajax({
+			url:'../order/transaction?cmd=confirm&order-transaction-id='+orderTransactionId,
+			success:function(data) {
+				$("#popup-body").html("");
+				$("#popup-body").html(data);
+				return true;
+			}
+		});
+	}
+</script>
