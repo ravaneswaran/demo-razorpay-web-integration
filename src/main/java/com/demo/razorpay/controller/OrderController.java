@@ -21,6 +21,8 @@ public class OrderController extends OrderControllerHelper {
     public static final String DELETE = "delete";
     public static final String SYNC = "sync";
     public static final String DETAILS = "details";
+    public static final String CANCEL = "cancel";
+    public static final String CONFIRM = "confirm";
 
     private void newOrder(HttpServletRequest request, HttpServletResponse response) {
         String orderId = request.getParameter("order-id");
@@ -49,6 +51,12 @@ public class OrderController extends OrderControllerHelper {
                 case DETAILS:
                     orderTransactionDetails(request, response);
                     break;
+                case CANCEL:
+                    cancelOrderTransaction(request, response);
+                    break;
+                case CONFIRM:
+                    confirmOrderTransaction(request, response);
+                    break;
             }
         } catch (RazorpayException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
@@ -71,6 +79,34 @@ public class OrderController extends OrderControllerHelper {
     protected void orderTransactionDetails(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
         String orderTransactionId = request.getParameter(RequestParameter.ORDER_TRANSACTION_ID);
         String orderTransactionDetails = orderTransactionDetails(orderTransactionId);
+
+        response.setContentType("text/html");
+        try {
+            response.getWriter().print(orderTransactionDetails);
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            toErrorPage500(request, response);
+            return;
+        }
+    }
+
+    protected void cancelOrderTransaction(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
+        String orderTransactionId = request.getParameter(RequestParameter.ORDER_TRANSACTION_ID);
+        String orderTransactionDetails = cancelOrderTransaction(orderTransactionId);
+
+        response.setContentType("text/html");
+        try {
+            response.getWriter().print(orderTransactionDetails);
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            toErrorPage500(request, response);
+            return;
+        }
+    }
+
+    protected void confirmOrderTransaction(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
+        String orderTransactionId = request.getParameter(RequestParameter.ORDER_TRANSACTION_ID);
+        String orderTransactionDetails = confirmOrderTransaction(orderTransactionId);
 
         response.setContentType("text/html");
         try {

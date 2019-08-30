@@ -42,117 +42,145 @@ public class OrderControllerHelper extends RazorPayController {
             OrderTransactionLocalService.save(orderTransaction);
         }
 
+        return getOrderTransactionDetails(orderTransaction, "color:#ffffff");
+    }
+
+    protected String cancelOrderTransaction(String orderTransactionId) throws RazorpayException {
+        OrderTransaction orderTransaction = OrderTransactionLocalService.get(orderTransactionId);
+
+        if(null == orderTransaction){
+            orderTransaction = OrderGatewayService.fetchOrderTransaction(orderTransactionId);
+            OrderTransactionLocalService.save(orderTransaction);
+        }
+
+        return getOrderTransactionDetails(orderTransaction, "color:#900a08");
+    }
+
+    protected String confirmOrderTransaction(String orderTransactionId) throws RazorpayException {
+        OrderTransaction orderTransaction = OrderTransactionLocalService.get(orderTransactionId);
+
+        if(null == orderTransaction){
+            orderTransaction = OrderGatewayService.fetchOrderTransaction(orderTransactionId);
+            OrderTransactionLocalService.save(orderTransaction);
+        }
+
+        return getOrderTransactionDetails(orderTransaction, "color:#b7f5a4");
+    }
+
+    private String getOrderTransactionDetails(OrderTransaction orderTransaction, String style){
         StringBuffer orderTransactionBuffer = new StringBuffer();
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Order ID");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getId());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_ROWSPAN_AND_CLASS, "17", "popup-control"));
-        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_INPUT_BUTTON, "Confirm"));
-        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_INPUT_BUTTON, "Cancel"));
+        String confirmOrderTransactionFunction = String.format("confirmOrder('%s')", orderTransaction.getId());
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_INPUT_BUTTON, confirmOrderTransactionFunction, "Confirm"));
+        String cancelOrderTransactionFunction = String.format("cancelOrder('%s')", orderTransaction.getId());
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_INPUT_BUTTON, cancelOrderTransactionFunction, "Cancel"));
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Entity");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getEntity());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Amount");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getAmount());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Currency");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getCurrency());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Status");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getStatus());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Amount");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getAmount());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Amount Paid");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getAmountPaid());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Amount Due");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getAmountDue());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Receipt");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getReceipt());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         String offerId = String.valueOf(orderTransaction.getOfferId());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Offer ID");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append((null != offerId && !"null".equals(offerId) && !offerId.isEmpty()) ? offerId : "-");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Attempts");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append(orderTransaction.getAttempts());
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
 
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_START_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("Notes");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
-        orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_START_TAG);
+        orderTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_STYLE, style));
         orderTransactionBuffer.append("-");
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
         orderTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);

@@ -89,4 +89,26 @@
 			}
 		});
 	}
+	
+	function cancelOrder(orderTransactionId){
+		$.ajax({
+			url:'../order/transaction?cmd=cancel&order-transaction-id='+orderTransactionId,
+			success:function(data) {
+				$("#popup-body").html("");
+				$("#popup-body").html(data);
+				return true;
+			}
+		});
+	}
+	
+	function confirmOrder(orderTransactionId){
+		$.ajax({
+			url:'../order/transaction?cmd=confirm&order-transaction-id='+orderTransactionId,
+			success:function(data) {
+				$("#popup-body").html("");
+				$("#popup-body").html(data);
+				return true;
+			}
+		});
+	}
 </script>

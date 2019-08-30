@@ -76,8 +76,8 @@ public class PaymentControllerHelper extends RazorPayController {
         paymentTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
 
         paymentTransactionBuffer.append(String.format(HTMLUtil.HTML_TABLE_DATA_START_TAG_WITH_ROWSPAN_AND_CLASS, "17", "popup-control"));
-        paymentTransactionBuffer.append(String.format(HTMLUtil.HTML_INPUT_BUTTON, "Refund"));
-        paymentTransactionBuffer.append(String.format(HTMLUtil.HTML_INPUT_BUTTON, "Settle"));
+        paymentTransactionBuffer.append(String.format(HTMLUtil.HTML_INPUT_BUTTON, "", "Refund"));
+        paymentTransactionBuffer.append(String.format(HTMLUtil.HTML_INPUT_BUTTON, "", "Settle"));
         paymentTransactionBuffer.append(HTMLUtil.HTML_TABLE_DATA_END_TAG);
 
         paymentTransactionBuffer.append(HTMLUtil.HTML_TABLE_ROW_END_TAG);
