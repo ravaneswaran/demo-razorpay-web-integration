@@ -73,9 +73,15 @@
 
 <script>
 	function deleteTransaction(paymentTransactionId){
-		$.alert({
+		$.confirm({
 		    title: 'Delete Confirmation!',
-		    content: 'Are you sure want to delete?',
+		    content: 'Are you sure want to delete this item ( '+paymentTransactionId+' ) ?',
+		    buttons: {
+		        confirm: function () {
+		            window.location = '../payment/transaction?cmd=delete&payment-transaction-id='+paymentTransactionId
+		        },
+		        cancel: function () {}
+		    }
 		});
 		return false;
 	}
@@ -86,7 +92,6 @@
 			success:function(data) {
 				$("#popup-body").html(data);
 				$("#popup-wrapper").css("display", "block");
-				return true;
 			}
 		});
 	}
@@ -97,7 +102,6 @@
 			success:function(data) {
 				$("#popup-body").html(data);
 				$("#popup-wrapper").css("display", "block");
-				return true;
 			}
 		});
 	}
@@ -106,13 +110,18 @@
 		$.ajax({
 			url:'../order/transaction?cmd=cancel&order-transaction-id='+orderTransactionId,
 			success:function(data) {
-				$("#popup-body").html("");
-				$("#popup-body").html(data);
-				$.alert({
-				    title: 'Alert!',
-				    content: 'Simple alert!',
+				$.confirm({
+				    title: 'Cancel Order Confirmation!',
+				    content: 'Are you sure want to cancel this order ( '+orderTransactionId+' ) ?',
+				    type: 'red',
+				    buttons: {
+				        confirm: function () {
+				        	$("#popup-body").html("");
+							$("#popup-body").html(data);
+				        },
+				        cancel: function () {}
+				    }
 				});
-				return true;
 			}
 		});
 	}
@@ -121,13 +130,18 @@
 		$.ajax({
 			url:'../order/transaction?cmd=confirm&order-transaction-id='+orderTransactionId,
 			success:function(data) {
-				$("#popup-body").html("");
-				$("#popup-body").html(data);
-				$.alert({
-				    title: 'Alert!',
-				    content: 'Simple alert!',
+				$.confirm({
+				    title: 'Confirm Order Confirmation!',
+				    content: 'Are you sure want to confirm this order ( '+orderTransactionId+' ) ?',
+				    type: 'green',
+				    buttons: {
+				        confirm: function () {
+				        	$("#popup-body").html("");
+							$("#popup-body").html(data);
+				        },
+				        cancel: function () {}
+				    }
 				});
-				return true;
 			}
 		});
 	}
@@ -136,11 +150,18 @@
 		$.ajax({
 			url:'../payment/transaction?cmd=refund&payment-transaction-id='+paymentTransactionId,
 			success:function(data) {
-				$("#popup-body").html("");
-				$("#popup-body").html(data);
-				$.alert({
-				    title: 'Alert!',
-				    content: 'Simple alert!',
+				
+				$.confirm({
+				    title: 'Payment Refund Confirmation!',
+				    content: 'Are you sure want to refund this payment ( '+paymentTransactionId+' ) ?',
+				    type: 'red',
+				    buttons: {
+				        confirm: function () {
+				        	$("#popup-body").html("");
+							$("#popup-body").html(data);
+				        },
+				        cancel: function () {}
+				    }
 				});
 				return true;
 			}
@@ -151,11 +172,18 @@
 		$.ajax({
 			url:'../payment/transaction?cmd=settle&payment-transaction-id='+paymentTransactionId,
 			success:function(data) {
-				$("#popup-body").html("");
-				$("#popup-body").html(data);
-				$.alert({
-				    title: 'Alert!',
-				    content: 'Simple alert!',
+				
+				$.confirm({
+				    title: 'Payment Settle Confirmation!',
+				    content: 'Are you sure want to settle this payment ( '+paymentTransactionId+' ) ?',
+				    type: 'green',
+				    buttons: {
+				        confirm: function () {
+				        	$("#popup-body").html("");
+							$("#popup-body").html(data);
+				        },
+				        cancel: function () {}
+				    }
 				});
 				return true;
 			}

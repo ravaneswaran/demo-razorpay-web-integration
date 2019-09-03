@@ -82,7 +82,7 @@ public class PaymentControllerHelper extends RazorPayController {
             PaymentTransactionLocalService.save(paymentTransaction);
         }
 
-        return getPaymentTransactionDetails(paymentTransaction, "color:#900a08");
+        return getPaymentTransactionDetails(paymentTransaction, "color:#e74c3c");
     }
 
     protected String settlePaymentTransaction(String paymentTransactionId) throws RazorpayException {

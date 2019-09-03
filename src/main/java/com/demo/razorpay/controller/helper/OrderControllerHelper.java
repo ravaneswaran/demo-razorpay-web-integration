@@ -53,7 +53,7 @@ public class OrderControllerHelper extends RazorPayController {
             OrderTransactionLocalService.save(orderTransaction);
         }
 
-        return getOrderTransactionDetails(orderTransaction, "color:#900a08");
+        return getOrderTransactionDetails(orderTransaction, "color:#e74c3c");
     }
 
     protected String confirmOrderTransaction(String orderTransactionId) throws RazorpayException {
