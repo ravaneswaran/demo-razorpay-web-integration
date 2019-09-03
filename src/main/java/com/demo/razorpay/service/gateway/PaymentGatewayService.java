@@ -5,10 +5,12 @@ import com.demo.razorpay.properties.RazorPayProperties;
 import com.razorpay.Payment;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class PaymentGatewayService {
 
@@ -20,7 +22,11 @@ public class PaymentGatewayService {
 		RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(),
 				RazorPayProperties.getKeySecret());
 
-		List<Payment> payments = razorpayClient.Payments.fetchAll();
+		JSONObject fetchAllPaymentsRequest = new JSONObject();
+		fetchAllPaymentsRequest.put("count", 100);
+		fetchAllPaymentsRequest.put("skip", 0);
+
+		List<Payment> payments = razorpayClient.Payments.fetchAll(fetchAllPaymentsRequest);
 
 		List<PaymentTransaction> paymentTransactions = new ArrayList<PaymentTransaction>();
 		for(Payment payment : payments){
@@ -38,8 +44,18 @@ public class PaymentGatewayService {
 			paymentTransaction.setRefundStatus(""+payment.get("refund_status"));
 			paymentTransaction.setEmail(""+payment.get("email"));
 			paymentTransaction.setNotes(payment.get("notes"));
-			paymentTransaction.setFee(Integer.valueOf("" + payment.get("fee")));
-			paymentTransaction.setTax(Integer.valueOf("" + payment.get("tax")));
+			String fee = ""+payment.get("fee");
+			if(null != fee && !"null".equals(fee)){
+				paymentTransaction.setFee(Integer.valueOf("" + payment.get("fee")));
+			} else {
+				paymentTransaction.setFee(0);
+			}
+			String tax = ""+payment.get("tax");
+			if(null != tax && !"null".equals(tax)){
+				paymentTransaction.setTax(Integer.valueOf("" + payment.get("tax")));
+			} else {
+				paymentTransaction.setTax(0);
+			}
 			paymentTransaction.setErrorCode(""+payment.get("error_code"));
 			paymentTransaction.setErrorDescription(""+payment.get("error_description"));
 			paymentTransaction.setCreatedAt(((Date)payment.get("created_at")).getTime());
