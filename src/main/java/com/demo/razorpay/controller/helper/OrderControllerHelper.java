@@ -42,7 +42,7 @@ public class OrderControllerHelper extends RazorPayController {
             OrderTransactionLocalService.save(orderTransaction);
         }
 
-        return getOrderTransactionDetails(orderTransaction, "color:#ffffff");
+        return getOrderTransactionDetails(orderTransaction, "color:#6c6c6c");
     }
 
     protected String cancelOrderTransaction(String orderTransactionId) throws RazorpayException {
@@ -64,7 +64,7 @@ public class OrderControllerHelper extends RazorPayController {
             OrderTransactionLocalService.save(orderTransaction);
         }
 
-        return getOrderTransactionDetails(orderTransaction, "color:#b7f5a4");
+        return getOrderTransactionDetails(orderTransaction, "color:#209c20");
     }
 
     private String getOrderTransactionDetails(OrderTransaction orderTransaction, String style){

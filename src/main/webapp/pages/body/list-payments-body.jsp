@@ -9,12 +9,12 @@
 %>
 <div style="background-color:#6c6c6c;height:2px;width:100%;">
 </div>
-<div style="color:#000000; border: 4px solid #b7f5a4; background-color:#ffffff; overflow-y:auto; min-height:550px; opacity: 0.90; text-indent:10px;margin-top:2px;">
+<div class="table-list-container">
     <%
     	if(null != paymentTransactions && !paymentTransactions.isEmpty()){
     %>
     <br />
-    <table id="payment-list">
+    <table class="payment-list">
     <thead>
     	<tr>
     		<td>Sl No</td>
@@ -37,7 +37,7 @@
     			<td><a onclick="return popupPaymentDetails('<%= paymentTransaction.getId()%>')"><%= paymentTransaction.getId()%></a></td>
     			<td><a onclick="return popupOrderDetails('<%= paymentTransaction.getOrderId()%>')"><%= paymentTransaction.getOrderId()%></a></td>
     			<td colspan="3" style="width:100px;">
-	    			<a href="../payment/transaction?cmd=delete&payment-transaction-id=<%=paymentTransaction.getId()%>"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:15px;width:40px;border:1px solid #6c6c6c;"/></a>
+	    			<a href="../payment/transaction?cmd=delete&payment-transaction-id=<%=paymentTransaction.getId()%>"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:20px;width:25px;border:0px solid #6c6c6c;"/></a>
     			</td>
     		</tr>
     <%	
@@ -50,8 +50,10 @@
     %>
 </div>
 <div id="popup-wrapper">
+	
 	<div class="popup-container-class" id="popup-container">
 		<img src="../images/cancel-icon.jpg" class="img" id="cancel"/>
+		<!-- <div style="width:100%;height:50px;background-color:#b7f5a4;">Transaction Details</div>  -->
 		<table class="popup-table">
 			<thead id="popup-head">
 				<tr>
@@ -96,6 +98,10 @@
 			success:function(data) {
 				$("#popup-body").html("");
 				$("#popup-body").html(data);
+				$.alert({
+				    title: 'Alert!',
+				    content: 'Simple alert!',
+				});
 				return true;
 			}
 		});
@@ -107,6 +113,10 @@
 			success:function(data) {
 				$("#popup-body").html("");
 				$("#popup-body").html(data);
+				$.alert({
+				    title: 'Alert!',
+				    content: 'Simple alert!',
+				});
 				return true;
 			}
 		});
