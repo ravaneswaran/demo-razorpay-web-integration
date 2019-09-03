@@ -22,7 +22,8 @@
     		<td>Order-ID</td>
     		<!-- <td>Created Date</td>
     		<td>Type</td>
-    		<td>Status</td> -->
+    		 -->
+    		 <td>Status</td>
     		<td colspan="3">Actions</td>
     	</tr>
     </thead>
@@ -36,8 +37,9 @@
     			<td><%= serialNo++ %></td>
     			<td><a onclick="return popupPaymentDetails('<%= paymentTransaction.getId()%>')"><%= paymentTransaction.getId()%></a></td>
     			<td><a onclick="return popupOrderDetails('<%= paymentTransaction.getOrderId()%>')"><%= paymentTransaction.getOrderId()%></a></td>
-    			<td colspan="3" style="width:100px;">
-	    			<a href="../payment/transaction?cmd=delete&payment-transaction-id=<%=paymentTransaction.getId()%>"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:20px;width:25px;border:0px solid #6c6c6c;"/></a>
+    			<td><%= paymentTransaction.getStatus()%></td>
+    			<td colspan="3" style="width:100px;text-align:center;">
+	    			<a href="../payment/transaction?cmd=delete&payment-transaction-id=<%=paymentTransaction.getId()%>" onclick="return deleteTransaction('<%=paymentTransaction.getId()%>')"><img alt="Delete Payment" src="../images/delete-icon.png" style="height:20px;width:25px;border:0px solid #6c6c6c;"/></a>
     			</td>
     		</tr>
     <%	
@@ -70,6 +72,14 @@
 </div>
 
 <script>
+	function deleteTransaction(paymentTransactionId){
+		$.alert({
+		    title: 'Delete Confirmation!',
+		    content: 'Are you sure want to delete?',
+		});
+		return false;
+	}
+
 	function popupPaymentDetails(paymentTransactionId){
 		$.ajax({
 			url:'../payment/transaction?cmd=details&payment-transaction-id='+paymentTransactionId,
@@ -110,6 +120,36 @@
 	function confirmOrder(orderTransactionId){
 		$.ajax({
 			url:'../order/transaction?cmd=confirm&order-transaction-id='+orderTransactionId,
+			success:function(data) {
+				$("#popup-body").html("");
+				$("#popup-body").html(data);
+				$.alert({
+				    title: 'Alert!',
+				    content: 'Simple alert!',
+				});
+				return true;
+			}
+		});
+	}
+	
+	function refundPayment(paymentTransactionId){
+		$.ajax({
+			url:'../payment/transaction?cmd=refund&payment-transaction-id='+paymentTransactionId,
+			success:function(data) {
+				$("#popup-body").html("");
+				$("#popup-body").html(data);
+				$.alert({
+				    title: 'Alert!',
+				    content: 'Simple alert!',
+				});
+				return true;
+			}
+		});
+	}
+	
+	function settlePayment(paymentTransactionId){
+		$.ajax({
+			url:'../payment/transaction?cmd=settle&payment-transaction-id='+paymentTransactionId,
 			success:function(data) {
 				$("#popup-body").html("");
 				$("#popup-body").html(data);

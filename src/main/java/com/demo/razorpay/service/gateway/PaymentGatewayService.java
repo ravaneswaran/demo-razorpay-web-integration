@@ -13,7 +13,7 @@ import java.util.List;
 public class PaymentGatewayService {
 
 	public static void createPaymentTransaction(String paymentId) throws RazorpayException {
-		PaymentTransaction paymentTransaction = PaymentGatewayService.fetchPayment(paymentId);
+		PaymentTransaction paymentTransaction = PaymentGatewayService.fetchPaymentTransaction(paymentId);
 	}
 
 	public static List<PaymentTransaction> listPaymentTransactions() throws RazorpayException {
@@ -50,7 +50,7 @@ public class PaymentGatewayService {
 		return paymentTransactions;
 	}
 
-	public static PaymentTransaction fetchPayment(String paymentId) throws RazorpayException {
+	public static PaymentTransaction fetchPaymentTransaction(String paymentId) throws RazorpayException {
 		RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(),
 				RazorPayProperties.getKeySecret());
 		

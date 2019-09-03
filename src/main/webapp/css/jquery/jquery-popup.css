@@ -69,6 +69,8 @@
     height: 35px;
     text-align: center;
     background-color: #b7f5a4;
+    font-weight: bold;
+    color: #6c6c6c;
 }
 
 .popup-table > thead > tr > td.spacer{

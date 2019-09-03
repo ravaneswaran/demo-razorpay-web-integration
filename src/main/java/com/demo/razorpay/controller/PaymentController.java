@@ -18,6 +18,8 @@ public class PaymentController extends PaymentControllerHelper {
     public static final String DELETE = "delete";
     public static final String SYNC = "sync";
     public static final String DETAILS = "details";
+    public static final String REFUND = "refund";
+    public static final String SETTLE = "settle";
 
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
         String command = request.getParameter(RequestParameter.COMMAND);
@@ -34,6 +36,12 @@ public class PaymentController extends PaymentControllerHelper {
                     break;
                 case DETAILS:
                     paymentTransactionsDetails(request, response);
+                    break;
+                case REFUND:
+                    refundPaymentTransaction(request, response);
+                    break;
+                case SETTLE:
+                    settlePaymentTransaction(request, response);
                     break;
             }
         } catch (RazorpayException e) {
@@ -81,7 +89,35 @@ public class PaymentController extends PaymentControllerHelper {
 
     protected void paymentTransactionsDetails(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
         String paymentTransactionId = request.getParameter(RequestParameter.PAYMENT_TRANSACTION_ID);
-        String paymentTransactionDetails = paymentTransactionsDetails(paymentTransactionId);
+        String paymentTransactionDetails = paymentTransactionDetails(paymentTransactionId);
+        response.setContentType("text/html");
+        try {
+            response.getWriter().print(paymentTransactionDetails);
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            toErrorPage500(request, response);
+            return;
+        }
+    }
+
+    protected void refundPaymentTransaction(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
+        String paymentTransactionId = request.getParameter(RequestParameter.PAYMENT_TRANSACTION_ID);
+        String paymentTransactionDetails = refundPaymentTransaction(paymentTransactionId);
+
+        response.setContentType("text/html");
+        try {
+            response.getWriter().print(paymentTransactionDetails);
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            toErrorPage500(request, response);
+            return;
+        }
+    }
+
+    protected void settlePaymentTransaction(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
+        String paymentTransactionId = request.getParameter(RequestParameter.PAYMENT_TRANSACTION_ID);
+        String paymentTransactionDetails = settlePaymentTransaction(paymentTransactionId);
+
         response.setContentType("text/html");
         try {
             response.getWriter().print(paymentTransactionDetails);
