@@ -18,6 +18,7 @@
     <thead>
     	<tr>
     		<td>Sl No</td>
+    		<td>Description</td>
     		<td>Payment-ID</td>
     		<td>Order-ID</td>
     		<!-- <td>Created Date</td>
@@ -35,6 +36,7 @@
     %>
     		<tr>
     			<td><%= serialNo++ %></td>
+    			<td><%= paymentTransaction.getDescription()%></td>
     			<td><a onclick="return popupPaymentDetails('<%= paymentTransaction.getId()%>')"><%= paymentTransaction.getId()%></a></td>
     			<td><a onclick="return popupOrderDetails('<%= paymentTransaction.getOrderId()%>')"><%= paymentTransaction.getOrderId()%></a></td>
     			<td><%= paymentTransaction.getStatus()%></td>
@@ -76,6 +78,7 @@
 		$.confirm({
 		    title: 'Delete Confirmation!',
 		    content: 'Are you sure want to delete this item ( '+paymentTransactionId+' ) ?',
+		    type: 'red',
 		    buttons: {
 		        confirm: function () {
 		            window.location = '../payment/transaction?cmd=delete&payment-transaction-id='+paymentTransactionId

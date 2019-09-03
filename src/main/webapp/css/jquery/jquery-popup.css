@@ -80,6 +80,11 @@
 	background-color:#ffffff;
 }
 
+.popup-table{
+	width: 100%;
+	border: 0px solid red;
+}
+
 .popup-table > tbody > tr > td{
 	color : #6c6c6c;
 	border: 0px solid #ffffff;
