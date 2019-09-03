@@ -17,7 +17,7 @@ public class OrderController extends OrderControllerHelper {
     private static final Logger LOGGER = Logger.getLogger(OrderController.class.getName());
 
     public static final String NEW = "new";
-    public static final String GET = "get";
+    public static final String GET = "fetch";
     public static final String DELETE = "delete";
     public static final String SYNC = "sync";
     public static final String DETAILS = "details";

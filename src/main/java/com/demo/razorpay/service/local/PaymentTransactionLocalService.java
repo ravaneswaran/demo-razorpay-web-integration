@@ -9,7 +9,7 @@ public class PaymentTransactionLocalService {
 
     private static final PaymentTransactionDAO PAYMENT_TRANSACTION_DAO = new PaymentTransactionDAO();
 
-    public static PaymentTransaction get(String paymentTransactionId){
+    public static PaymentTransaction fetch(String paymentTransactionId){
         return PAYMENT_TRANSACTION_DAO.findBy(paymentTransactionId);
     }
 
