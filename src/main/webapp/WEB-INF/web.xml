@@ -6,6 +6,21 @@
     <display-name>Razorpay Web Integration Demo</display-name>
 
     <servlet>
+        <servlet-name>RegistrationController</servlet-name>
+        <servlet-class>com.demo.razorpay.controller.RegistrationController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>com.demo.razorpay.controller.LoginController</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PasswordController</servlet-name>
+        <servlet-class>com.demo.razorpay.controller.PasswordController</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>OrderController</servlet-name>
         <servlet-class>com.demo.razorpay.controller.OrderController</servlet-class>
     </servlet>
@@ -16,6 +31,21 @@
     </servlet>
 
     <servlet-mapping>
+        <servlet-name>RegistrationController</servlet-name>
+        <url-pattern>/user/registration/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/user/login/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>PasswordController</servlet-name>
+        <url-pattern>/user/password/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
         <servlet-name>OrderController</servlet-name>
         <url-pattern>/order/*</url-pattern>
     </servlet-mapping>
@@ -24,6 +54,10 @@
         <servlet-name>PaymentController</servlet-name>
         <url-pattern>/payment/*</url-pattern>
     </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>/pages/home.jsp</welcome-file>
+    </welcome-file-list>
 
     <error-page>
         <error-code>404</error-code>

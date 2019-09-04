@@ -1,4 +1,12 @@
 package com.demo.razorpay.controller;
 
-public class PasswordController {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class PasswordController extends RazorPayController{
+
+    @Override
+    protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
+
+    }
 }

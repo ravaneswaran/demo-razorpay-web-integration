@@ -11,8 +11,8 @@
             <div class="body-container">
 	            <div class="container">
 					<div class="main">
-						<form id="login-form" class="form" method="post" action="../user/login">
-							<h2>Razorpay Demo : Login</h2>
+						<h2>Razorpay Demo : Login</h2>
+						<form id="login-form" class="form" method="post" action="../user/login">							
 							<label>Email :</label>
 							<input type="text" name="demail" id="email">
 							<label>Password :</label>
@@ -20,7 +20,10 @@
 						</form>
 						<input type="button" name="login" id="login" value="Login" onclick="return submitForm();">
 						<br /><br /><br />
-						<a href="#">Forgot Password</a><a style="float:right;" href="#">Register</a>
+						<a href="#">Forgot Password</a><a style="float:right;" href="../pages/user-registration.jsp">Register</a>
+						<div class="error-message">
+				        	Email and password does not exist in the system
+				        </div>
 					</div>
 				</div>
 			</div>
@@ -31,9 +34,10 @@
                 <jsp:include page="footer/footer.jsp"/>
             </div>
         </div>
+        
         <script type="text/javascript">
-			function submitForm(){
-				alert("submitForm");
+			/* function submitForm(){
+				alert("submitForm"); */
 	        	$("#login-form").submit(function(e){
 					var postData = $(this).serializeArray();
 					var formURL = $(this).attr("action");
@@ -51,7 +55,7 @@
 					e.preventDefault();
 				});
 				$("#login-form").submit();
-			}
+			/* } */
         </script>
     </body>
 </html>

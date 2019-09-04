@@ -63,7 +63,7 @@
 	border-radius: 10px;
 }
 
-.popup-table > thead > tr > td{
+.popup-table > thead > tr > th{
 	border: 2px solid #b7f5a4;
     border-radius: 4px;
     height: 35px;

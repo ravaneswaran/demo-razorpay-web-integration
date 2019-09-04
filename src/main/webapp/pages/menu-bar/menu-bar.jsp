@@ -21,4 +21,17 @@
 	      </ul>
 	   </li>
 	</ul>
+	
+	<!-- <div style="float: right; border: 1px solid #6c6c6c; height: 33px; margin: 0; width: 33px; border-radius:2px;">		
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+		<div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
+	</div> -->
+	
 </div>
