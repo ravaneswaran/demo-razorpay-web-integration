@@ -30,6 +30,11 @@
         <servlet-class>com.demo.razorpay.controller.PaymentController</servlet-class>
     </servlet>
 
+    <!--<servlet>
+        <servlet-name>JspController</servlet-name>
+        <servlet-class>com.demo.razorpay.controller.JspController</servlet-class>
+    </servlet>-->
+
     <servlet-mapping>
         <servlet-name>RegistrationController</servlet-name>
         <url-pattern>/user/registration/*</url-pattern>
@@ -55,8 +60,13 @@
         <url-pattern>/payment/*</url-pattern>
     </servlet-mapping>
 
+    <!--<servlet-mapping>
+        <servlet-name>JspController</servlet-name>
+        <url-pattern>/pages/*</url-pattern>
+    </servlet-mapping>-->
+
     <welcome-file-list>
-        <welcome-file>/pages/home.jsp</welcome-file>
+        <welcome-file>/pages/login.jsp</welcome-file>
     </welcome-file-list>
 
     <error-page>

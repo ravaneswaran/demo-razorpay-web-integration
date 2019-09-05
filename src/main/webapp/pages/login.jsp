@@ -10,8 +10,8 @@
                 <jsp:include page="header/home-header.jsp"/>
             </div>
             <div class="body-container">
-	            <div class="container">
-					<div class="main">
+	            <div class="login-wrapper">
+					<div class="login-container">
 						<h2>Razorpay Demo : Login</h2>
 						<form id="login-form" class="form" method="POST" action="../user/login">							
 							<label>Email :</label>
@@ -22,7 +22,7 @@
 						</form>
 						<br /><br /><br />
 						<a href="#">Forgot Password</a><a style="float:right;" href="../pages/user-registration.jsp">Register</a>
-						<div class="error-message">
+						<div id="error-message" class="error-message">
 				        	Email and password does not exist in the system
 				        </div>
 					</div>
@@ -38,7 +38,6 @@
         
         <script type="text/javascript">
         	$("#login-form").submit(function(event){
-        		alert("hai there...");
 				var formData = $(this).serializeArray();
 				$.ajax({
 		            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
@@ -49,8 +48,12 @@
 		        }).done(function(data) {
 	                // log data to the console so we can see
 	                console.log(data);
-	                if("0" == data)
-	                window.location = '../pages/product-listing.jsp';
+	                if("0" == data){
+	                	window.location = '../pages/product-listing.jsp';
+	                } else {
+	                	$("#error-message").html(data);
+	                	$("#error-message").css('display', 'block');
+	                }
 	                // here we will handle errors and validation messages
 	            });
 				event.preventDefault();
