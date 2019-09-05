@@ -89,19 +89,3 @@ body{
     cursor: pointer;
     text-transform: uppercase;
 }
-
-.error-message{
-	height: 38px;
-    width: 367px;
-    border: 3px solid red;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight:bold;
-    color: #6c6c6c;
-    background-color: #ffffff;
-    text-align: center;
-    margin-top: -383px;
-    margin-left: -24px;
-    display: inline-block;
-    box-shadow: 0 0 5px red;
-}

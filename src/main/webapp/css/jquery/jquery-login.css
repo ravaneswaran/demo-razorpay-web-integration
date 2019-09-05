@@ -23,7 +23,7 @@ div.main {
 	float: left;
 	padding: 10px 55px 40px;
 	background-color: rgba(238, 243, 237, 0.65);
-	border: 10px solid #b7f5a4;
+	border: 4px solid #b7f5a4;
 	box-shadow: 0 0 10px;
 	border-radius: 10px;
 	font-size: 13px;
@@ -53,6 +53,7 @@ label {
 
 #login {
 	width: 311px;
+	height: 40px;
 	background: linear-gradient(#c8ced2 5%, #3a3a3a 100%);
 	border: 2px solid #2a2b2b;
 	border-radius: 5px;
@@ -67,6 +68,22 @@ label {
 
 #login:hover {
 	background: linear-gradient(#3a3a3a 5%, #c8ced2 100%);
+}
+
+.error-message{
+	height: 38px;
+    width: 367px;
+    border: 2px solid red;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight:bold;
+    color: #6c6c6c;
+    background-color: #ffffff;
+    text-align: center;
+    margin-top: -400px;
+    margin-left: -24px;
+    display: inline-block;
+    box-shadow: 0 0 5px red;
 }
 
 .wrapper > .body-container > .container > .main > a{

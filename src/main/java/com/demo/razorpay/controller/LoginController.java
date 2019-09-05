@@ -12,9 +12,10 @@ public class LoginController extends RazorPayController{
 
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("=============================>>>>>>>>>");
+        System.out.println("=============================>>>>>>>>>"+request.getParameter("email"));
+        System.out.println("=============================>>>>>>>>>"+request.getParameter("password"));
         try {
-            response.getWriter().print("success");
+            response.getWriter().print("0");
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
             toErrorPage500(request, response);
