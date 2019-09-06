@@ -8,13 +8,7 @@
    <body>
       <div class="wrapper">
          <div class="header">
-            <div class="caption">
-               Product Listing
-            </div>
-            <div class="background-image"></div>            
-            <div id="cssmenu">
-               <jsp:include page="../pages/menu-bar/menu-bar.jsp"/>
-         	</div>
+         	<jsp:include page="../pages/header/product-listing-header.jsp"/>
          </div>
          <div class="content-panel">
             <jsp:include page="../pages/body/product-listing-body.jsp"/>
@@ -26,20 +20,16 @@
             <jsp:include page="../pages/footer/footer.jsp"/>
          </div>
       </div>
-      <script>
-        	function toggleSelect(id){
-        		var backgroundColor = $(id).css("background-color");
-        		if(backgroundColor == "rgb(255, 255, 255)"){
-        			$(id).css("background-color", "#2ecc71");
-        		} else {
-        			$(id).css("background-color", "#ffffff");
-        		}
-        	}
-        	
-        	function showOrHideInfoBar(id){
-        		$(id).toggle(0);
-        	}
-
-        </script>
+      
+		<script>
+			function showOrHideUserMenu(id){
+				var display = $(id).css("display");
+				if(display == "block"){
+					$(id).css("display", "none");
+				} else {
+					$(id).css("display", "block");
+				}
+			}
+		</script>
    </body>
 </html>
