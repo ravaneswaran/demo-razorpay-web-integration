@@ -1,3 +1,7 @@
+body > div.wrapper > div.content-panel {
+    background-size: 1244px;
+}
+
 body > div.wrapper > div.content-panel > div.user-register-panel{
 	width: 948px;
 	height:auto;

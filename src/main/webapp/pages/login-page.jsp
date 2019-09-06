@@ -1,14 +1,9 @@
 <html>
    <head>
       <title>Razorpay Login</title>
-      <link rel="shortcut icon" type="image/x-icon" href="../../images/rc-icon.png" />
-      <link rel="stylesheet" type="text/css" href="../css/main-like.css">
-      <link rel="stylesheet" type="text/css" href="../css/login-like.css">
-      <script src="../js/jquery/jquery-3.3.1-min.js"></script>
-      <script src="../js/jquery/jquery-confirm-3.3.1-min.js"></script>
-      <script src="../js/jquery/jquery-dataTables-1.10.16-min.js"></script>
-      <script src="../js/jquery/jquery-menu.js"></script>
-      <script src="../js/jquery/jquery-popup.js"></script>
+      <jsp:include page="../pages/css/main-css.jsp"/>
+      <jsp:include page="../pages/css/login/login-css.jsp"/>
+      <jsp:include page="../pages/javascript/main-javascript.jsp"/>
    </head>
    <body>
       <div class="wrapper">
@@ -17,80 +12,18 @@
                Razorpay : Web Integration Demo
             </div>
             <div class="background-image"></div>            
-               <div id="cssmenu">
-                  <ul>
-                     <li><a href='../pages/home.jsp'><span>Home</span></a></li>
-                     <li class='active has-sub'>
-                        <a href='#'><span>Checkout Methods</span></a>
-                        <ul>
-                           <li class='last'><a href='../pages/automatic-checkout.jsp'><span>Automatic Checkout</span></a></li>
-                           <li class='last'><a href='../pages/manual-checkout.jsp'><span>Manual Checkout</span></a>
-                           <li class='last'><a href='#'><span>Subscription</span></a></li>
-                        </ul>
-                     </li>
-                     <li class='active has-sub'>
-                        <a href='#'><span>Listing</span></a>
-                        <ul>
-                           <li class='last'><a href='../pages/list-payments.jsp'><span>Payments</span></a></li>
-                           <li class='last'><a href='../pages/list-payments.jsp'><span>Orders</span></a>
-                        </ul>
-                     </li>
-                     <li class='active has-sub'>
-                        <a href='#'><span>Sync With Gateway</span></a>
-                        <ul>
-                           <li class='last'><a href='../payment/transaction?cmd=sync'><span>Payment Sync</span></a></li>
-                           <li class='last'><a href='../order/transaction?cmd=sync'><span>Order Sync</span></a>
-                        </ul>
-                     </li>
-                  </ul>
-                  <!-- 
-                  	 <div style="float: right; border: 1px solid #6c6c6c; height: 33px; margin: 0; width: 33px; border-radius:2px;">		
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                     <div style="float: left; border: 1px solid #6c6c6c; height: 5px; margin: 2; width: 5px; background-color: #6c6c6c; border-radius: 2px"></div>
-                  -->
-            </div>
+            <div id="cssmenu">
+               <jsp:include page="../pages/menu-bar/menu-bar.jsp"/>
+         	</div>
          </div>
          <div class="content-panel">
-            <div class="login-panel">
-               <div class="login-content">
-				  <div class="login-content-heading">Login</div>               	
-                  <form id="login-form" class="form" method="POST" action="../user/login">							
-                     <label>Email :</label>
-                     <input type="text" name="email" id="email">
-                     <label>Password :</label>
-                     <input type="password" name="password" id="password">
-                     <button type="submit" name="login" id="login">Sign In</button>
-                  </form>
-                  <br /><br /><br />
-                  <a href="#">Forgot Password</a><a style="float:right;" href="../pages/registration-page.jsp">Register</a>
-                  <!-- <div id="error-message" class="error-message">
-                     Email and password does not exist in the system
-                  </div> -->
-               </div>
-            </div>
+            <jsp:include page="../pages/body/login-body.jsp"/>
          </div>
          <div class="sitemap">
-            <ul style="width:75px;">
-               <li><a href="../pages/home.jsp">Home</a></li>
-            </ul>
-            <ul style="width:165px;">
-               <li>Checkout Methods</li>
-               <ul>
-                  <li><a href="../pages/automatic-checkout.jsp">Automatic Checkout</a></li>
-                  <li><a href="../pages/manual-checkout.jsp">Manual Checkout</a></li>
-                  <li><a href="#">Subscription</a></li>
-               </ul>
-            </ul>
+            <jsp:include page="../pages/sitemap/sitemap.jsp"/>
          </div>
          <div class="footer">
-            &copy; 2019 Ravaneswaran Chinnasamy, All Rights Reserved.
+            <jsp:include page="../pages/footer/footer.jsp"/>
          </div>
       </div>
       <script type="text/javascript">
