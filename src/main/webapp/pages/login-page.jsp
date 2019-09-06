@@ -69,7 +69,7 @@
                      <button type="submit" name="login" id="login">Sign In</button>
                   </form>
                   <br /><br /><br />
-                  <a href="#">Forgot Password</a><a style="float:right;" href="../pages/user-registration.jsp">Register</a>
+                  <a href="#">Forgot Password</a><a style="float:right;" href="../pages/registration-page.jsp">Register</a>
                   <!-- <div id="error-message" class="error-message">
                      Email and password does not exist in the system
                   </div> -->
