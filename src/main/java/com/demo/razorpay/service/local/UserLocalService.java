@@ -29,4 +29,8 @@ public class UserLocalService {
     public static User fetchUserBy(String emailId, String password){
         return USER_DAO.findBy(emailId, password);
     }
+
+    public static User fetchUserBy(String emailId){
+        return USER_DAO.findBy(emailId);
+    }
 }

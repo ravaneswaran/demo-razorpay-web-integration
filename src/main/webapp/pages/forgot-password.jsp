@@ -2,16 +2,16 @@
    <head>
       <title>Razorpay Login</title>
       <jsp:include page="../pages/css/main-css.jsp"/>
-      <jsp:include page="../pages/css/login/login-css.jsp"/>
+      <jsp:include page="../pages/css/password/forgot-password-css.jsp"/>
       <jsp:include page="../pages/javascript/main-javascript.jsp"/>
    </head>
    <body>
       <div class="wrapper">
          <div class="header">
-            <jsp:include page="../pages/header/login-header.jsp"/>
+            <jsp:include page="../pages/header/forgot-password-header.jsp"/>
          </div>
          <div class="content-panel">
-            <jsp:include page="../pages/body/login-body.jsp"/>
+            <jsp:include page="../pages/body/forgot-password-body.jsp"/>
          </div>
          <div class="sitemap">
             <jsp:include page="../pages/sitemap/sitemap.jsp"/>

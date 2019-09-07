@@ -1,5 +1,7 @@
 package com.demo.razorpay.controller;
 
+import com.demo.razorpay.RequestParameter;
+import com.demo.razorpay.SessionAttributes;
 import com.demo.razorpay.controller.helper.LoginControllerHelper;
 import com.demo.razorpay.models.User;
 
@@ -17,14 +19,14 @@ public class LoginController extends LoginControllerHelper {
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
         String status = "0";
-        String emailId = request.getParameter("email");
-        String password = request.getParameter("password");
+        String emailId = request.getParameter(RequestParameter.EMAIL);
+        String password = request.getParameter(RequestParameter.PASSWORD);
 
         User registeredUser = this.login(emailId, password);
 
         if(null != registeredUser){
             HttpSession httpSession =  request.getSession(true);
-            httpSession.setAttribute("SESSION-USER", registeredUser);
+            httpSession.setAttribute(SessionAttributes.SESSION_USER, registeredUser);
         } else {
             status = "User not registered in the system";
         }

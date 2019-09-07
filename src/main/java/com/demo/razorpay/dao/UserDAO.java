@@ -24,4 +24,17 @@ public class UserDAO extends AbstractDAO<User>{
             return null;
         }
     }
+
+    public User findBy(String emailId){
+        Query query = this.getEntityManager().createQuery("SELECT u FROM User AS u WHERE u.emailId = :emailId");
+        query.setParameter("emailId", emailId);
+
+        List<User> users = query.getResultList();
+
+        if(!users.isEmpty()){
+            return (User)query.getResultList().get(0);
+        } else {
+            return null;
+        }
+    }
 }

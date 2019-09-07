@@ -1,5 +1,5 @@
 <div class="caption">
-	Product Listing
+	Razorpay Demo : Product Listing
 </div>
 <div class="user-strip">
 	<div class="user-block" onclick="showOrHideUserMenu('#user-dropdown')">Ravaneswaran Chinnasamy
@@ -13,3 +13,14 @@
 <div id="cssmenu">
 	<jsp:include page="../../pages/menu-bar/menu-bar.jsp"/>
 </div>
+
+<script>
+	function showOrHideUserMenu(id){
+		var display = $(id).css("display");
+		if(display == "block"){
+			$(id).css("display", "none");
+		} else {
+			$(id).css("display", "block");
+		}
+	}
+</script>

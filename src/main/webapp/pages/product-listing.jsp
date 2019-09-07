@@ -20,16 +20,5 @@
             <jsp:include page="../pages/footer/footer.jsp"/>
          </div>
       </div>
-      
-		<script>
-			function showOrHideUserMenu(id){
-				var display = $(id).css("display");
-				if(display == "block"){
-					$(id).css("display", "none");
-				} else {
-					$(id).css("display", "block");
-				}
-			}
-		</script>
    </body>
 </html>
