@@ -43,7 +43,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-1')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-1')"/>
 	    	</div>
 	    </div>
 	   
@@ -88,7 +88,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-2')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-2')"/>
 	    	</div>
 	    </div>
 	   
@@ -133,7 +133,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-3')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-3')"/>
 	    	</div>
 	    </div>
 	    
@@ -178,7 +178,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-4')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-4')"/>
 	    	</div>
 	    </div>
 	    
@@ -223,7 +223,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-5')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-5')"/>
 	    	</div>
 	    </div>
 	    
@@ -268,7 +268,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-6')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-6')"/>
 	    	</div>
 	    </div>
 	   
@@ -313,7 +313,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-7')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-7')"/>
 	    	</div>
 	    </div>
 	   
@@ -358,7 +358,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-8')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-8')"/>
 	    	</div>
 	    </div>
 	    
@@ -403,7 +403,7 @@
 	    			</tbody>
 	    		</table>
     			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="showOrHideProductSpec('#product-spec-display-9')"/>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-9')"/>
 	    	</div>
 	    </div>
 	    
@@ -425,6 +425,18 @@
   	}
   	
   	function showOrHideProductSpec(id){
+  		var idPrefix = "#product-spec-display-";
+  		for(var i = 1; i < 10; i++){
+  			var actualId = idPrefix + i;
+  			if(id == actualId){
+  				$(actualId).css("display", "block");
+  			} else {
+  				$(actualId).css("display", "none");
+  			}
+  		}
+  	}
+  	
+  	function closeProductSpec(id){
   		$(id).toggle(0);
   	}
 </script>

@@ -1,5 +1,11 @@
 package com.demo.razorpay.models.products;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "XiaomiMiA3")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class XiaomiMiA3 extends Product{
 
     public XiaomiMiA3(){

@@ -5,6 +5,7 @@
 <web-app>
 
     <display-name>Razorpay Web Integration Demo</display-name>
+    
 
     <!--<filter>
         <filter-name>RequestFilter</filter-name>
@@ -15,6 +16,10 @@
         <filter-name>RequestFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>-->
+
+    <listener>
+        <listener-class>com.demo.razorpay.listeners.RazorpayContextListener</listener-class>
+    </listener>
 
     <servlet>
         <servlet-name>RegistrationController</servlet-name>

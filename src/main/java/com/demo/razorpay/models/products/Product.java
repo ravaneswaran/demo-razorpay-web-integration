@@ -1,6 +1,11 @@
 package com.demo.razorpay.models.products;
 
+import lombok.Data;
+
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -10,6 +15,8 @@ import java.util.UUID;
 
 @XmlRootElement(name = "product")
 @XmlAccessorType(XmlAccessType.FIELD)
+@Entity
+@Data
 public class Product {
 
     @Id
@@ -47,9 +54,11 @@ public class Product {
     private String launchDate;
 
     @XmlElement(name = "createdDate")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
 
     @XmlElement(name = "modifiedDate")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date modifiedDate;
 
     public Product(){
