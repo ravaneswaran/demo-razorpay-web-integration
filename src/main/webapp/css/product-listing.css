@@ -48,20 +48,122 @@ body > div.wrapper > div.content-panel > div.product-panel > div.product-content
     background-color: #ffffff;
     float: left;
     box-shadow: 0 0 5px #ffffff;
+    z-index: 0;
 }
 
 body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-info-slider {
 	width: 45px;
     height: 125px;
-    float: right;
+    float: left;
     border: 1px solid #c6c6c6;
     margin-top: -127px;
-    z-index: 2;
+    z-index: 1;
     background-color: #585757;
     opacity: 0.6;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     display: none;
+}
+
+body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-spec-display {
+	width: 300px;
+    height: 407px;
+    float: left;
+    border: 2px solid #6c6c6c;
+    margin-top: -130px;
+    margin-left: 146px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #000000;
+    color: #6c6c6c;
+    background-color: #ffffff;
+    display: none;
+    z-index: 2;
+    position: absolute;
+}
+
+body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-spec-display > img.close {
+	width: 14px;
+    height: 17px;
+    border: 2px solid #6c6c6c;
+    border-radius: 13px;
+    margin-left: 290px;
+    margin-top: -404px;
+    cursor: pointer;
+}
+
+body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-spec-display > div.product-spec-header {
+	width: 264px;
+    height: 24px;
+    border: 2px solid #6c6c6c;
+    margin: 10px;
+    text-align: center;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #6c6c6c;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0 0 5px #000000;
+}
+
+body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-spec-display > button{
+	width: 121px;
+    height: 30px;
+    border: 2px solid #6c6c6c;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-left: 85px;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: inherit;
+    background: linear-gradient(#7e7f80 5%, #ffffff 100%);
+    cursor: pointer;
+}
+
+body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-spec-display > button:hover{
+	width: 121px;
+    height: 30px;
+    border: 2px solid #6c6c6c;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-left: 85px;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: inherit;
+    background: linear-gradient(#ffffff 5%, #7e7f80 100%);
+    cursor: pointer;
+}
+
+body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-spec-display > table {
+	border: 1px solid #6c6c6c;
+    margin: 10px;
+    width: 282px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+}
+
+body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-spec-display > table > tbody > tr > td.product-spec-property-name {
+	border: 1px solid #6c6c6c;
+	border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 55px;
+    height: 30px;
+    text-align: right;
+    text-indent: 5px;
+    padding-right: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-spec-display > table > tbody > tr > td.product-spec-property-value {
+	border: 1px solid #6c6c6c;
+	border-radius: 3px;
+    font-size: 14px;
+    width: 160px;
+    height: 30px;
+    text-align: left;
+    text-indent: 5px;
 }
 
 body > div.wrapper > div.content-panel > div.product-panel > div.product-content > div.product-outer-div > div.product-info-slider > div.product-info{
@@ -91,5 +193,6 @@ body > div.wrapper > div.content-panel > div.product-panel > div.product-content
 	height: 111px;
     width: 125px;
     border: 0px solid green;
+    z-index: 0;
 }
 
