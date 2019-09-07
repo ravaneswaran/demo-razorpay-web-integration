@@ -14,17 +14,18 @@
     	if(null != paymentTransactions && !paymentTransactions.isEmpty()){
     %>
     <br />
-    <table class="payment-list">
+    <table class="payment-list" id="payment-listing-table">
     <thead>
     	<tr>
-    		<td>Sl No</td>
-    		<td>Payment-ID</td>
-    		<td>Order-ID</td>
+    		<th>Sl No</th>
+    		<th>Description</th>
+    		<th>Payment-ID</th>
+    		<th>Order-ID</th>
     		<!-- <td>Created Date</td>
     		<td>Type</td>
     		 -->
-    		 <td>Status</td>
-    		<td colspan="3">Actions</td>
+    		 <th>Status</td>
+    		<th colspan="3">Actions</th>
     	</tr>
     </thead>
     <tbody>
@@ -35,6 +36,7 @@
     %>
     		<tr>
     			<td><%= serialNo++ %></td>
+    			<td><%= paymentTransaction.getDescription()%></td>
     			<td><a onclick="return popupPaymentDetails('<%= paymentTransaction.getId()%>')"><%= paymentTransaction.getId()%></a></td>
     			<td><a onclick="return popupOrderDetails('<%= paymentTransaction.getOrderId()%>')"><%= paymentTransaction.getOrderId()%></a></td>
     			<td><%= paymentTransaction.getStatus()%></td>
@@ -76,6 +78,7 @@
 		$.confirm({
 		    title: 'Delete Confirmation!',
 		    content: 'Are you sure want to delete this item ( '+paymentTransactionId+' ) ?',
+		    type: 'red',
 		    buttons: {
 		        confirm: function () {
 		            window.location = '../payment/transaction?cmd=delete&payment-transaction-id='+paymentTransactionId

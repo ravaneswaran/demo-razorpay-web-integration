@@ -2,7 +2,7 @@
 	width:100%;
 }
 
-.payment-list > thead > tr > td{
+.payment-list > thead > tr > th{
 	color:#6c6c6c;
 	background-color: #b7f5a4;
 	font-weight: bold;
@@ -39,7 +39,8 @@
 	border: 4px solid #b7f5a4; 
 	background-color:#ffffff; 
 	overflow-y:auto; 
-	min-height:550px; 
+	min-height:550px;
+	height: 550px; 
 	opacity: 0.90; 
 	text-indent:10px;
 	margin-top:2px;

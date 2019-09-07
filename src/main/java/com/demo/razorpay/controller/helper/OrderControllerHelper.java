@@ -56,6 +56,18 @@ public class OrderControllerHelper extends RazorPayController {
         return getOrderTransactionDetails(orderTransaction, "color:#e74c3c");
     }
 
+    protected void cancelOrder(String orderTransactionId) throws RazorpayException {
+
+
+
+        OrderTransaction orderTransaction = OrderTransactionLocalService.get(orderTransactionId);
+
+        if(null == orderTransaction){
+            orderTransaction = OrderGatewayService.fetchOrderTransaction(orderTransactionId);
+            OrderTransactionLocalService.save(orderTransaction);
+        }
+    }
+
     protected String confirmOrderTransaction(String orderTransactionId) throws RazorpayException {
         OrderTransaction orderTransaction = OrderTransactionLocalService.get(orderTransactionId);
 

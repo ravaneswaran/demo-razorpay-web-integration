@@ -22,7 +22,9 @@ public class OrderController extends OrderControllerHelper {
     public static final String SYNC = "sync";
     public static final String DETAILS = "details";
     public static final String CANCEL = "cancel";
+    public static final String CANCEL_ORDER = "cancel-order";
     public static final String CONFIRM = "confirm";
+    public static final String CONFIRM_ORDER = "confirm-order";
 
     private void newOrder(HttpServletRequest request, HttpServletResponse response) {
         String orderId = request.getParameter("order-id");
@@ -97,6 +99,20 @@ public class OrderController extends OrderControllerHelper {
         response.setContentType("text/html");
         try {
             response.getWriter().print(orderTransactionDetails);
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            toErrorPage500(request, response);
+            return;
+        }
+    }
+
+    protected void cancelOrder(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
+        String orderTransactionId = request.getParameter(RequestParameter.ORDER_TRANSACTION_ID);
+        cancelOrder(orderTransactionId);
+
+        response.setContentType("text/html");
+        try {
+            response.getWriter().print("Order cancelled successfully...");
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
             toErrorPage500(request, response);

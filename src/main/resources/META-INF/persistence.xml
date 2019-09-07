@@ -6,6 +6,7 @@
 
         <class>com.demo.razorpay.models.OrderTransaction</class>
         <class>com.demo.razorpay.models.PaymentTransaction</class>
+        <class>com.demo.razorpay.models.User</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver" />

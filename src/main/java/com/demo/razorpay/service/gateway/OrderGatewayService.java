@@ -70,6 +70,29 @@ public class OrderGatewayService {
         return razorpayOrder;
     }
 
+    public static OrderTransaction cancelOrder(String orderId) throws RazorpayException {
+
+        RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(), RazorPayProperties.getKeySecret());
+
+        Order oldOrder = razorpayClient.Orders.fetch(orderId);
+
+        OrderTransaction razorpayOrder = new OrderTransaction();
+        razorpayOrder.setAmount(Integer.valueOf("" + oldOrder.get("amount")));
+        razorpayOrder.setAmountPaid(Integer.valueOf("" + oldOrder.get("amount_paid")));
+        razorpayOrder.setNotes(oldOrder.get("notes"));
+        razorpayOrder.setCreatedAt(((Date) oldOrder.get("created_at")).getTime());
+        razorpayOrder.setAmountDue(Integer.valueOf("" + oldOrder.get("amount_due")));
+        razorpayOrder.setCurrency(String.valueOf(oldOrder.get("currency")));
+        razorpayOrder.setReceipt(String.valueOf(oldOrder.get("receipt")));
+        razorpayOrder.setId(String.valueOf(oldOrder.get("id")));
+        razorpayOrder.setEntity(String.valueOf(oldOrder.get("entity")));
+        razorpayOrder.setOfferId(oldOrder.get("offer_id"));
+        razorpayOrder.setStatus(String.valueOf(oldOrder.get("status")));
+        razorpayOrder.setAmountDue(Integer.valueOf("" + oldOrder.get("attempts")));
+
+        return razorpayOrder;
+    }
+
     public static List<OrderTransaction> listOrderTransactions() throws RazorpayException {
         RazorpayClient razorpayClient = new RazorpayClient(RazorPayProperties.getKeyId(),
                 RazorPayProperties.getKeySecret());
