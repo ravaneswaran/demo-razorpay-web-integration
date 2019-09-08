@@ -23,6 +23,29 @@ body > div.wrapper > div.header > div.user-strip {
     border-top: 4px solid #6c6c6c;
 }
 
+body > div.wrapper > div.header > div.user-strip > div.page-box {
+	float: right;
+    border: 0px solid #6c6c6c;
+    height: 27px;
+    margin: 0;
+    width: 27px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-top: 1px;
+    box-shadow: 0 0 5px #000000;
+    cursor: pointer;
+}
+
+body > div.wrapper > div.header > div.user-strip > div.page-box > div.page {
+	float: left; 
+	border: 0px solid #6c6c6c; 
+	height: 5px; 
+	margin: 2; 
+	width: 5px; 
+	background-color: #6c6c6c; 
+	border-radius: 2px
+}
+
 body > div.wrapper > div.header > div.user-strip > div.user-welcome {
 	border: 0px solid red;
     width: 72px;

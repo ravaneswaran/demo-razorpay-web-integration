@@ -9,7 +9,7 @@
            <button type="submit" name="login" id="login">Sign In</button>
         </form>
         <div class="link-section">
-        	<a href="../pages/forgot-password.jsp">Forgot Password</a><a style="float:right;" href="../pages/registration-page.jsp">Register</a>
+        	<a href="../pages/forgot-password.jsp">Forgot Password</a><a style="float:right;" href="../pages/user-registration.jsp">Register</a>
         </div>
         <div id="error-message-box" class="error-message-box">
 			<div id="error-message" class="error-message">Error Message</div>

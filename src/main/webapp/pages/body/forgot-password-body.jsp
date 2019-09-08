@@ -3,7 +3,7 @@
 		<div class="forgot-password-content-heading">Forgot Password</div>               	
         <form id="forgot-password-form" class="form" method="POST" action="../user/password?cmd=forgot-password">							
            <label>Your email-id Please...</label>
-           <input type="text" name="email" id="email">
+           <input type="text" name="email" id="email" class="mandatory">
            <button type="submit" name="forgot-password" id="forgot-password">Get My Password</button>
         </form>
         <div id="forgot-password-response" class="forgot-password-response"></div>
@@ -22,11 +22,13 @@
     }).done(function(data) {
            // log data to the console so we can see
            console.log(data);
-           if('-1' == data){
+           /* if('-1' == data){
         	   $("#forgot-password-response").html("Sorry!!! you are yet to register...");
            } else {
         	   $("#forgot-password-response").html("Your password is : " + data);
-           }
+           } */
+           $("#forgot-password-response").html("");
+           $("#forgot-password-response").html(data);
            $("#forgot-password-response").css('display', 'block');
            // here we will handle errors and validation messages
        });

@@ -30,15 +30,15 @@ public class PasswordController extends PasswordControllerHelper {
         String password = getUserPassword(email);
         try {
             if(null != password) {
-                String loginLink = String.format("<a href=\"%s\">( Use this password here... )</a>", "../pages/login.jsp");
+                String loginLink = String.format("Your password is : %s <a href=\"%s\">( Use this password here... )</a>", password, "../pages/login.jsp");
 
                 StringBuffer responseBuffer = new StringBuffer();
-                responseBuffer.append(password);
                 responseBuffer.append(loginLink);
 
                 response.getWriter().println(responseBuffer.toString());
             } else {
-                response.getWriter().print("-1");
+                String registerLink = String.format("Sorry!!! You are yet to register... <a href=\"%s\">( Go here... )</a>", "../pages/user-registration.jsp");
+                response.getWriter().print(registerLink);
             }
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
