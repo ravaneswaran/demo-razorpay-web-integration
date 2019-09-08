@@ -1,15 +1,20 @@
 <div class="login-panel">
 	<div class="login-content">
-		<div class="login-content-heading">Login</div>               	
+		<div class="login-content-heading">Login</div>
         <form id="login-form" class="form" method="POST" action="../user/login">							
            <label>Email :</label>
-           <input type="text" name="email" id="email">
+           <input type="text" name="email" id="email" class="mandatory">
            <label>Password :</label>
-           <input type="password" name="password" id="password">
+           <input type="password" name="password" id="password" class="mandatory">
            <button type="submit" name="login" id="login">Sign In</button>
         </form>
-        <br /><br /><br />
-        <a href="../pages/forgot-password.jsp">Forgot Password</a><a style="float:right;" href="../pages/registration-page.jsp">Register</a>
+        <div class="link-section">
+        	<a href="../pages/forgot-password.jsp">Forgot Password</a><a style="float:right;" href="../pages/registration-page.jsp">Register</a>
+        </div>
+        <div id="error-message-box" class="error-message-box">
+			<div id="error-message" class="error-message">Error Message</div>
+			<img src="../images/cancel-icon.jpg" class="close" onclick="closeErrorMessageBox('#error-message-box')"/>
+		</div>
     </div>
 </div>
 
@@ -35,4 +40,9 @@
        });
    event.preventDefault();
    });
+   
+   
+	function closeErrorMessageBox(id){
+		$(id).css('display','none');
+	}
 </script>

@@ -23,7 +23,7 @@
            // log data to the console so we can see
            console.log(data);
            if('-1' == data){
-        	   $("#forgot-password-response").html("Sorry!!! your are yet to register...");
+        	   $("#forgot-password-response").html("Sorry!!! you are yet to register...");
            } else {
         	   $("#forgot-password-response").html("Your password is : " + data);
            }

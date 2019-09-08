@@ -11,6 +11,12 @@ public class UserLocalService {
 
     public static int registerUser(String firstName, String middleInitial, String lastName, String emailId, String password){
 
+        User testUser = fetchUserBy(emailId);
+
+        if(null != testUser){
+            return -1;
+        }
+
         String id = UUID.randomUUID().toString();
 
         User user = new User();
