@@ -1,3 +1,5 @@
+<%@ include file="../pages/redirect-to-login-if-no-session.jsp" %>
+
 <html>
    <head>
       <title>Product Listing</title>

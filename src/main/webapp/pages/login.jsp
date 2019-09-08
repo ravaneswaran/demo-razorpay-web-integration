@@ -1,3 +1,5 @@
+<%@ include file="../pages/redirect-to-product-listing-if-session-exists.jsp" %>
+
 <html>
    <head>
       <title>Razorpay Login</title>

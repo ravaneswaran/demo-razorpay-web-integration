@@ -1,7 +1,7 @@
 package com.demo.razorpay.service.local;
 
 import com.demo.razorpay.dao.ProductDAO;
-import com.demo.razorpay.models.products.Product;
+import com.demo.razorpay.models.Product;
 
 import java.util.List;
 
@@ -19,5 +19,9 @@ public class ProductLocalService {
 
     public static void deRegisterProduct(Product product){
         PRODUCT_DAO.delete(product);
+    }
+
+    public static void deRegisterProductUsingId(String id){
+        PRODUCT_DAO.deleteById(id);
     }
 }

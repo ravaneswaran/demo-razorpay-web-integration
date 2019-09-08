@@ -26,11 +26,20 @@ public class UserLocalService {
         return 0;
     }
 
+    public static int registerAdminUser(User adminUser){
+        USER_DAO.save(adminUser);
+        return 0;
+    }
+
     public static User fetchUserBy(String emailId, String password){
         return USER_DAO.findBy(emailId, password);
     }
 
     public static User fetchUserBy(String emailId){
         return USER_DAO.findBy(emailId);
+    }
+
+    public static int deRegisterUserById(String id) {
+        return USER_DAO.deleteById(id);
     }
 }

@@ -1,6 +1,8 @@
 package com.demo.razorpay.models.products;
 
-public class MotorolaOnePower extends Product{
+import com.demo.razorpay.models.Product;
+
+public class MotorolaOnePower extends Product {
 
     public MotorolaOnePower(){
         super();

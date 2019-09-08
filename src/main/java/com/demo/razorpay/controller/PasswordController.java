@@ -30,7 +30,13 @@ public class PasswordController extends PasswordControllerHelper {
         String password = getUserPassword(email);
         try {
             if(null != password) {
-                response.getWriter().println(password);
+                String loginLink = String.format("<a href=\"%s\">( Use this password here... )</a>", "../pages/login.jsp");
+
+                StringBuffer responseBuffer = new StringBuffer();
+                responseBuffer.append(password);
+                responseBuffer.append(loginLink);
+
+                response.getWriter().println(responseBuffer.toString());
             } else {
                 response.getWriter().print("-1");
             }

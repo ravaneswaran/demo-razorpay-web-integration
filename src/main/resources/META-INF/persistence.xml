@@ -7,7 +7,7 @@
         <class>com.demo.razorpay.models.OrderTransaction</class>
         <class>com.demo.razorpay.models.PaymentTransaction</class>
         <class>com.demo.razorpay.models.User</class>
-        <class>com.demo.razorpay.models.products.Product</class>
+        <class>com.demo.razorpay.models.Product</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver" />

@@ -37,4 +37,18 @@ public class UserDAO extends AbstractDAO<User>{
             return null;
         }
     }
+
+    public User findById(String id){
+        return this.getEntityManager().find(User.class, id);
+    }
+
+    public int deleteById(String id){
+        User user = this.findById(id);
+        if(null != user) {
+            this.delete(user);
+            return 0;
+        } else {
+            throw new IllegalArgumentException(String.format("Null entity found for id '%s'", id));
+        }
+    }
 }

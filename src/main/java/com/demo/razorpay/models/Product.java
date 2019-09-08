@@ -1,11 +1,8 @@
-package com.demo.razorpay.models.products;
+package com.demo.razorpay.models;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -63,6 +60,12 @@ public class Product {
 
     public Product(){
         this.setId(UUID.randomUUID().toString());
+        this.setCreatedDate(new Date());
+        this.setModifiedDate(new Date());
+    }
+
+    public Product(String id){
+        this.setId(id);
         this.setCreatedDate(new Date());
         this.setModifiedDate(new Date());
     }

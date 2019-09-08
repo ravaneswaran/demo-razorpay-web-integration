@@ -1,7 +1,6 @@
 <div class="product-panel">
 	<div class="product-content">
 		<div class="product-content-heading">Product Listing</div>  
-		
 		<div class="product-outer-div" id="1">
 	    	<div class="product-inner-div">
 	    		<img class="product-image" src="../images/products/xiaomi-redmi-7.jpeg" onclick="toggleSelect('#1')" onmouseenter="showOrHideInfoBar('#1-1')" onmouseleave="showOrHideInfoBar('#1-1')"/>
@@ -406,7 +405,7 @@
 	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-9')"/>
 	    	</div>
 	    </div>
-	    
+	    <button type="submit">Checkout</button>
 	</div>
 </div>
 
