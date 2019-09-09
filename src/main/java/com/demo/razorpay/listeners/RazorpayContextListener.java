@@ -30,6 +30,7 @@ public class RazorpayContextListener implements ServletContextListener {
 
         try {
             UserLocalService.deRegisterUserById("0");
+            UserLocalService.deRegisterUserById("1");
         } catch(IllegalArgumentException iae){
             LOGGER.severe(iae.getMessage());
         }
@@ -42,7 +43,16 @@ public class RazorpayContextListener implements ServletContextListener {
         adminUser.setEmailId("admin@demo.com");
         adminUser.setPassword("admin");
 
+        User user = new User();
+        user.setId("1");
+        user.setFirstName("Ravaneswaran");
+        user.setMiddleInitial("");
+        user.setLastName("Chinnasamy");
+        user.setEmailId("ravaneswaran@gmail.com");
+        user.setPassword("welcome");
+
         UserLocalService.registerAdminUser(adminUser);
+        UserLocalService.registerAdminUser(user);
 
         LOGGER.info("<<<<------- Registering Admin User(s)  completed. ------->>>>");
     }

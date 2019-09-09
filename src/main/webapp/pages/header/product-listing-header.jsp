@@ -14,6 +14,9 @@
 	%>
 	<div class="user-block" onclick="showOrHideUserMenu('#user-dropdown')"><%= sessionUser.getFirstName() + " " + sessionUser.getLastName() %>
 		<div id="user-dropdown" class="user-dropdown">
+			<a href="#">Change Password</a>
+			<a href="#">Order Listing</a>
+			<div class="separator"></div>
 			<a href="../user/logout">Logout</a>
 		</div>
 	</div>

@@ -4,6 +4,7 @@ import com.demo.razorpay.RequestParameter;
 import com.demo.razorpay.SessionAttributes;
 import com.demo.razorpay.controller.helper.LoginControllerHelper;
 import com.demo.razorpay.models.User;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,25 +19,63 @@ public class LoginController extends LoginControllerHelper {
 
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
-        String status = "0";
+
+        System.out.println("---------------------------------------------");
+
         String emailId = request.getParameter(RequestParameter.EMAIL);
         String password = request.getParameter(RequestParameter.PASSWORD);
 
-        User registeredUser = this.login(emailId, password);
+        int status = validateRequestParameters(emailId, password);
 
-        if(null != registeredUser){
-            HttpSession httpSession =  request.getSession(true);
-            httpSession.setAttribute(SessionAttributes.SESSION_USER, registeredUser);
+        if(0 == status) {
+            User registeredUser = this.login(emailId, password);
+
+            if (null != registeredUser) {
+                HttpSession httpSession = request.getSession(true);
+                httpSession.setAttribute(SessionAttributes.SESSION_USER, registeredUser);
+                try {
+                    response.getWriter().print("0");
+                } catch (IOException e) {
+                    LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                    toErrorPage500(request, response);
+                    return;
+                }
+            } else {
+                try {
+                    response.getWriter().print("You are yet to register...");
+                } catch (IOException e) {
+                    LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                    toErrorPage500(request, response);
+                    return;
+                }
+            }
         } else {
-            status = "User not registered in the system";
+            try {
+                switch(status) {
+                    case -1:
+                        response.getWriter().print("Your email id cannot be blank...");
+                        break;
+                    case -2:
+                        response.getWriter().print("Your password cannot be blank");
+                        break;
+                }
+            } catch (IOException e) {
+                LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                toErrorPage500(request, response);
+                return;
+            }
+        }
+    }
+
+    protected int validateRequestParameters(String emailId, String password){
+        if(StringUtils.isEmpty(emailId)){
+            return -1;
         }
 
-        try {
-            response.getWriter().print(status);
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, e.getMessage(), e);
-            toErrorPage500(request, response);
-            return;
+        if(StringUtils.isEmpty(password)){
+            return -2;
         }
+
+        return 0;
     }
 }
