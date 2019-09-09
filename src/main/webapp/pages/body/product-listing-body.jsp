@@ -110,15 +110,6 @@
   			});
   		}
 	}
-	
-  	function toggleSelect(id){
-  		var backgroundColor = $(id).css("background-color");
-  		if(backgroundColor == "rgb(255, 255, 255)"){
-  			$(id).css("background-color", "#2ecc71");
-  		} else {
-  			$(id).css("background-color", "#ffffff");
-  		}
-  	}
   	
   	function showOrHideInfoBar(id){
   		$(id).toggle(0);
