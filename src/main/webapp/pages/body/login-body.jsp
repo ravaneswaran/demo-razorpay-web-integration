@@ -1,15 +1,20 @@
 <div class="login-panel">
 	<div class="login-content">
-		<div class="login-content-heading">Login</div>               	
+		<div class="login-content-heading">Login</div>
         <form id="login-form" class="form" method="POST" action="../user/login">							
            <label>Email :</label>
-           <input type="text" name="email" id="email">
+           <input type="text" name="email" id="email" class="mandatory">
            <label>Password :</label>
-           <input type="password" name="password" id="password">
+           <input type="password" name="password" id="password" class="mandatory">
            <button type="submit" name="login" id="login">Sign In</button>
         </form>
-        <br /><br /><br />
-        <a href="../pages/forgot-password.jsp">Forgot Password</a><a style="float:right;" href="../pages/registration-page.jsp">Register</a>
+        <div class="link-section">
+        	<a href="../pages/forgot-password.jsp">Forgot Password</a><a style="float:right;" href="../pages/user-registration.jsp">Register</a>
+        </div>
+        <div id="error-message-box" class="error-message-box">
+			<div id="error-message" class="error-message"></div>
+			<img src="../images/cancel-icon.jpg" class="close" onclick="closeErrorMessageBox('#error-message-box')"/>
+		</div>
     </div>
 </div>
 
@@ -26,13 +31,19 @@
            // log data to the console so we can see
            console.log(data);
            if("0" == data){
-           	window.location = '../pages/product-listing.jsp';
+           		window.location = '../pages/product-listing.jsp';
            } else {
-           	$("#error-message").html(data);
-           	$("#error-message").css('display', 'block');
+				$("#error-message").html("");
+				$("#error-message").html(data);
+				$("#error-message-box").css('display', 'block');
            }
            // here we will handle errors and validation messages
        });
    event.preventDefault();
    });
+   
+   
+	function closeErrorMessageBox(id){
+		$(id).css('display','none');
+	}
 </script>

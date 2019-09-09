@@ -2,12 +2,14 @@ package com.demo.razorpay.models;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.UUID;
 
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -28,11 +30,16 @@ public class User {
     @XmlElement(name = "last_name")
     private String lastName;
 
+    @Column(unique=true)
     @XmlElement(name = "email_id")
     private String emailId;
 
     @XmlElement(name = "password")
     private String password;
+
+    public User(){
+        this.setId(UUID.randomUUID().toString());
+    }
 
     public String getId() {
         return id;

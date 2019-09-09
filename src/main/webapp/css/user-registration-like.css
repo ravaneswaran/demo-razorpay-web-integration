@@ -26,6 +26,43 @@ body > div.wrapper > div.content-panel > div.user-register-panel > div.user-regi
     height: 611px;
 }
 
+body > div.wrapper > div.content-panel > div.user-register-panel > div.user-register-content > div.error-message-box {
+	width: 432px;
+    height: 24px;
+    border: 2px solid red;
+    margin-top: -570px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 3px;
+    margin-left: 15px;
+    border-left: 10px solid red;
+    display: none;
+}
+
+body > div.wrapper > div.content-panel > div.user-register-panel > div.user-register-content >  div.error-message-box > div.error-message {
+	width: 397px;
+    height: 24px;
+    border: 0px solid red;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-top: -2px;
+    padding: 2px;
+    text-indent: 15px;
+}
+
+body > div.wrapper > div.content-panel > div.user-register-panel > div.user-register-content > div.error-message-box > img.close {
+	width: 18px;
+    height: 19px;
+    border: 2px solid #6c6c6c;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    margin-top: -25px;
+    box-shadow: 0 0 5px #000000;
+}
+
 body > div.wrapper > div.content-panel > div.user-register-panel >div.user-register-content >  div.user-register-content-heading {
 	border: 4px solid #b7f5a4;
     width: 237px;
@@ -48,6 +85,10 @@ body > div.wrapper > div.content-panel > div.user-register-panel >div.user-regis
 body > div.wrapper > div.content-panel > div.user-register-panel >div.user-register-content > form > label {
 	margin-left: 55px;
     font-size: 16px;
+}
+
+body > div.wrapper > div.content-panel > div.user-register-panel >div.user-register-content > form > input.mandatory{
+	border-right: 4px solid red;
 }
 
 body > div.wrapper > div.content-panel > div.user-register-panel >div.user-register-content > form > input[type=text]{
@@ -76,7 +117,7 @@ body > div.wrapper > div.content-panel > div.user-register-panel >div.user-regis
 	width: 262px;
     height: 40px;
     border: 4px solid #6c6c6c;
-    border-radius: 11px;
+    border-radius: 4px;
     margin-top: 15px;
     margin-left: 97px;
     background-color: #ffffff;

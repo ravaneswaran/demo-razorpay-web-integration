@@ -1,13 +1,29 @@
+<%@page import="com.demo.razorpay.SessionAttributes"%>
+<%@page import="com.demo.razorpay.models.User"%>
+
+<%
+	User sessionUser = (User)request.getSession().getAttribute(SessionAttributes.SESSION_USER);
+%>
+
 <div class="caption">
 	Razorpay Demo : Product Listing
 </div>
 <div class="user-strip">
-	<div class="user-block" onclick="showOrHideUserMenu('#user-dropdown')">Ravaneswaran Chinnasamy
+	<%
+		if(null != sessionUser){
+	%>
+	<div class="user-block" onclick="showOrHideUserMenu('#user-dropdown')"><%= sessionUser.getFirstName() + " " + sessionUser.getLastName() %>
 		<div id="user-dropdown" class="user-dropdown">
-			<a href="#">Logout</a>
+			<a href="#">Change Password</a>
+			<a href="#">Order Listing</a>
+			<div class="separator"></div>
+			<a href="../user/logout">Logout</a>
 		</div>
 	</div>
 	<div class="user-welcome">Welcome</div>
+	<%
+		}
+	%>
 </div>
 <div class="background-image"></div>            
 <div id="cssmenu">
@@ -24,3 +40,4 @@
 		}
 	}
 </script>
+

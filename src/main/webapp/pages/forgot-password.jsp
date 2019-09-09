@@ -1,6 +1,6 @@
 <html>
    <head>
-      <title>Razorpay Login</title>
+      <title>Forgot Password</title>
       <jsp:include page="../pages/css/main-css.jsp"/>
       <jsp:include page="../pages/css/password/forgot-password-css.jsp"/>
       <jsp:include page="../pages/javascript/main-javascript.jsp"/>
