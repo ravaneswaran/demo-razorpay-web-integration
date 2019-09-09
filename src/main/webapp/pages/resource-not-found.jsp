@@ -8,13 +8,7 @@
    <body>
       <div class="wrapper">
          <div class="header">
-            <div class="caption">
-               Razorpay Demo : HTTP Status 404
-            </div>
-            <div class="background-image"></div>            
-            <div id="cssmenu">
-               <jsp:include page="../pages/menu-bar/menu-bar.jsp"/>
-         	</div>
+            <jsp:include page="../pages/header/resource-not-found-header.jsp"/>
          </div>
          <div class="content-panel">
             <jsp:include page="../pages/body/http-status/404-body.jsp"/>
