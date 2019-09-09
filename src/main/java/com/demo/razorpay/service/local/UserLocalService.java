@@ -32,7 +32,7 @@ public class UserLocalService {
         return 0;
     }
 
-    public static int registerAdminUser(User adminUser){
+    public static int registerUser(User adminUser){
         USER_DAO.save(adminUser);
         return 0;
     }
