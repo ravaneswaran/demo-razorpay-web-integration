@@ -20,8 +20,6 @@ public class LoginController extends LoginControllerHelper {
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
 
-        System.out.println("---------------------------------------------");
-
         String emailId = request.getParameter(RequestParameter.EMAIL);
         String password = request.getParameter(RequestParameter.PASSWORD);
 
