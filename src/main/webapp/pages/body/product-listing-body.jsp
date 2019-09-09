@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.demo.razorpay.models.session.Cart"%>
 <%@page import="com.demo.razorpay.SessionAttributes"%>
 <%@page import="com.demo.razorpay.models.Product"%>
@@ -7,7 +8,10 @@
 
 <%
 	Cart cart = (Cart)session.getAttribute(SessionAttributes.SESSION_CART);
-	List<String> productIdsFromCart = cart.getProductIds(); 
+	List<String> productIdsFromCart = new ArrayList<>();
+	if(null != cart){
+		productIdsFromCart = cart.getProductIds();
+	}
 
 	List<Product> products = ProductLocalService.fetchAllProducts();
 %>
