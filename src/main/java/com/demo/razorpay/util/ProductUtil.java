@@ -9,13 +9,14 @@ public class ProductUtil {
 
     private static final Logger LOGGER = Logger.getLogger(ProductUtil.class.getName());
 
-    public static final void registerProduct(String id, int rowId, String name, long price, String performance, String display, String storage, String camera, String battery, String ram, String launchDate, String imageLocation){
+    public static final void registerProduct(String id, int rowId, String name, long price, String displayPrice, String performance, String display, String storage, String camera, String battery, String ram, String launchDate, String imageLocation){
         Product product = new Product();
 
         product.setId(id);
         product.setRowId(rowId);
         product.setName(name);
         product.setPrice(price);
+        product.setFormattedPrice(displayPrice);
         product.setPerformance(performance);
         product.setDisplay(display);
         product.setStorage(storage);

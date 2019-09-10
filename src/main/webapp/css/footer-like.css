@@ -8,3 +8,15 @@ body > div.wrapper > div.footer {
     font-size: 15px;
     font-weight: bold;
 }
+
+body > div.wrapper > div.footer > div.copyright {
+    width:200px;
+    height:20px;
+    background-color: #b7f5a4;
+    color: #6c6c6c;
+    border-radius: 0px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid red;
+}

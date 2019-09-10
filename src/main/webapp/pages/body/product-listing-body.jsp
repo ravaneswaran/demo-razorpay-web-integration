@@ -45,7 +45,7 @@
 	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value"><%= product.getName() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value"><%= product.getPrice() %></td>
+	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value"><%= product.getFormattedPrice() %></td>
 	    				</tr>
 	    				<tr>
 	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value"><%= product.getPerformance() %></td>

@@ -29,6 +29,9 @@ public class Product {
     @XmlElement(name = "price")
     private long price;
 
+    @XmlElement(name = "formattedPrice")
+    private String formattedPrice;
+
     @XmlElement(name = "performance")
     private String performance;
 
@@ -104,6 +107,14 @@ public class Product {
 
     public void setPrice(long price) {
         this.price = price;
+    }
+
+    public String getFormattedPrice() {
+        return formattedPrice;
+    }
+
+    public void setFormattedPrice(String formattedPrice) {
+        this.formattedPrice = formattedPrice;
     }
 
     public String getPerformance() {
