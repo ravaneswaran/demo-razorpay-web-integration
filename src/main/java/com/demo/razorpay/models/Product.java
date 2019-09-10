@@ -50,6 +50,10 @@ public class Product {
     @XmlElement(name = "launchDate")
     private String launchDate;
 
+    @Transient
+    @XmlElement(name = "imageLocation")
+    private String imageLocation;
+
     @XmlElement(name = "createdDate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
@@ -156,6 +160,14 @@ public class Product {
 
     public void setLaunchDate(String launchDate) {
         this.launchDate = launchDate;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
     }
 
     public Date getCreatedDate() {

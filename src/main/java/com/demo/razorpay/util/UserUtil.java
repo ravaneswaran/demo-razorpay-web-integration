@@ -3,23 +3,29 @@ package com.demo.razorpay.util;
 import com.demo.razorpay.models.User;
 import com.demo.razorpay.service.local.UserLocalService;
 
+import java.util.Date;
 import java.util.logging.Logger;
 
 public class UserUtil {
 
     private static final Logger LOGGER = Logger.getLogger(UserUtil.class.getName());
 
-    public static final int registerUser(String id, String firstName, String middleInitial, String lastName, String emailId, String password){
+    public static final int registerUser(String id, String firstName, String middleInitial, String lastName, String emailId, String password, String type){
 
-        User adminUser = new User();
-        adminUser.setId(id);
-        adminUser.setFirstName(firstName);
-        adminUser.setMiddleInitial(middleInitial);
-        adminUser.setLastName(lastName);
-        adminUser.setEmailId(emailId);
-        adminUser.setPassword(password);
+        User user = new User();
+        user.setId(id);
+        user.setFirstName(firstName);
+        user.setMiddleInitial(middleInitial);
+        user.setLastName(lastName);
+        user.setEmailId(emailId);
+        user.setPassword(password);
+        user.setType(type);
 
-        return UserLocalService.registerUser(adminUser);
+        Date date = new Date();
+        user.setCreatedDate(date);
+        user.setModifiedDate(date);
+
+        return UserLocalService.registerUser(user);
 
     }
 

@@ -9,7 +9,7 @@ public class ProductUtil {
 
     private static final Logger LOGGER = Logger.getLogger(ProductUtil.class.getName());
 
-    public static final void registerProduct(String id, int rowId, String name, long price, String performance, String display, String storage, String camera, String battery, String ram, String launchDate){
+    public static final void registerProduct(String id, int rowId, String name, long price, String performance, String display, String storage, String camera, String battery, String ram, String launchDate, String imageLocation){
         Product product = new Product();
 
         product.setId(id);
@@ -23,6 +23,7 @@ public class ProductUtil {
         product.setBattery(battery);
         product.setRam(ram);
         product.setLaunchDate(launchDate);
+        product.setImageLocation(imageLocation);
 
         ProductLocalService.registerProduct(product);
     }

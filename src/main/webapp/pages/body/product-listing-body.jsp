@@ -32,7 +32,7 @@
 		%>
 		<div class="product-outer-div" id="<%= id %>" style="background-color: <%= backgroundColor%>">
 	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/xiaomi-redmi-7.jpeg" onclick="addToOrRemoveFromCart('#<%= id %>', '<%= id %>')" onmouseenter="showOrHideInfoBar('#<%= productInfoSliderId %>')" onmouseleave="showOrHideInfoBar('#<%= productInfoSliderId %>')"/>
+	    		<img class="product-image" src="<%= product.getImageLocation() %>" onclick="addToOrRemoveFromCart('#<%= id %>', '<%= id %>')" onmouseenter="showOrHideInfoBar('#<%= productInfoSliderId %>')" onmouseleave="showOrHideInfoBar('#<%= productInfoSliderId %>')"/>
 	    	</div>
 	    	<div class="product-info-slider" id="<%= productInfoSliderId %>" onclick="showOrHideProductSpec('#<%= productSpecDisplayId %>')" onmouseenter="showOrHideInfoBar('#<%= productInfoSliderId %>')" onmouseleave="showOrHideInfoBar('#<%= productInfoSliderId %>')">
 	    		<div class="product-info"></div>
