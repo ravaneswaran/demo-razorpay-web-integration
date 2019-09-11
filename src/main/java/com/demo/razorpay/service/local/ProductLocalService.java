@@ -28,4 +28,8 @@ public class ProductLocalService {
     public static final Product fetchById(String productId){
         return PRODUCT_DAO.findById(productId);
     }
+
+    public static boolean hasProducts() {
+        return !fetchAllProducts().isEmpty();
+    }
 }

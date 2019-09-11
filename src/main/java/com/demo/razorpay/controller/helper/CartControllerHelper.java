@@ -86,14 +86,14 @@ public class CartControllerHelper extends RazorPayController {
 
                         LOGGER.info(String.format("Registering (order : product) = (%s : %s) in table ORDER_PRODUCT_JOIN", newOrder.getId(), product.getId()));
                         OrderProductJoinLocalService.register(orderProductJoin);
+                    }
 
-                        try {
-                            response.getWriter().print("0");
-                        } catch (IOException e) {
-                            LOGGER.log(Level.SEVERE, e.getMessage(), e);
-                            toErrorPage500(request, response);
-                            return;
-                        }
+                    try {
+                        response.getWriter().print("0");
+                    } catch (IOException e) {
+                        LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                        toErrorPage500(request, response);
+                        return;
                     }
                 } else {
                     try {

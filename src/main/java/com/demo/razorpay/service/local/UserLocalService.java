@@ -3,6 +3,7 @@ package com.demo.razorpay.service.local;
 import com.demo.razorpay.dao.UserDAO;
 import com.demo.razorpay.models.User;
 
+import java.util.List;
 import java.util.UUID;
 
 public class UserLocalService {
@@ -32,8 +33,8 @@ public class UserLocalService {
         return 0;
     }
 
-    public static int registerUser(User adminUser){
-        USER_DAO.save(adminUser);
+    public static int registerUser(User user){
+        USER_DAO.save(user);
         return 0;
     }
 
@@ -47,5 +48,13 @@ public class UserLocalService {
 
     public static int deRegisterUserById(String id) {
         return USER_DAO.deleteById(id);
+    }
+
+    public static List<User> fetchAllUsers(){
+        return USER_DAO.findAll();
+    }
+
+    public static boolean hasUsers() {
+        return !fetchAllUsers().isEmpty();
     }
 }
