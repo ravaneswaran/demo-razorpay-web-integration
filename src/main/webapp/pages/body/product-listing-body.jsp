@@ -77,11 +77,24 @@
 	    <%
 			}
 	    %>
-	    <button type="submit">Checkout</button>
+	    <button type="submit" onclick="checkOut()">Checkout</button>
 	</div>
 </div>
 
 <script>
+
+	function checkOut(){
+		$.ajax({
+			url:'../cart/checkout?cmd=checkout-cart',
+			success:function(data) {
+				if("0" == data){
+					window.location = "../order/listing";
+				} else {
+					alert(data);
+				}
+			}
+		});
+	}
 
 	function addToCart(componentId, productId){
 		$.ajax({

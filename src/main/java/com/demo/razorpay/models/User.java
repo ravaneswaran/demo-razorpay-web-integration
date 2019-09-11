@@ -14,6 +14,7 @@ import java.util.UUID;
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Data
+@Table(name="USERS")
 public class User {
 
     public static final String ADMIN_USER = "ADMIN-USER";
@@ -41,6 +42,10 @@ public class User {
 
     @XmlElement(name = "type")
     private String type;
+
+    /*@XmlElement(name = "orders")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();*/
 
     @XmlElement(name = "createdDate")
     @Temporal(TemporalType.TIMESTAMP)

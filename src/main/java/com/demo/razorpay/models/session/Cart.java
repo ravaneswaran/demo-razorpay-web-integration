@@ -22,6 +22,6 @@ public class Cart {
     }
 
     public List<String> getProductIds() {
-        return productIds;
+        return this.productIds;
     }
 }

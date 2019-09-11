@@ -14,6 +14,7 @@ import java.util.UUID;
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Data
+@Table(name="PRODUCTS")
 public class Product {
 
     @Id
