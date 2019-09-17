@@ -54,7 +54,6 @@ public class Product {
     @XmlElement(name = "launchDate")
     private String launchDate;
 
-    @Transient
     @XmlElement(name = "imageLocation")
     private String imageLocation;
 
