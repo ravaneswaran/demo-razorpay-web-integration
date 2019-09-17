@@ -1,11 +1,30 @@
+<%@page import="com.demo.razorpay.SessionAttributes"%>
+<%@page import="com.demo.razorpay.models.User"%>
+
+<%
+	User sessionUser = (User)session.getAttribute(SessionAttributes.SESSION_USER);
+	String homePage = "../pages/login.jsp";
+	
+	if(null != sessionUser){
+		homePage = "../pages/product-listing.jsp";
+	}
+%>
+
+
 <ul style="width:75px;">
-    <li><a href="../pages/home.jsp">Home</a></li>
+    <li><a href="<%= homePage%>">Home</a></li>
 </ul>
-<ul style="width:165px;">
-    <li>Checkout Methods</li>
-    <ul>
-       <li><a href="../pages/automatic-checkout.jsp">Automatic Checkout</a></li>
-       <li><a href="../pages/manual-checkout.jsp">Manual Checkout</a></li>
-       <li><a href="#">Subscription</a></li>
-   </ul>
-</ul>
+
+<%
+	if(null != sessionUser){
+%>
+		<ul style="width:165px;">
+		    <li>Listings</li>
+		    <ul>
+		       <li><a href="../pages/product-listing.jsp">Product Listing</a></li>
+		       <li><a href="../pages/order-listing.jsp">Order Listing</a></li>
+		   </ul>
+		</ul>
+<%
+	}
+%>

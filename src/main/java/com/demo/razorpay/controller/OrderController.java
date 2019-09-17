@@ -1,14 +1,19 @@
 package com.demo.razorpay.controller;
 
 import com.demo.razorpay.RequestParameter;
+import com.demo.razorpay.SessionAttributes;
 import com.demo.razorpay.controller.helper.OrderControllerHelper;
+import com.demo.razorpay.models.Order;
 import com.demo.razorpay.models.OrderTransaction;
 import com.demo.razorpay.service.gateway.OrderGatewayService;
+import com.demo.razorpay.service.local.OrderLocalService;
 import com.razorpay.RazorpayException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,6 +27,7 @@ public class OrderController extends OrderControllerHelper {
     public static final String SYNC = "sync";
     public static final String DETAILS = "details";
     public static final String CANCEL = "cancel";
+    public static final String LISTING = "listing";
     public static final String CANCEL_ORDER = "cancel-order";
     public static final String CONFIRM = "confirm";
     public static final String CONFIRM_ORDER = "confirm-order";
@@ -59,8 +65,30 @@ public class OrderController extends OrderControllerHelper {
                 case CONFIRM:
                     confirmOrderTransaction(request, response);
                     break;
+                case LISTING:
+                    listOrders(request, response);
+                    break;
             }
         } catch (RazorpayException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            toErrorPage500(request, response);
+            return;
+        }
+    }
+
+    protected void listOrders(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
+        String userId = request.getParameter(RequestParameter.USER_ID);
+        Order currentOrder = new Order();
+
+        List<Order> previousOrders =  OrderLocalService.listOrdersByUserId(userId);
+        HttpSession httpSession = request.getSession(false);
+
+        httpSession.setAttribute(SessionAttributes.SESSION_ORDER, currentOrder);
+        httpSession.setAttribute(SessionAttributes.PREVIOUS_ORDERS, previousOrders);
+
+        try {
+            response.sendRedirect("../pages/order-listing.jsp");
+        } catch (IOException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
             toErrorPage500(request, response);
             return;

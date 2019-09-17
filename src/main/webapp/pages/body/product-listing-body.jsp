@@ -1,3 +1,4 @@
+<%@page import="com.demo.razorpay.models.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.demo.razorpay.models.session.Cart"%>
 <%@page import="com.demo.razorpay.SessionAttributes"%>
@@ -7,6 +8,8 @@
 
 
 <%
+	User sessionUser = (User)session.getAttribute(SessionAttributes.SESSION_USER);
+
 	Cart cart = (Cart)session.getAttribute(SessionAttributes.SESSION_CART);
 	List<String> productIdsFromCart = new ArrayList<>();
 	if(null != cart){
@@ -77,20 +80,21 @@
 	    <%
 			}
 	    %>
-	    <button type="submit" onclick="checkOut()">Checkout</button>
+	    <button type="submit" onclick="checkOut('<%= sessionUser.getId()%>')">Checkout</button>
 	</div>
 </div>
 
 <script>
 
-	function checkOut(){
+	function checkOut(userId){
 		$.ajax({
 			url:'../cart/checkout?cmd=checkout-cart',
 			success:function(data) {
 				if("0" == data){
-					window.location = "../order/listing";
+					window.location = "../order/listing?cmd=listing&user-id="+userId;
 				} else {
 					alert(data);
+					window.location = "../pages/login.jsp";
 				}
 			}
 		});

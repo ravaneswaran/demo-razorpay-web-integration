@@ -1,18 +1,35 @@
+<%@page import="com.demo.razorpay.SessionAttributes"%>
+<%@page import="com.demo.razorpay.models.User"%>
+<%
+	User sessionUser = (User)session.getAttribute(SessionAttributes.SESSION_USER);
+	
+	String homePage = "../pages/login.jsp";
+	if(null != sessionUser){
+		homePage = "../pages/product-listing.jsp";
+	}
+%>
+
+
 <ul>
-   <li><a href='../pages/home.jsp'><span>Home</span></a></li>
-   <li class='active has-sub'><a href='#'><span>Checkout Methods</span></a>
+   <li><a href='<%= homePage%>'><span>Home</span></a></li>
+   <!-- <li class='active has-sub'><a href='#'><span>Checkout Methods</span></a>
       <ul>
          <li class='last'><a href='../pages/automatic-checkout.jsp'><span>Automatic Checkout</span></a></li>
          <li class='last'><a href='../pages/manual-checkout.jsp'><span>Manual Checkout</span></a>
          <li class='last'><a href='#'><span>Subscription</span></a></li>
       </ul>
-   </li>
-   <li class='active has-sub'><a href='#'><span>Listing</span></a>
-      <ul>
-         <li class='last'><a href='../pages/list-payments.jsp'><span>Payments</span></a></li>
-         <li class='last'><a href='../pages/list-payments.jsp'><span>Orders</span></a>
-      </ul>
-   </li>
+   </li> -->
+   <%
+   		if(null != sessionUser){
+   %>
+		   <li class='active has-sub'><a href='#'><span>Listing</span></a>
+		      <ul>
+		         <li class='last'><a href='../pages/order-listing.jsp'><span>Orders</span></a>
+		      </ul>
+		   </li>
+   <%
+   		}
+   %>
    <li class='active has-sub'><a href='#'><span>Sync With Gateway</span></a>
       <ul>
          <li class='last'><a href='../payment/transaction?cmd=sync'><span>Payment Sync</span></a></li>

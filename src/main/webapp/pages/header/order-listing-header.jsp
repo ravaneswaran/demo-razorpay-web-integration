@@ -6,7 +6,7 @@
 %>
 
 <div class="caption">
-	Razorpay Demo : Product Listing
+	Razorpay Demo : Order Listing
 </div>
 <div class="user-strip">
 	<%
