@@ -1,8 +1,13 @@
 package com.demo.razorpay.controller.helper;
 
+import com.demo.razorpay.RequestParameter;
 import com.demo.razorpay.controller.RazorPayController;
+import com.demo.razorpay.models.Order;
+import com.demo.razorpay.models.OrderProductJoin;
 import com.demo.razorpay.models.OrderTransaction;
 import com.demo.razorpay.service.gateway.OrderGatewayService;
+import com.demo.razorpay.service.local.OrderLocalService;
+import com.demo.razorpay.service.local.OrderProductJoinLocalService;
 import com.demo.razorpay.service.local.OrderTransactionLocalService;
 import com.demo.razorpay.util.HTMLUtil;
 import com.razorpay.RazorpayException;
@@ -10,6 +15,7 @@ import org.apache.commons.lang3.NotImplementedException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -21,6 +27,25 @@ public class OrderControllerHelper extends RazorPayController {
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {
         throw new NotImplementedException("'doprocess()' method should be overridden...");
     }
+
+    /********************************/
+
+    protected int deleteOrder(String orderId) throws RazorpayException {
+        List<OrderProductJoin> orderProductJoins = OrderProductJoinLocalService.listOrderProductJoinsByOrderId(orderId);
+
+        if(null != orderProductJoins && !orderProductJoins.isEmpty()){
+            for(OrderProductJoin orderProductJoin : orderProductJoins){
+                OrderProductJoinLocalService.delete(orderProductJoin);
+            }
+        }
+
+        Order order = OrderLocalService.fetchOrderById(orderId);
+        OrderLocalService.purge(order);
+
+        return 0;
+    }
+
+    /********************************/
 
     protected void syncOrderTransactionsWithGateway() throws RazorpayException {
         List<OrderTransaction> orderTransactions = OrderTransactionLocalService.list();

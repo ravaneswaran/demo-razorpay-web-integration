@@ -42,6 +42,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>com.demo.razorpay.controller.CartController</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>OrderController</servlet-name>
         <servlet-class>com.demo.razorpay.controller.OrderController</servlet-class>
     </servlet>
@@ -69,6 +74,16 @@
     <servlet-mapping>
         <servlet-name>PasswordController</servlet-name>
         <url-pattern>/user/password/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/cart/product/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/cart/checkout/*</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>

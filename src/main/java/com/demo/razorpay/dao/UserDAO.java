@@ -11,6 +11,11 @@ public class UserDAO extends AbstractDAO<User>{
         super(User.class);
     }
 
+    public List<User> findAll(){
+        Query query = this.getEntityManager().createQuery("SELECT u FROM User AS u");
+        return  query.getResultList();
+    }
+
     public User findBy(String emailId, String password){
         Query query = this.getEntityManager().createQuery("SELECT u FROM User AS u WHERE u.emailId = :emailId AND u.password = :password");
         query.setParameter("emailId", emailId);

@@ -139,6 +139,7 @@ body > div.wrapper > div.header > div.user-strip > div.user-block {
     border-bottom-left-radius: 5px;
     box-shadow: 0 0 5px #000000;
     cursor:pointer;
+    text-align: center;
 }
 
 body > div.wrapper > div.header > div.user-strip > div.user-block > div.user-dropdown {
@@ -163,6 +164,7 @@ body > div.wrapper > div.header > div.user-strip > div.user-block > div.user-dro
     text-indent: 20px;
     font-size: 14px;
     font-weight: bold;
+    text-align: left;
 }
 
 body > div.wrapper > div.header > div.user-strip > div.user-block > div.user-dropdown > a:hover {

@@ -24,4 +24,12 @@ public class ProductLocalService {
     public static void deRegisterProductUsingId(String id){
         PRODUCT_DAO.deleteById(id);
     }
+
+    public static final Product fetchById(String productId){
+        return PRODUCT_DAO.findById(productId);
+    }
+
+    public static boolean hasProducts() {
+        return !fetchAllProducts().isEmpty();
+    }
 }

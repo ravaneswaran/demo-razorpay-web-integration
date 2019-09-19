@@ -1,423 +1,140 @@
+<%@page import="com.demo.razorpay.models.User"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.demo.razorpay.models.session.Cart"%>
+<%@page import="com.demo.razorpay.SessionAttributes"%>
+<%@page import="com.demo.razorpay.models.Product"%>
+<%@page import="java.util.List"%>
+<%@page import="com.demo.razorpay.service.local.ProductLocalService"%>
+
+
+<%
+	User sessionUser = (User)session.getAttribute(SessionAttributes.SESSION_USER);
+
+	Cart cart = (Cart)session.getAttribute(SessionAttributes.SESSION_CART);
+	List<String> productIdsFromCart = new ArrayList<>();
+	if(null != cart){
+		productIdsFromCart = cart.getProductIds();
+	}
+
+	List<Product> products = ProductLocalService.fetchAllProducts();
+%>
+
 <div class="product-panel">
 	<div class="product-content">
-		<div class="product-content-heading">Product Listing</div>  
-		<div class="product-outer-div" id="1">
+		<div class="product-content-heading">Product Listing</div>
+		<%
+			for(Product product : products){
+				
+				String id = product.getId();
+				String productSpecDisplayId = String.format("product-spec-display-%s", id);
+				String productInfoSliderId = String.format("%s-%s", id, "1");
+				String backgroundColor = "#ffffff;";
+				if(productIdsFromCart.contains(id)){
+					backgroundColor = "rgb(46, 204, 113);";
+				}
+		%>
+		<div class="product-outer-div" id="<%= id %>" style="background-color: <%= backgroundColor%>">
 	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/xiaomi-redmi-7.jpeg" onclick="toggleSelect('#1')" onmouseenter="showOrHideInfoBar('#1-1')" onmouseleave="showOrHideInfoBar('#1-1')"/>
+	    		<img class="product-image" src="<%= product.getImageLocation() %>" onclick="addToOrRemoveFromCart('#<%= id %>', '<%= id %>')" onmouseenter="showOrHideInfoBar('#<%= productInfoSliderId %>')" onmouseleave="showOrHideInfoBar('#<%= productInfoSliderId %>')"/>
 	    	</div>
-	    	<div class="product-info-slider" id="1-1" onclick="showOrHideProductSpec('#product-spec-display-1')" onmouseenter="showOrHideInfoBar('#1-1')" onmouseleave="showOrHideInfoBar('#1-1')">
+	    	<div class="product-info-slider" id="<%= productInfoSliderId %>" onclick="showOrHideProductSpec('#<%= productSpecDisplayId %>')" onmouseenter="showOrHideInfoBar('#<%= productInfoSliderId %>')" onmouseleave="showOrHideInfoBar('#<%= productInfoSliderId %>')">
 	    		<div class="product-info"></div>
 	    	</div>
-	    	<div id="product-spec-display-1" class="product-spec-display">
+	    	<div id="<%= productSpecDisplayId %>" class="product-spec-display">
 	    		<div class="product-spec-header">Product Specification</div>
 	    		<table>
 	    			<tbody>
 	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
+	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value"><%= product.getName() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
+	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value"><%= product.getFormattedPrice() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
+	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value"><%= product.getPerformance() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
+	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value"><%= product.getDisplay() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
+	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value"><%= product.getStorage() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
+	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value"><%= product.getCamera() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
+	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value"><%= product.getBattery() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
+	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value"><%= product.getRam() %></td>
 	    				</tr>
 	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
-	    				</tr>
-	    			</tbody>
-	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-1')"/>
-	    	</div>
-	    </div>
-	   
-	    <div class="product-outer-div" id="2">
-	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/xiaomi-mi-play.jpeg" onclick="toggleSelect('#2')" onmouseenter="showOrHideInfoBar('#2-1')" onmouseleave="showOrHideInfoBar('#2-1')"/>
-	    	</div>
-	    	<div class="product-info-slider" id="2-1" onclick="showOrHideProductSpec('#product-spec-display-2')" onmouseenter="showOrHideInfoBar('#2-1')" onmouseleave="showOrHideInfoBar('#2-1')">
-	    		<div class="product-info"></div>
-	    	</div>
-	    	<div id="product-spec-display-2" class="product-spec-display">
-	    		<div class="product-spec-header">Product Specification</div>
-	    		<table>
-	    			<tbody>
-	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
+	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value"><%= product.getLaunchDate() %></td>
 	    				</tr>
 	    			</tbody>
 	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-2')"/>
+    			<button type="button" onclick="addToCart('#<%= id %>', '<%= id %>')">Add to Cart</button>
+	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#<%= productSpecDisplayId %>')"/>
 	    	</div>
 	    </div>
-	   
-	    <div class="product-outer-div" id="3">
-	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/xiaomi-mi-a3-redmi-pro.jpeg" onclick="toggleSelect('#3')" onmouseenter="showOrHideInfoBar('#3-1')" onmouseleave="showOrHideInfoBar('#3-1')"/>
-	    	</div>
-	    	<div class="product-info-slider" id="3-1" onclick="showOrHideProductSpec('#product-spec-display-3')" onmouseenter="showOrHideInfoBar('#3-1')" onmouseleave="showOrHideInfoBar('#3-1')">
-	    		<div class="product-info"></div>
-	    	</div>
-	    	<div id="product-spec-display-3" class="product-spec-display">
-	    		<div class="product-spec-header">Product Specification</div>
-	    		<table>
-	    			<tbody>
-	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
-	    				</tr>
-	    			</tbody>
-	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-3')"/>
-	    	</div>
-	    </div>
-	    
-	    <div class="product-outer-div" id="4">
-	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/motorola-g7-power.jpg" onclick="toggleSelect('#4')" onmouseenter="showOrHideInfoBar('#4-1')" onmouseleave="showOrHideInfoBar('#4-1')"/>
-	    	</div>
-	    	<div class="product-info-slider" id="4-1" onclick="showOrHideProductSpec('#product-spec-display-4')" onmouseenter="showOrHideInfoBar('#4-1')" onmouseleave="showOrHideInfoBar('#4-1')">
-	    		<div class="product-info"></div>
-	    	</div>
-	    	<div id="product-spec-display-4" class="product-spec-display">
-	    		<div class="product-spec-header">Product Specification</div>
-	    		<table>
-	    			<tbody>
-	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
-	    				</tr>
-	    			</tbody>
-	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-4')"/>
-	    	</div>
-	    </div>
-	    
-	    <div class="product-outer-div" id="5">
-	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/motorola-g6-plus.jpg" onclick="toggleSelect('#5')" onmouseenter="showOrHideInfoBar('#5-1')" onmouseleave="showOrHideInfoBar('#5-1')"/>
-	    	</div>
-	    	<div class="product-info-slider" id="5-1" onclick="showOrHideProductSpec('#product-spec-display-5')" onmouseenter="showOrHideInfoBar('#5-1')" onmouseleave="showOrHideInfoBar('#5-1')">
-	    		<div class="product-info"></div>
-	    	</div>
-	    	<div id="product-spec-display-5" class="product-spec-display">
-	    		<div class="product-spec-header">Product Specification</div>
-	    		<table>
-	    			<tbody>
-	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
-	    				</tr>
-	    			</tbody>
-	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-5')"/>
-	    	</div>
-	    </div>
-	    
-	    <div class="product-outer-div" id="6">
-	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/motorola-moto-one.jpg" onclick="toggleSelect('#6')" onmouseenter="showOrHideInfoBar('#6-1')" onmouseleave="showOrHideInfoBar('#6-1')"/>
-	    	</div>
-	    	<div class="product-info-slider" id="6-1" onclick="showOrHideProductSpec('#product-spec-display-6')" onmouseenter="showOrHideInfoBar('#6-1')" onmouseleave="showOrHideInfoBar('#6-1')">
-	    		<div class="product-info"></div>
-	    	</div>
-	    	<div id="product-spec-display-6" class="product-spec-display">
-	    		<div class="product-spec-header">Product Specification</div>
-	    		<table>
-	    			<tbody>
-	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
-	    				</tr>
-	    			</tbody>
-	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-6')"/>
-	    	</div>
-	    </div>
-	   
-	    <div class="product-outer-div" id="7">
-	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/iphone-5s.jpg" onclick="toggleSelect('#7')" onmouseenter="showOrHideInfoBar('#7-1')" onmouseleave="showOrHideInfoBar('#7-1')"/>
-	    	</div>
-	    	<div class="product-info-slider" id="7-1" onclick="showOrHideProductSpec('#product-spec-display-7')" onmouseenter="showOrHideInfoBar('#7-1')" onmouseleave="showOrHideInfoBar('#7-1')">
-	    		<div class="product-info"></div>
-	    	</div>
-	    	<div id="product-spec-display-7" class="product-spec-display">
-	    		<div class="product-spec-header">Product Specification</div>
-	    		<table>
-	    			<tbody>
-	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
-	    				</tr>
-	    			</tbody>
-	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-7')"/>
-	    	</div>
-	    </div>
-	   
-	    <div class="product-outer-div" id="8">
-	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/shrek.jpeg" onclick="toggleSelect('#8')" onmouseenter="showOrHideInfoBar('#8-1')" onmouseleave="showOrHideInfoBar('#8-1')"/>
-	    	</div>
-	    	<div class="product-info-slider" id="8-1" onclick="showOrHideProductSpec('#product-spec-display-8')" onmouseenter="showOrHideInfoBar('#8-1')" onmouseleave="showOrHideInfoBar('#8-1')">
-	    		<div class="product-info"></div>
-	    	</div>
-	    	<div id="product-spec-display-8" class="product-spec-display">
-	    		<div class="product-spec-header">Product Specification</div>
-	    		<table>
-	    			<tbody>
-	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
-	    				</tr>
-	    			</tbody>
-	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-8')"/>
-	    	</div>
-	    </div>
-	    
-	     <div class="product-outer-div" id="9">
-	    	<div class="product-inner-div">
-	    		<img class="product-image" src="../images/products/dragon.jpeg" onclick="toggleSelect('#9')" onmouseenter="showOrHideInfoBar('#9-1')" onmouseleave="showOrHideInfoBar('#9-1')"/>
-	    	</div>
-	    	<div class="product-info-slider" id="9-1" onclick="showOrHideProductSpec('#product-spec-display-9')" onmouseenter="showOrHideInfoBar('#9-1')" onmouseleave="showOrHideInfoBar('#9-1')">
-	    		<div class="product-info"></div>
-	    	</div>
-	    	<div id="product-spec-display-9" class="product-spec-display">
-	    		<div class="product-spec-header">Product Specification</div>
-	    		<table>
-	    			<tbody>
-	    				<tr>
-	    					<td class="product-spec-property-name">Name</td><td class="product-spec-property-value">Xiaomi Readmi 7</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Price</td><td class="product-spec-property-value">1250000</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Performance</td><td class="product-spec-property-value">Octa core</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Display</td><td class="product-spec-property-value">6.26" (15.9 cm)</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Storage</td><td class="product-spec-property-value">32 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Camera</td><td class="product-spec-property-value">12 MP + 2 MP</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Battery</td><td class="product-spec-property-value">4000 mAh</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">RAM</td><td class="product-spec-property-value">2 GB</td>
-	    				</tr>
-	    				<tr>
-	    					<td class="product-spec-property-name">Launch Date</td><td class="product-spec-property-value">April 29, 2019 (Official)</td>
-	    				</tr>
-	    			</tbody>
-	    		</table>
-    			<button type="button">Add to Cart</button>
-	    		<img src="../images/cancel-icon.jpg" class="close" onclick="closeProductSpec('#product-spec-display-9')"/>
-	    	</div>
-	    </div>
-	    <button type="submit">Checkout</button>
+	    <%
+			}
+			if(null != sessionUser){
+	    %>
+	    		<button type="submit" onclick="checkOut('<%= sessionUser.getId()%>')">Checkout</button>
+	    <%
+			} else {
+		%>
+				<button type="submit">Checkout</button>
+		<%
+			}
+	    %>
 	</div>
 </div>
 
 <script>
-  	function toggleSelect(id){
-  		var backgroundColor = $(id).css("background-color");
+
+	function checkOut(userId){
+		$.ajax({
+			url:'../cart/checkout?cmd=checkout-cart',
+			success:function(data) {
+				if("0" == data){
+					window.location = "../order/listing?cmd=listing&user-id="+userId;
+				} else {
+					alert(data);
+					window.location = "../pages/login.jsp";
+				}
+			}
+		});
+	}
+
+	function addToCart(componentId, productId){
+		$.ajax({
+			url:'../cart/product?cmd=add-to-cart&product-id='+productId,
+			success:function(data) {
+				$(componentId).css("background-color", "#2ecc71");
+			}
+		});
+	}
+	
+	function addToOrRemoveFromCart(componentId, productId){
+		var backgroundColor = $(componentId).css("background-color");
   		if(backgroundColor == "rgb(255, 255, 255)"){
-  			$(id).css("background-color", "#2ecc71");
+  			$.ajax({
+  				url:'../cart/product?cmd=add-to-cart&product-id='+productId,
+  				success:function(data) {
+  					$(componentId).css("background-color", "#2ecc71");
+  				}
+  			});
   		} else {
-  			$(id).css("background-color", "#ffffff");
+  			$.ajax({
+  				url:'../cart/product?cmd=remove-from-cart&product-id='+productId,
+  				success:function(data) {
+  					$(componentId).css("background-color", "#ffffff");
+  				}
+  			});
   		}
-  	}
+	}
   	
   	function showOrHideInfoBar(id){
   		$(id).toggle(0);

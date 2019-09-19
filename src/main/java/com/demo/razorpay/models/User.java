@@ -2,20 +2,23 @@ package com.demo.razorpay.models;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 import java.util.UUID;
 
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Data
+@Table(name="USERS")
 public class User {
+
+    public static final String ADMIN_USER = "ADMIN-USER";
+    public static final String APP_USER = "APP-USER";
 
     @Id
     @XmlElement(name = "id")
@@ -37,8 +40,27 @@ public class User {
     @XmlElement(name = "password")
     private String password;
 
+    @XmlElement(name = "type")
+    private String type;
+
+    /*@XmlElement(name = "orders")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();*/
+
+    @XmlElement(name = "createdDate")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate;
+
+    @XmlElement(name = "modifiedDate")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifiedDate;
+
     public User(){
         this.setId(UUID.randomUUID().toString());
+        this.setType(User.APP_USER);
+        Date date = new Date();
+        this.setCreatedDate(date);
+        this.setModifiedDate(date);
     }
 
     public String getId() {
@@ -87,5 +109,33 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public boolean isAdiminUser(){
+        return ADMIN_USER.equals(this.getType());
     }
 }

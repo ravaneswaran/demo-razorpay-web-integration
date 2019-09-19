@@ -6,12 +6,15 @@
 
         <class>com.demo.razorpay.models.OrderTransaction</class>
         <class>com.demo.razorpay.models.PaymentTransaction</class>
+
         <class>com.demo.razorpay.models.User</class>
         <class>com.demo.razorpay.models.Product</class>
+        <class>com.demo.razorpay.models.Order</class>
+        <class>com.demo.razorpay.models.OrderProductJoin</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver" />
-            <property name="javax.persistence.jdbc.url"    value="jdbc:hsqldb:file:/home/fiera-mm/razorpay" />
+            <property name="javax.persistence.jdbc.url"    value="jdbc:hsqldb:file:/home/fiera-mm/razorpay;sql.syntax_pgs=true" />
             <property name="javax.persistence.jdbc.user" value="admin" />
             <property name="javax.persistence.jdbc.password" value="admin" />
 

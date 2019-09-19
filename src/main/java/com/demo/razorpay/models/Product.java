@@ -14,6 +14,7 @@ import java.util.UUID;
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Data
+@Table(name="PRODUCTS")
 public class Product {
 
     @Id
@@ -28,6 +29,9 @@ public class Product {
 
     @XmlElement(name = "price")
     private long price;
+
+    @XmlElement(name = "formattedPrice")
+    private String formattedPrice;
 
     @XmlElement(name = "performance")
     private String performance;
@@ -49,6 +53,9 @@ public class Product {
 
     @XmlElement(name = "launchDate")
     private String launchDate;
+
+    @XmlElement(name = "imageLocation")
+    private String imageLocation;
 
     @XmlElement(name = "createdDate")
     @Temporal(TemporalType.TIMESTAMP)
@@ -100,6 +107,14 @@ public class Product {
 
     public void setPrice(long price) {
         this.price = price;
+    }
+
+    public String getFormattedPrice() {
+        return formattedPrice;
+    }
+
+    public void setFormattedPrice(String formattedPrice) {
+        this.formattedPrice = formattedPrice;
     }
 
     public String getPerformance() {
@@ -156,6 +171,14 @@ public class Product {
 
     public void setLaunchDate(String launchDate) {
         this.launchDate = launchDate;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
     }
 
     public Date getCreatedDate() {
