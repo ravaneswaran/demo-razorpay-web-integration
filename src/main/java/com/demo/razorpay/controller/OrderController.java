@@ -107,29 +107,23 @@ public class OrderController extends OrderControllerHelper {
             User sessionUser = (User) httpSession.getAttribute(SessionAttributes.SESSION_USER);
             if (null != sessionUser) {
                 String orderId = request.getParameter(RequestParameter.ORDER_ID);
-                try {
-                    int result = this.deleteOrder(orderId);
-                    if(0 == result){
-                        try {
-                            response.getWriter().print("0");
-                        } catch (IOException e) {
-                            LOGGER.log(Level.SEVERE, e.getMessage(), e);
-                            toErrorPage500(request, response);
-                            return;
-                        }
-                    } else {
-                        try {
-                            response.getWriter().print(String.format("Unable to delete the order('%s')", orderId));
-                        } catch (IOException e) {
-                            LOGGER.log(Level.SEVERE, e.getMessage(), e);
-                            toErrorPage500(request, response);
-                            return;
-                        }
+                int result = this.deleteOrder(orderId);
+                if(0 == result){
+                    try {
+                        response.getWriter().print("0");
+                    } catch (IOException e) {
+                        LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                        toErrorPage500(request, response);
+                        return;
                     }
-                } catch (IOException e) {
-                    LOGGER.log(Level.SEVERE, e.getMessage(), e);
-                    toErrorPage500(request, response);
-                    return;
+                } else {
+                    try {
+                        response.getWriter().print(String.format("Unable to delete the order('%s')", orderId));
+                    } catch (IOException e) {
+                        LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                        toErrorPage500(request, response);
+                        return;
+                    }
                 }
             } else {
                 try {

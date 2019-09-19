@@ -42,6 +42,16 @@
 						</div>		
 			<%
 					}
+				} else {		
+			%>
+						<div class="order-content-body-no-order">
+							<div class="order-content-body-no-order-header">No Orders !!!</div>
+							<div class="order-content-body-no-order-body">
+								<img src="../images/no-orders.png" />
+							</div>
+							
+						</div>		
+			<%
 				}
 			%>
 		</div>

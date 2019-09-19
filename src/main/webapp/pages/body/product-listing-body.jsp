@@ -79,8 +79,16 @@
 	    </div>
 	    <%
 			}
+			if(null != sessionUser){
 	    %>
-	    <button type="submit" onclick="checkOut('<%= sessionUser.getId()%>')">Checkout</button>
+	    		<button type="submit" onclick="checkOut('<%= sessionUser.getId()%>')">Checkout</button>
+	    <%
+			} else {
+		%>
+				<button type="submit">Checkout</button>
+		<%
+			}
+	    %>
 	</div>
 </div>
 

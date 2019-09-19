@@ -82,3 +82,41 @@ body > div.wrapper > div.content-panel > div.order-panel > div.order-content > d
     border: 1px solid red;
     border-radius: 5px;
 }
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order{
+	display: block;
+    width: 590px;
+    height: 480px;
+    border: 5px solid #6c6c6c;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order > div.order-content-body-no-order-header{
+	display: block;
+    width: 590px;
+    height: 50px;
+    border: 0px solid #6c6c6c;
+    border-radius: 0px;
+    font-size: 32px;
+    text-align: center;
+    background-color: #ffffff;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order > div.order-content-body-no-order-body{
+	display: block;
+    width: 590px;
+    height: 50px;
+    border: 0px solid #6c6c6c;
+    border-radius: 0px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order > div.order-content-body-no-order-body > img{
+	height: 430px;
+    width: 590px;
+}
+
+
+
+

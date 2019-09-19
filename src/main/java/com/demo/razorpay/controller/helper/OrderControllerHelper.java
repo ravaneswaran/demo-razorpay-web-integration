@@ -30,20 +30,19 @@ public class OrderControllerHelper extends RazorPayController {
 
     /********************************/
 
-    protected int deleteOrder(String orderId) throws RazorpayException, IOException {
+    protected int deleteOrder(String orderId) throws RazorpayException {
         List<OrderProductJoin> orderProductJoins = OrderProductJoinLocalService.listOrderProductJoinsByOrderId(orderId);
 
         if(null != orderProductJoins && !orderProductJoins.isEmpty()){
             for(OrderProductJoin orderProductJoin : orderProductJoins){
                 OrderProductJoinLocalService.delete(orderProductJoin);
             }
-
-            Order order = OrderLocalService.fetchOrderById(orderId);
-            OrderLocalService.purge(order);
-            return 0;
-        } else {
-            return -1;
         }
+
+        Order order = OrderLocalService.fetchOrderById(orderId);
+        OrderLocalService.purge(order);
+
+        return 0;
     }
 
     /********************************/

@@ -17,7 +17,8 @@
    %>
 		   <li class='active has-sub'><a href='#'><span>Listing</span></a>
 		      <ul>
-		         <li class='last'><a href='../pages/order-listing.jsp'><span>Orders</span></a>
+		      	 <li class='last'><a href='../pages/product-listing.jsp'><span>Product Listing</span></a>
+		         <li class='last'><a href='../pages/order-listing.jsp'><span>Order Listing</span></a>
 		      </ul>
 		   </li>
 		   
