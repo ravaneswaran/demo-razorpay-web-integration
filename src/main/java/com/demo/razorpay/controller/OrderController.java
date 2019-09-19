@@ -58,9 +58,6 @@ public class OrderController extends OrderControllerHelper {
                 case SYNC:
                     syncOrderTransactionsWithGateway(request, response);
                     break;
-                case DETAILS:
-                    orderTransactionDetails(request, response);
-                    break;
                 case CANCEL:
                     cancelOrderTransaction(request, response);
                     break;
@@ -74,6 +71,8 @@ public class OrderController extends OrderControllerHelper {
                 case DELETE:
                     deleteOrder(request, response);
                     break;
+                case DETAILS:
+                    orderDetails(request, response);
             }
         } catch (RazorpayException e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
@@ -108,7 +107,7 @@ public class OrderController extends OrderControllerHelper {
             if (null != sessionUser) {
                 String orderId = request.getParameter(RequestParameter.ORDER_ID);
                 int result = this.deleteOrder(orderId);
-                if(0 == result){
+                if (0 == result) {
                     try {
                         response.getWriter().print("0");
                     } catch (IOException e) {
@@ -145,6 +144,24 @@ public class OrderController extends OrderControllerHelper {
         }
     }
 
+    protected void orderDetails(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
+        String orderId = request.getParameter(RequestParameter.ORDER_ID);
+        Order order = OrderLocalService.fetchOrderById(orderId);
+
+        HttpSession httpSession = request.getSession(false);
+        httpSession.setAttribute(SessionAttributes.SESSION_ORDER, order);
+
+        try {
+            response.sendRedirect("../pages/order-details.jsp");
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+            toErrorPage500(request, response);
+            return;
+        }
+    }
+
+    /*************************************************************/
+
     protected void syncOrderTransactionsWithGateway(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
         syncOrderTransactionsWithGateway();
         try {
@@ -156,19 +173,6 @@ public class OrderController extends OrderControllerHelper {
         }
     }
 
-    protected void orderTransactionDetails(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
-        String orderTransactionId = request.getParameter(RequestParameter.ORDER_TRANSACTION_ID);
-        String orderTransactionDetails = orderTransactionDetails(orderTransactionId);
-
-        response.setContentType("text/html");
-        try {
-            response.getWriter().print(orderTransactionDetails);
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, e.getMessage(), e);
-            toErrorPage500(request, response);
-            return;
-        }
-    }
 
     protected void cancelOrderTransaction(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
         String orderTransactionId = request.getParameter(RequestParameter.ORDER_TRANSACTION_ID);

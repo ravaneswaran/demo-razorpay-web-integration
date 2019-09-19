@@ -30,54 +30,54 @@ public class CartControllerHelper extends RazorPayController {
         throw new NotImplementedException("'doprocess()' method should be overridden...");
     }
 
-    protected void addToCart(HttpServletRequest request, HttpServletResponse response){
+    protected void addToCart(HttpServletRequest request, HttpServletResponse response) {
         HttpSession httpSession = request.getSession(false);
-        if(null != httpSession){
+        if (null != httpSession) {
             String productId = request.getParameter(RequestParameter.PRODUCT_ID);
-            Cart sessionCart = (Cart)httpSession.getAttribute(SessionAttributes.SESSION_CART);
-            if(null != sessionCart){
+            Cart sessionCart = (Cart) httpSession.getAttribute(SessionAttributes.SESSION_CART);
+            if (null != sessionCart) {
                 sessionCart.addProductId(productId);
             } else {
                 sessionCart = new Cart();
                 sessionCart.addProductId(productId);
                 httpSession.setAttribute(SessionAttributes.SESSION_CART, sessionCart);
             }
-            System.out.println("sessionCart ================>>>>>>>>> "+sessionCart.getProductIds());
+            System.out.println("sessionCart ================>>>>>>>>> " + sessionCart.getProductIds());
         }
     }
 
-    protected void removeFromCart(HttpServletRequest request, HttpServletResponse response){
+    protected void removeFromCart(HttpServletRequest request, HttpServletResponse response) {
         HttpSession httpSession = request.getSession(false);
-        if(null != httpSession){
-            Cart sessionCart = (Cart)httpSession.getAttribute(SessionAttributes.SESSION_CART);
-            if(null != sessionCart){
+        if (null != httpSession) {
+            Cart sessionCart = (Cart) httpSession.getAttribute(SessionAttributes.SESSION_CART);
+            if (null != sessionCart) {
                 String productId = request.getParameter(RequestParameter.PRODUCT_ID);
                 sessionCart.removeProductId(productId);
             }
-            System.out.println("sessionCart ================>>>>>>>>> "+sessionCart.getProductIds());
+            System.out.println("sessionCart ================>>>>>>>>> " + sessionCart.getProductIds());
         }
     }
 
-    protected void checkoutCart(HttpServletRequest request, HttpServletResponse response){
+    protected void checkoutCart(HttpServletRequest request, HttpServletResponse response) {
         HttpSession httpSession = request.getSession(false);
-        if(null != httpSession){
-            User sessionUser = (User)httpSession.getAttribute(SessionAttributes.SESSION_USER);
-            Cart sessionCart = (Cart)httpSession.getAttribute(SessionAttributes.SESSION_CART);
+        if (null != httpSession) {
+            User sessionUser = (User) httpSession.getAttribute(SessionAttributes.SESSION_USER);
+            Cart sessionCart = (Cart) httpSession.getAttribute(SessionAttributes.SESSION_CART);
 
-            System.out.println("sessionCart ------------------>>>>>>> "+sessionCart);
+            System.out.println("sessionCart ------------------>>>>>>> " + sessionCart);
 
-            if(null != sessionCart){
-                Order newOrder = new Order();
-                newOrder.setUser(sessionUser);
-                newOrder.setStatus(Order.PAYMENT_PENDING);
-
-                LOGGER.info(String.format("Registering order with id '%s' in table ORDER", newOrder.getId()));
-                OrderLocalService.registerOrder(newOrder);
-
+            if (null != sessionCart) {
                 List<String> productIds = sessionCart.getProductIds();
 
-                if(!productIds.isEmpty()){
-                    for(String productId : productIds){
+                if (!productIds.isEmpty()) {
+                    Order newOrder = new Order();
+                    newOrder.setUser(sessionUser);
+                    newOrder.setStatus(Order.PAYMENT_PENDING);
+
+                    LOGGER.info(String.format("Registering order with id '%s' in table ORDER", newOrder.getId()));
+                    OrderLocalService.registerOrder(newOrder);
+
+                    for (String productId : productIds) {
                         Product product = ProductLocalService.fetchById(productId);
 
                         OrderProductJoin orderProductJoin = new OrderProductJoin();
