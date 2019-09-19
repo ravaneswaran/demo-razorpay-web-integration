@@ -4,9 +4,12 @@ import com.demo.razorpay.RequestParameter;
 import com.demo.razorpay.SessionAttributes;
 import com.demo.razorpay.controller.helper.OrderControllerHelper;
 import com.demo.razorpay.models.Order;
+import com.demo.razorpay.models.OrderProductJoin;
 import com.demo.razorpay.models.OrderTransaction;
+import com.demo.razorpay.models.User;
 import com.demo.razorpay.service.gateway.OrderGatewayService;
 import com.demo.razorpay.service.local.OrderLocalService;
+import com.demo.razorpay.service.local.OrderProductJoinLocalService;
 import com.razorpay.RazorpayException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,18 +22,17 @@ import java.util.logging.Logger;
 
 public class OrderController extends OrderControllerHelper {
 
-    private static final Logger LOGGER = Logger.getLogger(OrderController.class.getName());
-
     public static final String NEW = "new";
     public static final String GET = "fetch";
-    public static final String DELETE = "delete";
     public static final String SYNC = "sync";
     public static final String DETAILS = "details";
     public static final String CANCEL = "cancel";
-    public static final String LISTING = "listing";
     public static final String CANCEL_ORDER = "cancel-order";
     public static final String CONFIRM = "confirm";
     public static final String CONFIRM_ORDER = "confirm-order";
+    public static final String LISTING = "listing";
+    public static final String DELETE = "delete";
+    private static final Logger LOGGER = Logger.getLogger(OrderController.class.getName());
 
     private void newOrder(HttpServletRequest request, HttpServletResponse response) {
         String orderId = request.getParameter("order-id");
@@ -65,8 +67,12 @@ public class OrderController extends OrderControllerHelper {
                 case CONFIRM:
                     confirmOrderTransaction(request, response);
                     break;
+
                 case LISTING:
                     listOrders(request, response);
+                    break;
+                case DELETE:
+                    deleteOrder(request, response);
                     break;
             }
         } catch (RazorpayException e) {
@@ -80,7 +86,7 @@ public class OrderController extends OrderControllerHelper {
         String userId = request.getParameter(RequestParameter.USER_ID);
         Order currentOrder = new Order();
 
-        List<Order> previousOrders =  OrderLocalService.listOrdersByUserId(userId);
+        List<Order> previousOrders = OrderLocalService.listOrdersByUserId(userId);
         HttpSession httpSession = request.getSession(false);
 
         httpSession.setAttribute(SessionAttributes.SESSION_ORDER, currentOrder);
@@ -92,6 +98,56 @@ public class OrderController extends OrderControllerHelper {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
             toErrorPage500(request, response);
             return;
+        }
+    }
+
+    protected void deleteOrder(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
+        HttpSession httpSession = request.getSession(false);
+        if (null != httpSession) {
+            User sessionUser = (User) httpSession.getAttribute(SessionAttributes.SESSION_USER);
+            if (null != sessionUser) {
+                String orderId = request.getParameter(RequestParameter.ORDER_ID);
+                try {
+                    int result = this.deleteOrder(orderId);
+                    if(0 == result){
+                        try {
+                            response.getWriter().print("0");
+                        } catch (IOException e) {
+                            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                            toErrorPage500(request, response);
+                            return;
+                        }
+                    } else {
+                        try {
+                            response.getWriter().print(String.format("Unable to delete the order('%s')", orderId));
+                        } catch (IOException e) {
+                            LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                            toErrorPage500(request, response);
+                            return;
+                        }
+                    }
+                } catch (IOException e) {
+                    LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                    toErrorPage500(request, response);
+                    return;
+                }
+            } else {
+                try {
+                    response.sendRedirect("../pages/login.jsp");
+                } catch (IOException e) {
+                    LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                    toErrorPage500(request, response);
+                    return;
+                }
+            }
+        } else {
+            try {
+                response.sendRedirect("../pages/login.jsp");
+            } catch (IOException e) {
+                LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                toErrorPage500(request, response);
+                return;
+            }
         }
     }
 

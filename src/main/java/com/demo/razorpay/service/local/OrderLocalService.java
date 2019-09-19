@@ -20,4 +20,8 @@ public class OrderLocalService {
     public static final void registerOrder(Order order){
         ORDER_DAO.save(order);
     }
+
+    public static void purge(Order order) {
+        ORDER_DAO.delete(order);
+    }
 }

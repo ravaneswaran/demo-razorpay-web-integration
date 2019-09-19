@@ -20,4 +20,8 @@ public class OrderProductJoinLocalService {
     public static final void register(OrderProductJoin orderProductJoin){
         ORDER_PRODUCT_JOIN_DAO.save(orderProductJoin);
     }
+
+    public static void delete(OrderProductJoin orderProductJoin) {
+        ORDER_PRODUCT_JOIN_DAO.delete(orderProductJoin);
+    }
 }

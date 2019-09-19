@@ -12,4 +12,5 @@ public class RequestParameter {
 
     public static final String PRODUCT_ID = "product-id";
     public static final String USER_ID = "user-id";
+    public static final String ORDER_ID = "order-id";
 }
