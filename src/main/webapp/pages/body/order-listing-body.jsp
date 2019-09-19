@@ -24,21 +24,50 @@
 			<%
 				if(null != previousOrders && !previousOrders.isEmpty()){
 					for(Order previousOrder : previousOrders){
+						
+			%>
+						<div class="order-content-body-accordion" onclick="toggleAccordionInfo('<%= "#"+previousOrder.getId() %>')">
+							Order : <%= previousOrder.getId() %>
+							<img class="delete-icon" src="../images/delete-icon.png" onclick="return deleteOrder('<%= previousOrder.getId()%>')"/>
+							<span><%= previousOrder.getStatus() %></span>
+						</div> 
+						<div class="order-content-body-accordion-info" id="<%= previousOrder.getId() %>">
+			<%
 						List<OrderProductJoin> orderProductJoins = OrderProductJoinLocalService.listOrderProductJoinsByOrderId(previousOrder.getId());
 						if(null != orderProductJoins && !orderProductJoins.isEmpty()){
 							for(OrderProductJoin orderProductJoin : orderProductJoins){
 								Product product = orderProductJoin.getProduct();
-								String orderAndProductIdCombo = String.format("#%s-%s",previousOrder.getId(), product.getId());
-							}
-						}
 			%>
-						<div class="order-content-body-accordion" onclick="toggleAccordionInfo('<%= previousOrder.getId() %>')">
-							Order : <%= previousOrder.getId() %>
-							<img class="delete-icon" src="../images/delete-icon.png" onclick="deleteOrder('<%= previousOrder.getId()%>')"/>
-							<span><%= previousOrder.getStatus() %></span>
-						</div> 
-						<div class="order-content-body-accordion-info" id="<%= previousOrder.getId() %>">
-							<%= "Some Product" %>
+								<div class="order-content-body-accordion-product">
+									<img src="<%= product.getImageLocation() %>"/>
+									<table>
+										<tbody>
+											<tr>
+												<td class="product-spec-property-name">Name</td>
+												<td class="product-spec-property-value"><%= product.getName() %></td>
+												<td class="product-spec-property-name">RAM</td>
+												<td class="product-spec-property-value"><%= product.getRam() %></td>
+											</tr>
+											<tr>
+												<td class="product-spec-property-name">Battery</td>
+												<td class="product-spec-property-value"><%= product.getBattery() %></td>
+												<td class="product-spec-property-name">Camera</td>
+												<td class="product-spec-property-value"><%= product.getCamera() %></td>
+											</tr>
+											<tr>
+												<td class="product-spec-property-name">Performance</td>
+												<td class="product-spec-property-value"><%= product.getPerformance() %></td>
+												<td class="product-spec-property-name">Price</td>
+												<td class="product-spec-property-value"><%= product.getFormattedPrice() %></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								
+			<%
+							}
+						}			
+			%>
 						</div>		
 			<%
 					}
@@ -61,29 +90,34 @@
 <script>
 
 	function deleteOrder(orderId){
-		$.ajax({
-			url:'../order?cmd=delete&order-id='+orderId,
-			success:function(data) {
-				if("0" == data){
-					window.location = "../pages/order-listing.jsp";
-				} else {
-					alert(data);
-				}
-			}
+		$.confirm({
+		    title: 'Delete Confirmation!',
+		    content: 'Are you sure want to delete this item ( '+orderId+' ) ?',
+		    type: 'red',
+		    buttons: {
+		        confirm: function () {
+		        	$.ajax({
+		    			url:'../order?cmd=delete&order-id='+orderId,
+		    			success:function(data) {
+		    				if("0" == data){
+		    					window.location = "../pages/order-listing.jsp";
+		    				} else {
+		    					alert(data);
+		    				}
+		    			}
+		    		});
+		        },
+		        cancel: function () {}
+		    }
 		});
 	}
 
 	function toggleAccordionInfo(id){
-		alert(id);
-		$(id).toggle(0);
-		/* $(id).toggle(0); */
-		//$(id).css("display", "block");
-		/* var displayStyle = $(id).css("display");
-		alert(displayStyle);
+		var displayStyle = $(id).css("display");
 		if("none" == displayStyle){
 			$(id).css("display", "block");
 		} else {
 			$(id).css("display", "none");
-		} */
+		}
   	}
 </script>

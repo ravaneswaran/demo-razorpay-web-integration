@@ -76,11 +76,69 @@ body > div.wrapper > div.content-panel > div.order-panel > div.order-content > d
 
 body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info{
 	display: none;
-    width: 575px;
-    min-height: 200px;
-    height: 200px;
-    border: 1px solid red;
+    width: 573px;
+    min-height: 240px;
+    border: 2px solid #6c6c6c;
     border-radius: 5px;
+    overflow-y: scroll;
+    height: 220px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product{
+	height: 110px;
+    width: 546px;
+    border: 2px solid #b7f5a4;
+    margin: 4px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #b7f5a4;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > img{
+	width: 95px;
+    height: 97px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 2px solid #6c6c6c;
+    box-shadow: 0 0 5px #000000;
+}
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > table{
+	border: 0px solid red;
+    float: right;
+    width: 437px;
+    height: 100px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > table{
+	border: 2px solid #6c6c6c;
+    height: 90px;
+    width: 420px;
+    text-align: right;
+    margin: 5px 10px 2px 2px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > table > tbody > tr > td.product-spec-property-name {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 55px;
+    height: 30px;
+    text-align: right;
+    text-indent: 5px;
+    padding-right: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > table > tbody > tr > td.product-spec-property-value {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    width: 160px;
+    height: 30px;
+    text-align: left;
+    text-indent: 5px;
 }
 
 body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order{
