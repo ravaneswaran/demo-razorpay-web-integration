@@ -145,18 +145,30 @@ public class OrderController extends OrderControllerHelper {
     }
 
     protected void orderDetails(HttpServletRequest request, HttpServletResponse response) throws RazorpayException {
-        String orderId = request.getParameter(RequestParameter.ORDER_ID);
-        Order order = OrderLocalService.fetchOrderById(orderId);
 
         HttpSession httpSession = request.getSession(false);
-        httpSession.setAttribute(SessionAttributes.SESSION_ORDER, order);
 
-        try {
-            response.sendRedirect("../pages/order-details.jsp");
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, e.getMessage(), e);
-            toErrorPage500(request, response);
-            return;
+        if(null != httpSession){
+            String orderId = request.getParameter(RequestParameter.ORDER_ID);
+            Order order = OrderLocalService.fetchOrderById(orderId);
+
+            httpSession.setAttribute(SessionAttributes.SESSION_ORDER, order);
+
+            try {
+                response.sendRedirect("../pages/order-details.jsp");
+            } catch (IOException e) {
+                LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                toErrorPage500(request, response);
+                return;
+            }
+        } else {
+            try {
+                response.sendRedirect("../pages/login.jsp");
+            } catch (IOException e) {
+                LOGGER.log(Level.SEVERE, e.getMessage(), e);
+                toErrorPage500(request, response);
+                return;
+            }
         }
     }
 
