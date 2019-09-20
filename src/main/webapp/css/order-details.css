@@ -1,0 +1,167 @@
+body > div.wrapper > div.content-panel {
+    min-height: 563px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel {
+	height: 560px;
+    width: 100%;
+    border: 0px solid red;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content {
+	width: 765px;
+    margin-top: 40px;
+    margin-left: 35px;
+    float: left;
+    padding: 10px 55px 40px;
+    background-color: rgba(238, 243, 237, 0.6);
+    border: 4px solid #b7f5a4;
+    box-shadow: 0 0 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    height: 455px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-heading {
+	border: 4px solid #b7f5a4;
+    width: 237px;
+    height: 24px;
+    border-radius: 5px;
+    margin-top: -29px;
+    background-color: #ffffff;
+    margin-left: -33px;
+    text-align: left;
+    font-size: 16px;
+    text-indent: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 10px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel {
+	height: 440px;
+    width: 545px;
+    border: 2px solid #6c6c6c;
+    margin-top: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    overflow-y: scroll;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > div.order-details-content-body-right-panel-header {
+	height: 25px;
+    width: 497px;
+    border: 0px solid #6c6c6c;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table{
+	border: 2px solid #6c6c6c;
+    height: 90px;
+    width: 520px;
+    text-align: right;
+    margin: 10px 4px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table > tbody > tr > td.product-spec-property-name {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 55px;
+    height: 30px;
+    text-align: right;
+    text-indent: 5px;
+    padding-right: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table > tbody > tr > td.product-spec-property-value {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    width: 160px;
+    height: 30px;
+    text-align: left;
+    text-indent: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel {
+	height: 440px;
+    width: 200px;
+    border: 2px solid #6c6c6c;
+    margin-top: -444px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    float: right;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > div.order-details-content-body-left-panel-button {
+	height: 44px;
+    width: 175px;
+    border: 2px solid #6c6c6c;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > div.order-details-content-body-left-panel-button > input[type=button] {
+	border-radius: 0px;
+    width: 135px;
+    height: 44px;
+    border: 1px;
+    background-color: #ffffff;
+    float: right;
+    cursor:pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-family: inherit;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > div.order-details-content-body-left-panel-button > img{
+	width: 39px;
+    border: 1px;
+    height: 43px;
+    border-radius: 0px;
+    background-color: #ffffff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
