@@ -125,6 +125,7 @@ body > div.wrapper > div.content-panel > div.order-details-panel > div.order-det
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     font-family: inherit;
+    text-decoration: underline;
 }
 
 body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > div.order-details-content-body-left-panel-button > img{
