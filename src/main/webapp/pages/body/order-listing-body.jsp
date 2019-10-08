@@ -92,7 +92,7 @@
 
 	function toggleAccordionInfoOrDeleteOrder(orderId, toggle){
 		
-		alert(toggle);
+		//alert(toggle);
 		
 		if("true" == toggle){
 			var elementId = "#"+orderId;

@@ -18,11 +18,14 @@
 			<div class="order-details-content-body-left-panel-header">Order : <%= sessionOrder.getId() %></div>
 			<%
 				long totalPrice = 0l;
+				long gst = 0l;
+				
 				List<OrderProductJoin> orderProductJoins = OrderProductJoinLocalService.listOrderProductJoinsByOrderId(sessionOrder.getId());
 				if(null != orderProductJoins && !orderProductJoins.isEmpty()){
 					for(OrderProductJoin orderProductJoin : orderProductJoins){
 						Product product = orderProductJoin.getProduct();
 						totalPrice += product.getPrice();
+						gst += (product.getPrice() * 5) / 100;
 			%>
 						<table class="order-details-content-body-left-panel-outer-table">
 							<tbody>
@@ -76,19 +79,19 @@
 						<td class="product-spec-property-name">Amount</td><td class="product-spec-property-value"><%= totalPrice %></td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">GST %</td><td class="product-spec-property-value">18</td>
+						<td class="product-spec-property-name">GST %</td><td class="product-spec-property-value">10</td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">CGST</td><td class="product-spec-property-value">9</td>
+						<td class="product-spec-property-name">CGST</td><td class="product-spec-property-value"><%= gst %></td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">SGCT</td><td class="product-spec-property-value">9</td>
+						<td class="product-spec-property-name">SGsT</td><td class="product-spec-property-value"><%= gst %></td>
 					</tr>
 					<tr>
 						<td class="product-spec-property-name"></td><td class="product-spec-property-value"></td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">Gross Amount</td><td class="product-spec-property-value">0.00</td>
+						<td class="product-spec-property-name">Gross Amount</td><td class="product-spec-property-value"><%= (totalPrice + (2 * gst)) %></td>
 					</tr>
 				</tbody>
 			</table>
