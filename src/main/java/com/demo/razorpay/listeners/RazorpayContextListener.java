@@ -39,7 +39,7 @@ public class RazorpayContextListener implements ServletContextListener {
 
 			boolean hasUsers = UserLocalService.hasUsers();
 			if (!hasUsers) {
-				LOGGER.info("<<<<------- Regist" + "ering Admin User(s) started... ------->>>>");
+				LOGGER.info("<<<<------- Registering Admin User(s) started... ------->>>>");
 
 				UserUtil.deRegisterUserById("0");
 				UserUtil.deRegisterUserById("1");
