@@ -1,19 +1,19 @@
 package com.demo.razorpay.service.gateway;
 
-import com.demo.razorpay.models.OrderTransaction;
-import com.demo.razorpay.models.PaymentTransaction;
-import com.demo.razorpay.properties.RazorPayProperties;
-import com.razorpay.Order;
-import com.razorpay.Payment;
-import com.razorpay.RazorpayClient;
-import com.razorpay.RazorpayException;
-import org.json.JSONObject;
-
-import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.xml.bind.JAXBException;
+
+import org.json.JSONObject;
+
+import com.demo.razorpay.models.OrderTransaction;
+import com.demo.razorpay.properties.RazorPayProperties;
+import com.razorpay.Order;
+import com.razorpay.RazorpayClient;
+import com.razorpay.RazorpayException;
 
 public class OrderGatewayService {
 

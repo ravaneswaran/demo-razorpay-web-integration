@@ -1,3 +1,4 @@
+<%@page import="com.demo.razorpay.util.NumberFormatterUtil"%>
 <%@page import="com.demo.razorpay.models.Product"%>
 <%@page import="com.demo.razorpay.service.local.OrderProductJoinLocalService"%>
 <%@page import="com.demo.razorpay.models.OrderProductJoin"%>
@@ -76,22 +77,22 @@
 						<td colspan="2" class="header">Cheque Details</td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">Amount</td><td class="product-spec-property-value"><%= totalPrice %></td>
+						<td class="product-spec-property-name">Amount</td><td class="product-spec-property-value"><%= NumberFormatterUtil.getFormattedString(totalPrice) %></td>
 					</tr>
 					<tr>
 						<td class="product-spec-property-name">GST %</td><td class="product-spec-property-value">10</td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">CGST</td><td class="product-spec-property-value"><%= gst %></td>
+						<td class="product-spec-property-name">CGST</td><td class="product-spec-property-value"><%= NumberFormatterUtil.getFormattedString(gst) %></td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">SGsT</td><td class="product-spec-property-value"><%= gst %></td>
+						<td class="product-spec-property-name">SGsT</td><td class="product-spec-property-value"><%= NumberFormatterUtil.getFormattedString(gst) %></td>
 					</tr>
 					<tr>
 						<td class="product-spec-property-name"></td><td class="product-spec-property-value"></td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">Gross Amount</td><td class="product-spec-property-value"><%= (totalPrice + (2 * gst)) %></td>
+						<td class="product-spec-property-name">Gross Amount</td><td class="product-spec-property-value"><%= NumberFormatterUtil.getFormattedString(totalPrice + (2 * gst)) %></td>
 					</tr>
 				</tbody>
 			</table>
