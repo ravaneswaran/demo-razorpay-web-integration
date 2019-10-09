@@ -15,7 +15,8 @@ public class TestEntityManager extends TestCase {
     private static final String PERSISTENCE_UNIT_NAME = "razorpay";
     private static EntityManagerFactory factory;
 
-    public void testEntityManager() {
+    @SuppressWarnings("unchecked")
+	public void testEntityManager() {
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager entityManager = factory.createEntityManager();
         // read the existing entries and write to console

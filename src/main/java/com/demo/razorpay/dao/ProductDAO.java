@@ -11,7 +11,8 @@ public class ProductDAO extends AbstractDAO<Product>{
         super(Product.class);
     }
 
-    public List<Product> findAll(){
+    @SuppressWarnings("unchecked")
+	public List<Product> findAll(){
         Query query = this.getEntityManager().createQuery("SELECT p FROM Product AS p ORDER BY p.rowId");
         return  query.getResultList();
     }

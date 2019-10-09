@@ -1,17 +1,18 @@
 package com.demo.razorpay.controller;
 
-import com.demo.razorpay.controller.helper.LoginControllerHelper;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 public class JspController extends RazorPayController{
 
-    private static final Logger LOGGER = Logger.getLogger(JspController.class.getName());
+	private static final long serialVersionUID = 1L;
+	
+	private static final Logger LOGGER = Logger.getLogger(JspController.class.getName());
 
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {

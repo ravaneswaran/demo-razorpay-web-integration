@@ -1,16 +1,16 @@
 package com.demo.razorpay.controller.helper;
 
-import com.demo.razorpay.controller.RazorPayController;
-import com.demo.razorpay.service.local.UserLocalService;
-import org.apache.commons.lang3.NotImplementedException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.logging.Logger;
+
+import org.apache.commons.lang3.NotImplementedException;
+
+import com.demo.razorpay.controller.RazorPayController;
+import com.demo.razorpay.service.local.UserLocalService;
 
 public class RegistrationControllerHelper extends RazorPayController {
 
-    private static final Logger LOGGER = Logger.getLogger(RegistrationControllerHelper.class.getName());
+	private static final long serialVersionUID = 1L;
 
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {

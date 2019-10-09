@@ -16,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PaymentControllerHelper extends RazorPayController {
+	
+	private static final long serialVersionUID = 1L;
 
     private static final Logger LOGGER = Logger.getLogger(PaymentControllerHelper.class.getName());
 

@@ -11,7 +11,8 @@ public class PaymentTransactionDAO extends AbstractDAO<PaymentTransaction>{
         super(PaymentTransaction.class);
     }
 
-    public List<PaymentTransaction> list(){
+    @SuppressWarnings("unchecked")
+	public List<PaymentTransaction> list(){
         Query query = this.getEntityManager().createQuery("SELECT pt FROM PaymentTransaction AS pt");
         return query.getResultList();
     }

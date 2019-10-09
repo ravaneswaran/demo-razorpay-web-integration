@@ -1,21 +1,21 @@
 package com.demo.razorpay.service.gateway;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.json.JSONObject;
+
 import com.demo.razorpay.models.PaymentTransaction;
 import com.demo.razorpay.properties.RazorPayProperties;
 import com.razorpay.Payment;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 public class PaymentGatewayService {
 
 	public static void createPaymentTransaction(String paymentId) throws RazorpayException {
-		PaymentTransaction paymentTransaction = PaymentGatewayService.fetchPaymentTransaction(paymentId);
+		//PaymentTransaction paymentTransaction = PaymentGatewayService.fetchPaymentTransaction(paymentId);
 	}
 
 	public static List<PaymentTransaction> listPaymentTransactions() throws RazorpayException {

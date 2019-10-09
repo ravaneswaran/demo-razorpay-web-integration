@@ -15,7 +15,8 @@ public class OrderProductJoinDAO extends AbstractDAO<OrderProductJoin>{
         return this.getEntityManager().find(OrderProductJoin.class, id);
     }
 
-    public List<OrderProductJoin> findByOrderId(String orderId){
+    @SuppressWarnings("unchecked")
+	public List<OrderProductJoin> findByOrderId(String orderId){
         Query query = this.getEntityManager().createQuery("SELECT opj FROM OrderProductJoin AS opj WHERE opj.order.id = :orderId");
         query.setParameter("orderId", orderId);
 
