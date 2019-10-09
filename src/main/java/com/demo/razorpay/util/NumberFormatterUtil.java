@@ -4,7 +4,6 @@ public class NumberFormatterUtil {
 
 	public static final String getFormattedString(long input) {
 		int length = String.valueOf(input).length();
-		System.out.println("length -------------------->>>>>>>>>>> "+length);
 		switch (length) {
 		case 1:
 			return input + ".00";
@@ -15,24 +14,29 @@ public class NumberFormatterUtil {
 		case 4:{
 			int quotient = (int) input / 10;
 			int remainder = (int) input % 10;
+			
 			return String.format("%s.%s0", quotient, remainder);
 		}
 		case 5:{
 			int quotient = (int) input / 100;
 			int remainder = (int) input % 100;
-			return String.format("%s.%s", quotient, remainder);
+			
+			return String.format("%s.%s0", quotient, remainder);
 		}
 		case 6:{
 			int quotient = (int) input / 100;
 			int remainder = (int) input % 100;
-			return String.format("%s.%s", quotient, remainder);
+			
+			return String.format("%s.%s0", quotient, remainder);
 		}
 		case 7:{
 			int quotient = (int) input / 100;
 			int remainder = (int) input % 100;
+			
 			return String.format("%s.%s", quotient, remainder);
 		}
 		}
+		
 		return "";
 	}
 }

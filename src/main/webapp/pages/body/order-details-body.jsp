@@ -16,10 +16,14 @@
 	<div class="order-details-content">
 		<div class="order-details-content-heading">Order Details</div>
 		<div class="order-details-content-body-left-panel">
-			<div class="order-details-content-body-left-panel-header">Order : <%= sessionOrder.getId() %></div>
 			<%
 				long totalPrice = 0l;
 				long gst = 0l;
+				if(null != sessionOrder){
+			%>
+			<div class="order-details-content-body-left-panel-header">Order : <%= sessionOrder.getId() %></div>
+			<%
+				
 				
 				List<OrderProductJoin> orderProductJoins = OrderProductJoinLocalService.listOrderProductJoinsByOrderId(sessionOrder.getId());
 				if(null != orderProductJoins && !orderProductJoins.isEmpty()){
@@ -64,6 +68,7 @@
 			<%
 					}
 				}
+				}
 			%>
 		</div>
 		<div class="order-details-content-body-right-panel">
@@ -86,7 +91,7 @@
 						<td class="product-spec-property-name">CGST</td><td class="product-spec-property-value"><%= NumberFormatterUtil.getFormattedString(gst) %></td>
 					</tr>
 					<tr>
-						<td class="product-spec-property-name">SGsT</td><td class="product-spec-property-value"><%= NumberFormatterUtil.getFormattedString(gst) %></td>
+						<td class="product-spec-property-name">SGST</td><td class="product-spec-property-value"><%= NumberFormatterUtil.getFormattedString(gst) %></td>
 					</tr>
 					<tr>
 						<td class="product-spec-property-name"></td><td class="product-spec-property-value"></td>
