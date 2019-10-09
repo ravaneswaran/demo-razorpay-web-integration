@@ -189,6 +189,7 @@ body > div.wrapper > div.content-panel > div.order-details-panel > div.order-det
     border-radius: 5px;
     box-shadow: 0 0 5px #000000;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table {
