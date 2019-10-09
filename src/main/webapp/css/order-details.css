@@ -1,0 +1,247 @@
+body > div.wrapper > div.content-panel {
+    min-height: 563px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel {
+	height: 560px;
+    width: 100%;
+    border: 0px solid red;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content {
+	width: 765px;
+    margin-top: 40px;
+    margin-left: 35px;
+    float: left;
+    padding: 10px 55px 40px;
+    background-color: rgba(238, 243, 237, 0.6);
+    border: 4px solid #b7f5a4;
+    box-shadow: 0 0 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    height: 455px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-heading {
+	border: 4px solid #b7f5a4;
+    width: 237px;
+    height: 24px;
+    border-radius: 5px;
+    margin-top: -29px;
+    background-color: #ffffff;
+    margin-left: -33px;
+    text-align: left;
+    font-size: 16px;
+    text-indent: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 10px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel {
+	height: 440px;
+    width: 545px;
+    border: 2px solid #6c6c6c;
+    margin-top: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    overflow-y: scroll;
+    margin-left: -32px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > div.order-details-content-body-left-panel-header {
+	height: 25px;
+    width: 497px;
+    border: 0px solid #6c6c6c;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > table.order-details-content-body-left-panel-outer-table{
+	border: 2px solid #6c6c6c;
+    height: 90px;
+    width: 520px;
+    text-align: right;
+    margin: 10px 4px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > table.order-details-content-body-left-panel-outer-table > tbody > tr > td > img{
+	width: 100px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > table.order-details-content-body-left-panel-outer-table > tbody > tr > td > table.order-details-content-body-left-panel-inner-table{
+	border: 0px solid #6c6c6c;
+    height: 90px;
+    width: 398px;
+    text-align: right;
+    margin: 10px 4px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 5px #000000; */
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > table.order-details-content-body-left-panel-outer-table > tbody > tr > td > table.order-details-content-body-left-panel-inner-table > tbody > tr > td.product-spec-property-name {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 55px;
+    height: 30px;
+    text-align: right;
+    text-indent: 5px;
+    padding-right: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-left-panel > table.order-details-content-body-left-panel-outer-table > tbody > tr > td > table.order-details-content-body-left-panel-inner-table > tbody > tr > td.product-spec-property-value {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    width: 160px;
+    height: 30px;
+    text-align: left;
+    text-indent: 5px;
+}
+
+/* Right Panel Styles */
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel {
+	height: 440px;
+    width: 268px;
+    border: 2px solid #6c6c6c;
+    margin-top: -444px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    float: right;
+    margin-right: -36px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > div.order-details-content-body-right-panel-product-bill-details {
+	height: 298px;
+    width: 245px;
+    border: 2px solid #6c6c6c;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > div.order-details-content-body-right-panel-button {
+	height: 44px;
+    width: 245px;
+    border: 2px solid #6c6c6c;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > div.order-details-content-body-right-panel-button > input[type=button] {
+	border-radius: 0px;
+    width: 205px;
+    height: 43px;
+    border: 1px;
+    background-color: #ffffff;
+    float: right;
+    cursor: pointer;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 3px;
+    font-family: inherit;
+    text-decoration: underline;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > div.order-details-content-body-right-panel-button > img{
+	width: 39px;
+    border: 1px;
+    height: 43px;
+    border-radius: 0px;
+    background-color: #ffffff;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 3px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > form.order-details-content-body-right-panel-form-upper{
+	border: 0px solid black;
+	width: 250px;
+    margin-left: 10px;
+    margin-top: 40px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > form.order-details-content-body-right-panel-form-lower{
+	border: 0px solid black;
+	width: 250px;
+    margin-left: 10px;
+    margin-top: 12px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > form > input[type=submit]{
+	background-color: #ffffff;
+    border: 2px solid #6c6c6c;
+    height: 40px;
+    width: 248px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table {
+	border: 2px solid #6c6c6c;
+    width: 250px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table > tbody > tr > td{
+	border: 0px solid #6c6c6c;
+    height: 90px;
+    width: 398px;
+    text-align: right;
+    margin: 10px 4px;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table > tbody > tr > td.header {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    text-indent: 5px;
+    padding-right: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table > tbody > tr > td.product-spec-property-name {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    text-align: right;
+    text-indent: 5px;
+    padding-right: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.order-details-panel > div.order-details-content > div.order-details-content-body-right-panel > table > tbody > tr > td.product-spec-property-value {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    width: 160px;
+    height: 30px;
+    text-align: left;
+    text-indent: 5px;
+}
+
+

@@ -8,6 +8,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LogOutController extends RazorPayController{
+	
+	private static final long serialVersionUID = 1L;
 
     private static final Logger LOGGER = Logger.getLogger(LogOutController.class.getName());
 

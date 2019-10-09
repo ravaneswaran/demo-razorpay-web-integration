@@ -11,12 +11,14 @@ public class UserDAO extends AbstractDAO<User>{
         super(User.class);
     }
 
-    public List<User> findAll(){
+    @SuppressWarnings("unchecked")
+	public List<User> findAll(){
         Query query = this.getEntityManager().createQuery("SELECT u FROM User AS u");
         return  query.getResultList();
     }
 
-    public User findBy(String emailId, String password){
+    @SuppressWarnings("unchecked")
+	public User findBy(String emailId, String password){
         Query query = this.getEntityManager().createQuery("SELECT u FROM User AS u WHERE u.emailId = :emailId AND u.password = :password");
         query.setParameter("emailId", emailId);
         query.setParameter("password", password);
@@ -30,7 +32,8 @@ public class UserDAO extends AbstractDAO<User>{
         }
     }
 
-    public User findBy(String emailId){
+    @SuppressWarnings("unchecked")
+	public User findBy(String emailId){
         Query query = this.getEntityManager().createQuery("SELECT u FROM User AS u WHERE u.emailId = :emailId");
         query.setParameter("emailId", emailId);
 

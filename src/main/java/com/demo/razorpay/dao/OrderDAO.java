@@ -15,7 +15,8 @@ public class OrderDAO extends AbstractDAO<Order>{
         return this.getEntityManager().find(Order.class, id);
     }
 
-    public List<Order> findByUserId(String userId){
+    @SuppressWarnings("unchecked")
+	public List<Order> findByUserId(String userId){
         Query query = this.getEntityManager().createQuery("SELECT o FROM Order AS o WHERE o.user.id = :userId");
         query.setParameter("userId", userId);
 

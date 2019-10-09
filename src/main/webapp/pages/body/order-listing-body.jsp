@@ -28,7 +28,7 @@
 			%>
 						<div class="order-content-body-accordion" onclick="toggleAccordionInfoOrDeleteOrder('<%= previousOrder.getId() %>', 'true')">
 							Order : <%= previousOrder.getId() %>
-							<a href="../order/details?cmd=details&order-id=<%=previousOrder.getId()%>"><img class="icon" src="../images/payment-icon.png" onclick="return toggleAccordionInfoOrDeleteOrder('<%= previousOrder.getId()%>', 'false')"/></a>
+							<a href="../order/details?cmd=details&order-id=<%=previousOrder.getId()%>"><img class="icon" src="../images/payment-icon.png"/></a>
 							<img class="icon" src="../images/delete-icon.png" onclick="return toggleAccordionInfoOrDeleteOrder('<%= previousOrder.getId()%>', 'false')"/>
 							<span><%= previousOrder.getStatus() %></span>
 						</div> 
@@ -92,7 +92,7 @@
 
 	function toggleAccordionInfoOrDeleteOrder(orderId, toggle){
 		
-		alert(toggle);
+		//alert(toggle);
 		
 		if("true" == toggle){
 			var elementId = "#"+orderId;

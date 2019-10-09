@@ -11,7 +11,8 @@ public class OrderTransactionDAO extends AbstractDAO<OrderTransaction>{
         super(OrderTransaction.class);
     }
 
-    public List<OrderTransaction> list(){
+    @SuppressWarnings("unchecked")
+	public List<OrderTransaction> list(){
         Query query = this.getEntityManager().createQuery("SELECT ot FROM OrderTransaction AS ot");
         return query.getResultList();
     }

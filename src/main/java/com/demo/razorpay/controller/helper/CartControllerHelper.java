@@ -23,7 +23,9 @@ import java.util.logging.Logger;
 
 public class CartControllerHelper extends RazorPayController {
 
-    private static final Logger LOGGER = Logger.getLogger(CartControllerHelper.class.getName());
+	private static final long serialVersionUID = 1L;
+	
+	private static final Logger LOGGER = Logger.getLogger(CartControllerHelper.class.getName());
 
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {

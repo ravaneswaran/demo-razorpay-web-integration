@@ -1,6 +1,12 @@
 package com.demo.razorpay.controller.helper;
 
-import com.demo.razorpay.RequestParameter;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.NotImplementedException;
+
 import com.demo.razorpay.controller.RazorPayController;
 import com.demo.razorpay.models.Order;
 import com.demo.razorpay.models.OrderProductJoin;
@@ -11,17 +17,10 @@ import com.demo.razorpay.service.local.OrderProductJoinLocalService;
 import com.demo.razorpay.service.local.OrderTransactionLocalService;
 import com.demo.razorpay.util.HTMLUtil;
 import com.razorpay.RazorpayException;
-import org.apache.commons.lang3.NotImplementedException;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.List;
-import java.util.logging.Logger;
 
 public class OrderControllerHelper extends RazorPayController {
 
-    private static final Logger LOGGER = Logger.getLogger(OrderControllerHelper.class.getName());
+	private static final long serialVersionUID = 1L;
 
     @Override
     protected void doProcess(HttpServletRequest request, HttpServletResponse response) {

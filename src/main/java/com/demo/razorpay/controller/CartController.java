@@ -1,15 +1,14 @@
 package com.demo.razorpay.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.demo.razorpay.RequestParameter;
 import com.demo.razorpay.controller.helper.CartControllerHelper;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.logging.Logger;
-
 public class CartController extends CartControllerHelper {
 
-    private static final Logger LOGGER = Logger.getLogger(CartController.class.getName());
+	private static final long serialVersionUID = 1L;
 
     public static final String ADD_TO_CART = "add-to-cart";
     public static final String REMOVE_FROM_CART = "remove-from-cart";
