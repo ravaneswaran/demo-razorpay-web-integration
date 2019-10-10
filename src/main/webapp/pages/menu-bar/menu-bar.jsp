@@ -22,12 +22,12 @@
 		      </ul>
 		   </li>
 		   
-		   <li class='active has-sub'><a href='#'><span>Sync With Gateway</span></a>
+		   <!-- <li class='active has-sub'><a href='#'><span>Sync With Gateway</span></a>
 		      <ul>
 		         <li class='last'><a href='../payment/transaction?cmd=sync'><span>Payment Sync</span></a></li>
 		         <li class='last'><a href='../order/transaction?cmd=sync'><span>Order Sync</span></a>
 		      </ul>
-		   </li>
+		   </li> -->
    <%
    		}
    %>

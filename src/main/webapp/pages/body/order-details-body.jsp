@@ -92,7 +92,7 @@
                     data-image="../images/rc-icon.png"
                     data-prefill.name="<%= sessionUser.getFirstName() + " " + sessionUser.getLastName() %>"
                     data-prefill.email="<%= sessionUser.getEmailId() %>"
-                    data-theme.color="#F37254">
+                    data-theme.color="#b7f5a4">
                 </script>
                 <input type="hidden" name="order-id" value="<%= orderTransaction.getId() %>"/>
 				<!-- <div class="order-details-content-body-right-panel-button">
@@ -138,7 +138,7 @@
                     data-image="../images/rc-icon.png"
                     data-prefill.name="<%= sessionUser.getFirstName() + " " + sessionUser.getLastName() %>"
                     data-prefill.email="<%= sessionUser.getEmailId() %>"
-                    data-theme.color="#F37254">
+                    data-theme.color="#b7f5a4">
                 </script>
                 <input type="hidden" name="order-id" value="<%= orderTransaction.getId() %>"/>
 				<!-- <div class="order-details-content-body-right-panel-button">
