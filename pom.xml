@@ -3,10 +3,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>rc.demo.app</groupId>
-    <artifactId>paytm-web-integration-demo-app</artifactId>
+    <artifactId>razorpay-web-integration-demo-app</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>paytm-web-integration-demo-app</name>
+    <name>razorpay-web-integration-demo-app</name>
     <url>http://maven.apache.org</url>
 
     <properties>
