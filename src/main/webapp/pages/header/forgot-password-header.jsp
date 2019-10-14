@@ -18,8 +18,8 @@
 		</div>
 		<div id="user-dropdown" class="user-dropdown">
 			<a href="../pages/login.jsp">Login</a>
-			<!-- <div class="separator"></div>
-			<a href="../user/logout">Logout</a> -->
+			<div class="separator"></div>
+			<a href="../pages/user-registration.jsp">User Registration</a>
 		</div>
 	</div>
 </div>
