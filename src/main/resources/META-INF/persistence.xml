@@ -1,0 +1,27 @@
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+
+    <persistence-unit name="razorpay" transaction-type="RESOURCE_LOCAL">
+
+        <class>rc.demo.app.models.OrderTransaction</class>
+        <class>rc.demo.app.models.PaymentTransaction</class>
+
+        <class>rc.demo.app.models.User</class>
+        <class>rc.demo.app.models.Product</class>
+        <class>rc.demo.app.models.Order</class>
+        <class>rc.demo.app.models.OrderProductJoin</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver" />
+            <property name="javax.persistence.jdbc.url"    value="jdbc:hsqldb:file:/tmp/payment-gateway-database;sql.syntax_pgs=true" />
+            <property name="javax.persistence.jdbc.user" value="admin" />
+            <property name="javax.persistence.jdbc.password" value="admin" />
+
+            <property name="eclipselink.ddl-generation" value="create-tables" />
+            <property name="eclipselink.ddl-generation.output-mode" value="database" />
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

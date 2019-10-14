@@ -1,0 +1,203 @@
+body > div.wrapper > div.content-panel {
+    min-height: 563px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel {
+	height: 560px;
+    width: 100%;
+    border: 0px solid red;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content {
+	width: 600px;
+    margin-top: 50px;
+    margin-left: 115px;
+    float: left;
+    padding: 10px 55px 40px;
+    background-color: rgba(238, 243, 237, 0.6);
+    border: 4px solid #b7f5a4;
+    box-shadow: 0 0 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    height: 420px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-heading {
+	border: 4px solid #b7f5a4;
+    width: 237px;
+    height: 24px;
+    border-radius: 5px;
+    margin-top: -29px;
+    background-color: #ffffff;
+    margin-left: -33px;
+    text-align: left;
+    font-size: 16px;
+    text-indent: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 10px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body {
+	border: 0px solid red;
+    height: 430px;
+    margin-top: 10px;
+    overflow-y: auto;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion{
+	width: 542px;
+    height: 20px;
+    border: 0px solid #6c6c6c;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    text-indent: 10px;
+    color: #000000;
+    border-left: 15px solid #b7f5a4;
+    margin-top: 1px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion a{
+	text-decoration: none;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion a.underline{
+	text-decoration: underline;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion a:hover{
+	text-decoration: underline;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion > img.icon{
+	float: right;
+    width: 20px;
+    height: 18px;
+    border: 2px solid #6c6c6c;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px #000000;
+    z-index: 5;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion > a > img.icon{
+	float: right;
+    width: 20px;
+    height: 18px;
+    border: 2px solid #6c6c6c;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px #000000;
+    z-index: 5;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion > span{
+	float: right;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info{
+	display: none;
+    width: 573px;
+    min-height: 240px;
+    border: 2px solid #6c6c6c;
+    border-radius: 5px;
+    overflow-y: scroll;
+    height: 220px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product{
+	height: 110px;
+    width: 546px;
+    border: 2px solid #b7f5a4;
+    margin: 4px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #b7f5a4;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > img{
+	width: 95px;
+    height: 97px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 2px solid #6c6c6c;
+    box-shadow: 0 0 5px #000000;
+}
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > table{
+	border: 0px solid red;
+    float: right;
+    width: 437px;
+    height: 100px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > table{
+	border: 2px solid #6c6c6c;
+    height: 90px;
+    width: 420px;
+    text-align: right;
+    margin: 5px 10px 2px 2px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    background-color: #ffffff;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > table > tbody > tr > td.product-spec-property-name {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 55px;
+    height: 30px;
+    text-align: right;
+    text-indent: 5px;
+    padding-right: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-accordion-info > div.order-content-body-accordion-product > table > tbody > tr > td.product-spec-property-value {
+    border: 1px solid #6c6c6c;
+    border-radius: 3px;
+    font-size: 12px;
+    width: 160px;
+    height: 30px;
+    text-align: left;
+    text-indent: 5px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order{
+	display: block;
+    width: 590px;
+    height: 480px;
+    border: 5px solid #6c6c6c;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #000000
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order > div.order-content-body-no-order-header{
+	display: block;
+    width: 590px;
+    height: 50px;
+    border: 0px solid #6c6c6c;
+    border-radius: 0px;
+    font-size: 32px;
+    text-align: center;
+    background-color: #ffffff;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order > div.order-content-body-no-order-body{
+	display: block;
+    width: 590px;
+    height: 50px;
+    border: 0px solid #6c6c6c;
+    border-radius: 0px;
+}
+
+body > div.wrapper > div.content-panel > div.order-panel > div.order-content > div.order-content-body > div.order-content-body-no-order > div.order-content-body-no-order-body > img{
+	height: 430px;
+    width: 590px;
+}
+
+
+
+

@@ -1,0 +1,185 @@
+body > div.wrapper > div.header {
+    width:100%;
+    height:auto;
+}
+
+body > div.wrapper > div.header > div.caption{
+    width:100%;
+    height:80px;
+    font-size: 55px;
+    text-shadow: 2px 2px 2px #6c6c6c;
+    text-align: center;
+    color: #6c6c6c;
+    border-radius: 0px;
+    border: 0px solid #6c6c6c;
+    background-color: #b7f5a4;
+}
+
+body > div.wrapper > div.header > div.user-strip {
+	width: 100%;
+    height: 30px;
+    background-color: #ffffff;
+    opacity: 1.0;
+    border-top: 4px solid #6c6c6c;
+}
+
+/* body > div.wrapper > div.header > div.user-strip > div.page-box {
+	float: right;
+    border: 0px solid #6c6c6c;
+    height: 27px;
+    margin: 0;
+    width: 27px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-top: 1px;
+    box-shadow: 0 0 5px #000000;
+    cursor: pointer;
+} */
+
+/* body > div.wrapper > div.header > div.user-strip > div.page-box > div.page {
+	float: left; 
+	border: 0px solid #6c6c6c; 
+	height: 5px; 
+	margin: 2; 
+	width: 5px; 
+	background-color: #6c6c6c; 
+	border-radius: 2px
+} */
+
+body > div.wrapper > div.header > div.user-strip > div.non-user-block {
+	float: right;
+    border: 0px solid #6c6c6c;
+    height: 27px;
+    margin: 0;
+    width: 27px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-top: 1px;
+    box-shadow: 0 0 5px #000000;
+    cursor: pointer;
+}
+
+body > div.wrapper > div.header > div.user-strip > div.non-user-block > div.non-user-block-one {
+	border: 1px solid #6c6c6c;
+    height: 21px;
+    width: 21px;
+    border-radius: 2px;
+    padding: 2px;  
+}
+
+body > div.wrapper > div.header > div.user-strip > div.non-user-block > div.non-user-block-one > div.non-user-block-one-item {
+	float: left; 
+	border: 0px solid #6c6c6c; 
+	height: 5px; 
+	margin: 1px; 
+	width: 5px; 
+	background-color: #6c6c6c; 
+	border-radius: 2px  
+}
+
+body > div.wrapper > div.header > div.user-strip > div.non-user-block > div.user-dropdown {
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+    z-index: 1;
+    min-height: 30px;
+    border: 4px solid #908f8f;
+    border-radius: 3px;
+    margin-top: 4px;
+    display: none;
+    margin-left: -178px;
+}
+
+body > div.wrapper > div.header > div.user-strip > div.non-user-block > div.user-dropdown > a {
+	color: #6c6c6c;
+    padding: 7px 0px 7px;
+    text-decoration: none;
+    display: block;
+    background-color: #ffffff;
+    text-indent: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+body > div.wrapper > div.header > div.user-strip > div.non-user-block > div.user-dropdown > a:hover {
+	background-color: #b7f5a4
+}
+
+body > div.wrapper > div.header > div.user-strip > div.non-user-block > div.user-dropdown > div.separator {
+	border: 1px solid #6c6c6c;
+}
+
+
+body > div.wrapper > div.header > div.user-strip > div.user-welcome {
+	border: 0px solid red;
+    width: 72px;
+    font-size: 16px;
+    text-indent: 5px;
+    font-weight: bold;
+    height: 23px;
+    float: right;
+    color: #6c6c6c;
+    padding: 4px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+body > div.wrapper > div.header > div.user-strip > div.user-block {
+	border: 0px solid red;
+    width: 205px;
+    font-size: 17px;
+    text-indent: 5px;
+    font-weight: bold;
+    height: 23px;
+    float: right;
+    color: #ff0000;
+    padding: 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 0 5px #000000;
+    cursor:pointer;
+    text-align: center;
+}
+
+body > div.wrapper > div.header > div.user-strip > div.user-block > div.user-dropdown {
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+    z-index: 1;
+    min-height: 30px;
+    border: 4px solid #908f8f;
+    border-radius: 3px;
+    margin-top: 4px;
+    display:none;
+}
+
+body > div.wrapper > div.header > div.user-strip > div.user-block > div.user-dropdown > a {
+	color: #6c6c6c;
+    padding: 3px 0px 3px;
+    text-decoration: none;
+    display: block;
+    background-color: #ffffff;
+    text-indent: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+body > div.wrapper > div.header > div.user-strip > div.user-block > div.user-dropdown > a:hover {
+	background-color: #b7f5a4
+}
+
+body > div.wrapper > div.header > div.user-strip > div.user-block > div.user-dropdown > div.separator {
+	border: 1px solid #6c6c6c;
+}
+
+body > div.wrapper > div.header > div.background-image {
+	background-size: 950px;
+    width:100%;
+    height:250px;
+    background-image: url("../images/header-background.jpg");
+    border-top: 4px solid #6c6c6c;
+    border-bottom: 4px solid #6c6c6c;
+}
